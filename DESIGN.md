@@ -1,76 +1,58 @@
-# DESIGN.md — P.A.C.
+# DESIGN.md — P.A.C. (v2, direction « Kolibri »)
 
-## Direction
+Référence nommée par le client : https://www.kolibri.is/en. Minimalisme
+scandinave à geste d'affiche : blanc pur, une grotesque noire à échelle
+énorme, un seul jaune vif en formes géantes, panneaux à grands arrondis,
+filets hairline, boutons pilule.
 
-Lane nommée : **« comptoir d'atelier français »**. Signalétique industrielle,
-plaques frappées, livrée Bleu de France sur acier. Référence couleur nommée :
-livrée de course française (bleu de France) posée sur du papier chamois
-d'atelier, pas le réflexe rouge/noir/jaune du secteur pièces auto.
+## Couleurs (stratégie : Committed, le jaune porte l'identité)
 
-Scène physique (choix du thème) : un garagiste au comptoir à 9 h du matin,
-la lumière du Var entre par la porte du hangar, il cherche un alternateur de
-Clio sur un téléphone taché de cambouis. → Base claire (papier chamois),
-hero et bandeaux « hangar » en bleu nuit drenché. Art direction par section
-assumée.
-
-## Couleurs (OKLCH, stratégie : Committed → Drenched sur le hero)
-
-- `--nuit`   : oklch(0.22 0.045 258)  — bleu-noir de hangar (hero, footer)
-- `--nuit-2` : oklch(0.27 0.055 257)  — panneau sur nuit
-- `--bleu`   : oklch(0.50 0.17 257)   — bleu de France, couleur porteuse
-- `--bleu-vif`: oklch(0.66 0.16 252)  — bleu lisible sur nuit
-- `--papier` : oklch(0.962 0.012 85)  — chamois d'atelier (fond clair)
-- `--papier-2`: oklch(0.93 0.018 83)  — chamois soutenu (alternance)
-- `--encre`  : oklch(0.25 0.025 260)  — texte sur clair
-- `--craie`  : oklch(0.96 0.008 85)   — texte sur nuit
-- `--ambre`  : oklch(0.78 0.14 78)    — étiquette de prix, marquages (≤ 5 %)
-
-Jamais de #000 ni #fff. Le bleu porte 30–60 % des surfaces (hero, bandeaux,
-titres, liens, boutons).
+- `--blanc`   : #fefdfb — fond de page (blanc à peine chauffé, jamais #fff)
+- `--noir`    : #131312 — texte, wordmark, boutons pilule
+- `--gris`    : #6f6d68 — texte secondaire, kickers
+- `--jaune`   : #ffd400 — accent unique : formes géantes, pilule téléphone,
+  panneau prix, marquee (texte noir dessus, contraste ≈ 13:1)
+- `--panneau` : #f5f3ee — panneaux gris chauds
+- `--sable`   : #f8f2dd — panneau teinté jaune doux
+- `--filet`   : rgba(19,19,18,0.12) — hairlines
 
 ## Typographie
 
-- Display : **Big Shoulders** (variable, condensé industriel) — titres
-  énormes, capitales, tracking serré. C'est la voix « plaque frappée ».
-- Texte : **Barlow** (400 / 500 / 700) — grotesque issue de la signalétique
-  routière, parfaite pour un métier de plaques d'immatriculation.
-- Échelle fluide clamp(), ratio ≥ 1.3. Hero : clamp(3.4rem, 11vw, 9rem).
-- Corps : 65ch max, line-height 1.6 (1.68 sur fond nuit).
-- Labels techniques : Barlow 500, caps, tracking 0.08em — réservés aux
-  étiquettes de données (horaires, réfs), pas un kicker répété par section.
+- **Archivo variable** (wght 100-900, wdth 62-125 %), seule famille,
+  auto-hébergée (88 Ko). Sentence case partout, plus de capitales criées.
+- Wordmark géant « P.A.C. » : wdth 125 %, wght 800, ~19vw, coupé par le bas
+  du hero (geste Kolibri).
+- Statements : clamp(2.6rem, 6vw, 5rem), wght 700, tracking -0.02em.
+- Kickers : 0.95rem gris, à gauche d'une grille asymétrique label/contenu.
+- Corps : 1.0625rem / 1.65, 68ch max.
 
-## Motifs et matière
+## Formes
 
-- Filets techniques 1px, coins à onglet coupé (chanfrein 45°) sur les
-  encarts : découpe de tôle, pas de border-radius mou (radius max 6px).
-- Numérotation frappée « 01 / 02 / 03 » Big Shoulders en très grand.
-- Marquee horizontal des familles de pièces (moteur · boîte · optique …).
-- Texture : léger grain SVG sur les fonds nuit.
+- Panneaux : border-radius 28px, fonds --panneau / --sable / --jaune.
+- Boutons et nav : pilules (radius 999px). Nav flottante blanche avec ombre
+  très douce, logo pilule noire à gauche, téléphone pilule jaune.
+- Images : arrondies 20px, toujours dans un panneau ou une grille.
+- Filets hairline 1px pour listes (services, FAQ, horaires, footer).
+- Une forme géante : engrenage jaune SVG coupé par le bord droit du hero,
+  rotation très lente (90s), stoppée par prefers-reduced-motion.
 
-## Motion (ease-out-quint partout, jamais de layout animé)
+## Motion (douce, jamais de layout)
 
-- Chargement : choréographie unique du hero — lignes du titre révélées par
-  clip-path en cascade (80 ms d'écart), image qui se dévoile, stats qui
-  comptent.
-- Scroll : IntersectionObserver, translateY(24px)+opacity, une seule fois.
-- Marquee CSS infini (translate3d), pause au hover.
-- SVG traits (pistons, engrenage) dessinés au stroke-dashoffset.
-- `prefers-reduced-motion` : tout est désactivé, contenu visible d'emblée.
+- Chargement hero : wordmark qui monte (translateY), formes qui s'installent
+  en fondu, choréographie < 1s, ease-out-quint.
+- Scroll : fondu + translateY(24px) une seule fois (IntersectionObserver).
+- Marquee jaune avec bouton pause (WCAG 2.2.2) et pause hors viewport.
+- Tout gaté derrière la classe `.js` (progressive enhancement : sans JS,
+  tout est visible).
 
-## Imagerie (Unsplash, IDs vérifiés le 05/07/2026)
+## Imagerie (inchangée, recadrée aux ratios exacts)
 
-- Hero : photo-1619642751034-765dfdf7c58e (mains, clé plate, moteur, sombre)
-- Moteur/occasion : photo-1486262715619-67b85e0b08d3 (courroie, poulies)
-- Entretien/neuves : photo-1487754180451-c456f719a1fc (vidange)
-- Roues : photo-1613214149922-f1809c99b414 (boulonneur sur jante)
-- Atelier : photo-1625047509168-a7026f36de04 (capot ouvert, pont)
-- Équipe : photo-1504222490345-c075b6008014 (mécano souriant)
-- Compteur : photo-1498887960847-2a5e46312788 (cadran km/h)
-- Alt text rédigé, jamais générique.
+hero-moteur 4:5 (comptoir), courroie 5:4 (occasion), vidange 5:4 (neuves),
+atelier 3:2 (épaves), compteur 3:2 (prix), roue 3:2 (neuves), equipe 3:2
+(contact pros). Alt rédigés.
 
-## Interdits spécifiques
+## Interdits
 
-- Rouge/noir/jaune « pièces auto » (réflexe de catégorie).
-- Cards identiques en grille, icônes arrondies au-dessus des titres.
-- Dégradé sur texte, bordure latérale colorée, glassmorphism.
-- Em dashes dans la copie.
+- Capitales sur les corps de texte, chanfreins v1, bleu de France v1.
+- Dégradé sur texte, side-stripes, glassmorphism, em dashes.
+- Deuxième couleur d'accent : le jaune est seul.

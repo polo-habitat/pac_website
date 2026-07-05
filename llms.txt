@@ -14,7 +14,7 @@
   neuves, enlèvement d'épaves, recyclage de véhicules hors d'usage (VHU),
   rachat de métaux
 - Zone desservie : La Farlède, Toulon, La Garde, La Valette-du-Var,
-  Solliès-Pont, La Crau, Cuers, Hyères, est du Var
+  Solliès-Pont, Solliès-Ville, La Crau, Cuers, Hyères, est du Var
 - Fonctionnement : pas de vente en ligne; vérification du stock et des prix
   par téléphone, retrait au comptoir; carte bancaire acceptée; accès PMR
 
