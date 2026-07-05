@@ -190,7 +190,7 @@ p { margin: 0 0 1em; max-width: 68ch; }
   color: var(--jaune);
   z-index: 0;
 }
-.js .engrenage { animation: tourne 90s linear infinite; }
+/* Rotation pilotée par le scroll (JS) ; repli CSS très lent sans rAF */
 @keyframes tourne { to { transform: rotate(360deg); } }
 .hero-contenu {
   position: relative; z-index: 1;
@@ -557,15 +557,119 @@ address { font-style: normal; }
   .tel-entete .txt-court { display: inline; }
 }
 
+/* ==========================================================================
+   Couche motion « agence » — préloader, split text, curseur, révélations.
+   Tout est transform/opacity/clip-path, gaté derrière html.js.
+   ========================================================================== */
+
+/* ---- Préloader rideau ---- */
+.rideau {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--noir);
+  display: flex; align-items: center; justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.rideau.leve { transform: translateY(-101%); }
+.rideau-int { overflow: clip; }
+.rideau-logo {
+  display: block;
+  font-weight: 800; font-stretch: 125%;
+  font-size: clamp(3rem, 9vw, 7rem); line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--jaune);
+  transform: translateY(0);
+  transition: transform 0.6s var(--sortie);
+}
+.rideau.leve .rideau-logo { transform: translateY(-120%); }
+.rideau-ligne {
+  display: block; height: 2px; margin-top: 0.6rem;
+  background: var(--jaune);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: charge 0.9s var(--sortie) forwards;
+}
+@keyframes charge { to { transform: scaleX(1); } }
+
+/* ---- Split text (mots masqués qui montent) ---- */
+.js .split .mot { display: inline-block; overflow: clip; vertical-align: top; }
+.js .split .mot-int {
+  display: inline-block;
+  transform: translateY(118%);
+  transition: transform 0.8s var(--sortie) calc(var(--i, 0) * 0.05s);
+}
+.js .split.split-vu .mot-int, html.js.pret .hero .split .mot-int { transform: none; }
+/* les statements splittés n'utilisent plus le fondu .reveal */
+.js .split.reveal { opacity: 1; transform: none; transition: none; }
+
+/* Wordmark : lettres qui montent une à une au chargement */
+.js .wordmark { transform: none; opacity: 1; transition: none; }
+.js .wordmark .lettre { display: inline-block; overflow: clip; vertical-align: bottom; }
+.js .wordmark .lettre-int {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 0.9s var(--sortie) calc(0.3s + var(--i, 0) * 0.06s);
+}
+html.js.pret .wordmark .lettre-int { transform: none; }
+
+/* ---- Révélation d'images au clip-path ---- */
+.js .img-reveal {
+  clip-path: inset(0 0 100% 0 round var(--r-img));
+  transition: clip-path 1s var(--sortie) var(--r-delai, 0s);
+}
+.js .img-reveal img {
+  transform: scale(1.18);
+  transition: transform 1.3s var(--sortie) var(--r-delai, 0s);
+}
+.js .img-reveal.vu { clip-path: inset(0 0 0 0 round var(--r-img)); }
+.js .img-reveal.vu img { transform: scale(1.08); }
+.img-reveal { overflow: clip; border-radius: var(--r-img); }
+.img-reveal img { border-radius: 0; }
+
+/* ---- Curseur personnalisé (pointeur fin uniquement) ---- */
+@media (pointer: fine) {
+  html.curseur-actif, html.curseur-actif a, html.curseur-actif button,
+  html.curseur-actif summary { cursor: none; }
+  .curseur, .curseur-halo {
+    position: fixed; top: 0; left: 0; z-index: 300;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  .curseur {
+    width: 8px; height: 8px;
+    background: var(--jaune);
+    mix-blend-mode: difference;
+  }
+  .curseur-halo {
+    width: 38px; height: 38px;
+    border: 1.5px solid var(--noir);
+    transition: width 0.3s var(--sortie), height 0.3s var(--sortie),
+      background-color 0.3s var(--sortie), opacity 0.3s var(--sortie);
+  }
+  html.curseur-actif .curseur, html.curseur-actif .curseur-halo { opacity: 1; }
+  .curseur-halo.sur-lien {
+    width: 64px; height: 64px;
+    background: rgba(255, 212, 0, 0.25);
+    border-color: transparent;
+  }
+}
+
+/* ---- Magnétisme des pilules ---- */
+.js .pilule, .js .plaque, .js .tel-entete {
+  transition: transform 0.4s var(--sortie), background-color 0.25s var(--sortie),
+    color 0.25s var(--sortie);
+  will-change: transform;
+}
+
+/* Parallaxe : les figures pilotées par JS */
+.js [data-parallaxe] img { will-change: transform; }
+
 /* ---- Mouvement réduit ---- */
+/* Le défilement doux reste désactivable par l'OS ; le reste de la couche
+   motion joue pour tous (demande explicite du client), avec bouton pause. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js .defile-piste, .js .engrenage { animation: none; }
-  .js .reveal, .js .hero-kicker, .js .hero-statement, .js .hero-chapo,
-  .js .hero-actions, .js .wordmark, .js .engrenage {
-    opacity: 1 !important; transform: none !important; transition: none !important;
-  }
-  *, *::before, *::after { animation-duration: 0.01ms !important; }
 }
 
 /* ---- Impression ---- */
