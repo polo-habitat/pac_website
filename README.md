@@ -9,38 +9,48 @@ Devise : « la bonne pièce au bon prix ».
 
 ## Stack
 
-Site 100 % statique, zéro framework, zéro dépendance externe au chargement :
+- **Next.js 16** (App Router, TypeScript) en **export statique**
+  (`output: "export"`, `basePath: "/pac_website"`)
+- **Tailwind CSS v4 + shadcn/ui** : design system neutre réchauffé +
+  jaune #ffd400 en accent unique (direction « Kolibri » validée)
+- **motion** (Framer Motion) : préloader rideau, split text, pilules
+  magnétiques, engrenage piloté au scroll, compteurs, marquee avec pause
+- Police Archivo variable auto-hébergée (`next/font/local`), images WebP
+  auto-hébergées
 
-- HTML sémantique multi-pages (accueil, occasion, neuves, épaves, contact,
-  mentions légales, 404)
-- CSS unique (`assets/css/style.css`) : design system « comptoir d'atelier »,
-  OKLCH avec repli hex, animations GPU uniquement (transform/opacity),
-  `prefers-reduced-motion` respecté
-- JS vanilla (`assets/js/main.js`, ~4 Ko) : choréographie du hero,
-  révélations au scroll (IntersectionObserver), compteurs, menu mobile
-- Polices auto-hébergées (Big Shoulders variable + Barlow, woff2 latin)
-- Images WebP auto-hébergées, lazy-loading hors hero
+## Pages
+
+Accueil, pièces neuves, pièces d'occasion (dont anciens modèles &
+collection), épaves & recyclage (dont rachat de véhicules), contact,
+mentions légales, 404.
 
 ## SEO / GEO
 
 - JSON-LD : `AutoPartsStore`, `FAQPage`, `WebSite`, `BreadcrumbList`,
-  `Service`, `ContactPage`
-- NAP cohérent sur toutes les pages, `sitemap.xml`, `robots.txt` ouvert aux
-  crawlers IA (GPTBot, PerplexityBot, ClaudeBot…), `llms.txt`
-- Open Graph + Twitter Cards avec image dédiée 1200×630
+  `Service`, `ContactPage` — générés depuis `src/lib/site.ts`
+- NAP cohérent, `sitemap.xml`, `robots.txt` ouvert aux crawlers IA,
+  `llms.txt`, Open Graph + Twitter Cards 1200×630
+- Les URLs historiques `*.html` restent servies par GitHub Pages
 
 ## Développement
 
-Aucun build. Servir le dossier tel quel :
-
 ```bash
-npx serve .        # ou n'importe quel serveur statique
+npm install
+npm run dev     # http://localhost:3000/pac_website
+npm run build   # export statique dans out/
 ```
 
-Le déploiement se fait via GitHub Pages (branche `main`, racine).
+## Déploiement
+
+```bash
+npm run deploy   # build + push de out/ sur la branche gh-pages
+```
+
+GitHub Pages sert la branche `gh-pages` (racine). Pousser `main` ne
+publie pas le site.
 
 ## Contexte design
 
-Voir `PRODUCT.md` (voix de marque, utilisateurs) et `DESIGN.md`
-(palette, typographie, motion). Les photos d'illustration proviennent
-d'Unsplash (IDs vérifiés).
+Voir `AGENTS.md` (mémoire projet), `PRODUCT.md` (voix de marque) et
+`DESIGN.md` (palette, typographie, motion). Photos d'illustration :
+Unsplash.

@@ -1,0 +1,242 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-archivo);
+  --font-heading: var(--font-archivo);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-jaune: var(--jaune);
+  --color-jaune-foreground: var(--jaune-foreground);
+  --color-sable: var(--sable);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Palette P.A.C. « Kolibri » : neutres shadcn réchauffés + jaune #ffd400 en accent unique */
+:root {
+  --background: #fefdfb;
+  --foreground: #131312;
+  --card: #f5f3ee;
+  --card-foreground: #131312;
+  --popover: #fefdfb;
+  --popover-foreground: #131312;
+  --primary: #131312;
+  --primary-foreground: #fefdfb;
+  --secondary: #f5f3ee;
+  --secondary-foreground: #131312;
+  --muted: #f5f3ee;
+  --muted-foreground: #6f6d68;
+  --accent: #ffd400;
+  --accent-foreground: #131312;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgb(19 19 18 / 0.12);
+  --input: rgb(19 19 18 / 0.16);
+  --ring: #131312;
+  --chart-1: #ffd400;
+  --chart-2: #131312;
+  --chart-3: #6f6d68;
+  --chart-4: #f8f2dd;
+  --chart-5: #f5f3ee;
+  --radius: 1rem;
+  --sidebar: #f5f3ee;
+  --sidebar-foreground: #131312;
+  --sidebar-primary: #131312;
+  --sidebar-primary-foreground: #fefdfb;
+  --sidebar-accent: #ffd400;
+  --sidebar-accent-foreground: #131312;
+  --sidebar-border: rgb(19 19 18 / 0.12);
+  --sidebar-ring: #131312;
+  --jaune: #ffd400;
+  --jaune-foreground: #131312;
+  --sable: #f8f2dd;
+}
+
+.dark {
+  --background: #131312;
+  --foreground: #fefdfb;
+  --card: #1d1d1b;
+  --card-foreground: #fefdfb;
+  --popover: #1d1d1b;
+  --popover-foreground: #fefdfb;
+  --primary: #fefdfb;
+  --primary-foreground: #131312;
+  --secondary: #262624;
+  --secondary-foreground: #fefdfb;
+  --muted: #262624;
+  --muted-foreground: #a5a29b;
+  --accent: #ffd400;
+  --accent-foreground: #131312;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgb(254 253 251 / 0.12);
+  --input: rgb(254 253 251 / 0.16);
+  --ring: #ffd400;
+  --jaune: #ffd400;
+  --jaune-foreground: #131312;
+  --sable: #262624;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  ::selection {
+    background: var(--jaune);
+    color: var(--jaune-foreground);
+  }
+}
+
+@layer utilities {
+  /* Largeur variable Archivo (wdth 62–125) */
+  .font-wide {
+    font-variation-settings: "wdth" 125;
+  }
+  .font-narrow {
+    font-variation-settings: "wdth" 75;
+  }
+}
+
+/* ===================== Couche motion P.A.C. ===================== */
+
+/* Préloader rideau noir/jaune — piloté en CSS pur (robuste même si rAF est suspendu).
+   html[data-pac-vu] = déjà vu cette session (posé par un script inline avant peinture). */
+html[data-pac-vu] .pac-preloader {
+  display: none;
+}
+.pac-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  background: #131312;
+  animation: pac-rideau 0.7s cubic-bezier(0.83, 0, 0.17, 1) 1.35s forwards;
+}
+.pac-preloader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jaune);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: pac-rideau-jaune 0.55s cubic-bezier(0.83, 0, 0.17, 1) 1.05s forwards;
+}
+.pac-preloader-logo {
+  color: #fefdfb;
+  font-weight: 800;
+  font-variation-settings: "wdth" 125;
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  letter-spacing: -0.02em;
+  animation: pac-logo-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes pac-logo-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pac-rideau-jaune {
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes pac-rideau {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+/* Marquee jaune */
+.pac-marquee-piste {
+  display: flex;
+  width: max-content;
+  animation: pac-defile 28s linear infinite;
+}
+.pac-marquee[data-pause="true"] .pac-marquee-piste {
+  animation-play-state: paused;
+}
+@keyframes pac-defile {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Curseur halo (desktop pointer fin uniquement) */
+.pac-halo {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1.5px solid var(--jaune);
+  border-radius: 999px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+@media (pointer: coarse) {
+  .pac-halo {
+    display: none;
+  }
+}
+
+/* Wordmark géant coupé par le bas du hero */
+.pac-wordmark {
+  display: block;
+  font-weight: 800;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.03em;
+  line-height: 0.72;
+  font-size: clamp(6rem, 19vw, 22rem);
+  user-select: none;
+}

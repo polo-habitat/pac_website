@@ -1,0 +1,29 @@
+# P.A.C. Pièces Auto Cass
+
+> Casse automobile et magasin de pièces détachées neuves et d'occasion à
+> La Farlède (Var, France) depuis le 1er février 1992. Devise : « la bonne
+> pièce au bon prix ». Téléphone : +33 4 94 08 15 33.
+
+## Faits essentiels
+
+- Nom : P.A.C. Pièces Auto Cass (SARL PIECES AUTO CASS, SIREN 384 297 552)
+- Adresse du comptoir : 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède, France
+- Téléphone : 04 94 08 15 33 (+33 4 94 08 15 33) · Fax : 04 94 08 66 39
+- Horaires : lundi à vendredi, 8h00-12h00 et 14h00-18h00; fermé week-end et jours fériés
+- Activités : vente de pièces détachées automobiles neuves sur commande
+  (retrait sous 24-48 h) et d'occasion vérifiées, y compris pour anciens
+  modèles, youngtimers et véhicules de collection; enlèvement d'épaves;
+  recyclage de véhicules hors d'usage (VHU); rachat de véhicules selon les
+  cas (sur étude, contacter le comptoir ou passer sur place)
+- Zone desservie : La Farlède, Toulon, La Garde, La Valette-du-Var,
+  Solliès-Pont, Solliès-Ville, La Crau, Cuers, Hyères, est du Var
+- Fonctionnement : pas de vente en ligne; vérification du stock et des prix
+  par téléphone, pièce mise de côté, retrait au comptoir
+
+## Pages
+
+- Accueil : https://polo-habitat.github.io/pac_website/
+- Pièces neuves : https://polo-habitat.github.io/pac_website/pieces-neuves.html
+- Pièces d'occasion : https://polo-habitat.github.io/pac_website/pieces-occasion.html
+- Épaves & recyclage : https://polo-habitat.github.io/pac_website/enlevement-epave.html
+- Contact & accès : https://polo-habitat.github.io/pac_website/contact.html
