@@ -1,5 +1,13 @@
 export const SITE_URL = "https://polo-habitat.github.io/pac_website";
 
+/**
+ * Clé publique Web3Forms pour le formulaire de contact (envoi sans backend).
+ * À générer gratuitement sur https://web3forms.com avec l'adresse e-mail qui
+ * doit recevoir les messages, puis coller la clé ici. Vide = formulaire
+ * inactif (il renvoie alors vers le téléphone).
+ */
+export const WEB3FORMS_ACCESS_KEY = "";
+
 /** next/image n'applique pas basePath aux src chaînes : préfixer via ce helper. */
 export const BASE_PATH = "/pac_website";
 export const asset = (p: string) => `${BASE_PATH}${p}`;

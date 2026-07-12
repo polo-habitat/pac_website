@@ -46,7 +46,7 @@ export function SiteHeader() {
             "flex flex-col gap-4 transition-all duration-500",
             scrolled ? "-translate-y-2 opacity-0" : "pointer-events-auto opacity-100",
           )}
-          {...(scrolled ? { inert: "" as unknown as boolean } : {})}
+          inert={scrolled || undefined}
         >
           <Link
             href="/"
