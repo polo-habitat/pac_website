@@ -144,10 +144,20 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
    pleine page comptoir → plaque noire (stats + 2 cartes) → plaque
    sable (méthode + 2 cartes) → FAQ en rangées → contact/horaires.
    ⚠️ **Hero = image auto plein cadre** (`public/img/hero-voiture-1600.webp`,
-   Chevrolet Impala noire, Unsplash, choisie par le client le 12/07/2026 —
-   l'ancienne photo moteur a été rejetée). Voile sombre + renfort haut pour
-   la lisibilité ; l'en-tête passe en BLANC quand `surHero` (accueil,
-   non replié) via `pathname === "/" && !replie` dans site-header.
+   **Porsche 911 rouge classique**, Unsplash, choisie par le client le
+   12/07/2026 — les photos moteur puis Impala ont été rejetées). Voile
+   sombre `from-black/70 via-black/40 to-black/75` + renfort haut pour la
+   lisibilité du titre et du menu blancs.
+   ⚠️ **En-tête = menu « Métal & Gas »** (site-header.tsx, refonte
+   12/07/2026, réf. metalandgas.com imposée) : **liens verticaux empilés
+   en haut à gauche** (capitales espacées, soulignement jaune animé au
+   survol via `.pac-navlink`), **CTA tél jaune en haut à droite**
+   (toujours visible). Liens BLANCS sur l'accueil (hero sombre), SOMBRES
+   sur les pages claires ; le bloc gauche (logo + liens) s'efface au
+   défilement (`scrolled`, seuil 0.72×vh sur l'accueil), le CTA tél reste.
+   ⚠️ **SUPPRIMÉS** : la pastille-voiture (NavVoiture) et sa condensation
+   au scroll (« icône voiture qui sert à rien », rejetée), le Sheet mobile,
+   les styles `.pac-roue`/`.pac-menu-item`. Ne pas réintroduire.
    ⚠️ **Registre éditorial : professionnel et sobre**, pas familier
    (« on/vous » proscrits) ni redondant. Le client a rejeté deux passes :
    trop « IA » (marketing/triades), puis trop familière. Voir aussi

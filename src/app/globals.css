@@ -231,11 +231,6 @@ html.js [data-split].pac-vu [data-mot] {
     transform: scale(1.01);
   }
 }
-@keyframes pac-roule {
-  to {
-    transform: rotate(2.5turn);
-  }
-}
 @supports (animation-timeline: view()) {
   /* Le média s'élargit en pleine page pendant qu'il traverse le viewport */
   .pac-grandit {
@@ -249,18 +244,6 @@ html.js [data-split].pac-vu [data-mot] {
     animation-timeline: view();
   }
 }
-/* Roues de la petite voiture du header : tournent avec le scroll */
-.pac-roue {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-@supports (animation-timeline: scroll()) {
-  .pac-roue {
-    animation: pac-roule linear both;
-    animation-timeline: scroll(root);
-  }
-}
-
 /* Arrivée de la nav au chargement (jouée une fois, CSS pur) */
 .pac-nav-entree {
   animation: pac-nav-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
@@ -272,15 +255,32 @@ html.js [data-split].pac-vu [data-mot] {
   }
 }
 
-/* Items du menu latéral : entrée en cascade à l'ouverture */
-.pac-menu-item {
-  animation: pac-menu-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+/* Liens de nav « Métal & Gas » : capitales espacées + soulignement
+   jaune qui se déploie au survol (et reste sur la page active). */
+.pac-navlink {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
 }
-@keyframes pac-menu-in {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
+.pac-navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pac-navlink:hover::after,
+.pac-navlink[aria-current="page"]::after {
+  width: 100%;
 }
 
 /* Colonne de mots qui défile verticalement (carte « stock ») */

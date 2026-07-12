@@ -68,7 +68,7 @@ export default function Accueil() {
         <div className="pac-zoom absolute inset-0">
           <Image
             src={asset("/img/hero-voiture-1600.webp")}
-            alt="Automobile de collection, berline noire aux chromes, phares allumés"
+            alt="Porsche 911 rouge classique, de profil"
             fill
             sizes="100vw"
             priority
