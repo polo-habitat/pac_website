@@ -80,10 +80,19 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
   pose `html[data-pac-vu]` avant peinture
 - `use-reveal.ts` : IntersectionObserver + filet scroll/visibilitychange
   (équivalent du `balayer()` de l'ancien site)
-- Reveal (fondu+translateY), SplitText (mot à mot, `accentFrom` = pilule
-  jaune), Counter (avec setTimeout de secours), Magnetic (pilules
-  magnétiques), Gear (engrenage piloté au scroll), CursorHalo (halo jaune,
-  pointer:fine uniquement), Marquee (bandeau jaune + bouton pause WCAG)
+- **Reveal et SplitText sont en transitions CSS pures** (`[data-reveal]`,
+  `[data-split]` dans globals.css, classe `.pac-vu` posée par useReveal,
+  gate `html.js` posé avant peinture) : NE PAS les repasser sur des
+  animations rAF (motion/Framer) — sur le poste client le renderer gèle
+  et les éléments restaient bloqués invisibles (« je ne vois rien »,
+  12/07/2026). Filet ultime : keyframe `pac-secours` force la visibilité
+  après 4 s. L'espace entre mots du SplitText doit rester HORS du span
+  inline-block overflow-hidden (sinon il est rogné).
+- Counter (motion animate + setTimeout de secours, affiche la valeur
+  finale tant que non déclenché), Magnetic (pilules magnétiques), Gear
+  (engrenage piloté au scroll), CursorHalo (halo jaune, pointer:fine
+  uniquement), Marquee (bandeau jaune + bouton pause WCAG) — motion est
+  acceptable pour ceux-là (décoratifs ou pilotés par le pointeur)
 
 ## ⚠️ Particularités du poste client (IMPORTANT)
 
