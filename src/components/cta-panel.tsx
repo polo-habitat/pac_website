@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/motion/reveal";
 import { PhonePill } from "@/components/phone-pill";
 import { asset } from "@/lib/site";
@@ -20,12 +19,12 @@ export function CtaPanel({
   ratio?: string;
 }) {
   return (
-    <section aria-label={titre} className="mx-auto max-w-6xl px-5">
+    <section aria-label={titre} className="mx-auto max-w-[100rem] px-3 sm:px-4">
       <Reveal>
-        <Card className="overflow-hidden rounded-[28px] border-0 bg-accent p-0 text-accent-foreground shadow-none">
-          <div className="grid items-center gap-8 p-8 sm:p-12 md:grid-cols-[1.2fr_1fr]">
+        <div className="overflow-hidden rounded-[32px] bg-accent text-accent-foreground">
+          <div className="grid items-center gap-8 p-8 sm:p-14 md:grid-cols-[1.2fr_1fr]">
             <div>
-              <h2 className="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.5rem)] font-bold leading-[1.08] tracking-[-0.015em]">
+              <h2 className="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
                 {titre}
               </h2>
               <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-accent-foreground/80">
@@ -36,7 +35,7 @@ export function CtaPanel({
               </div>
             </div>
             <div
-              className="group relative overflow-hidden rounded-[20px]"
+              className="relative overflow-hidden rounded-[24px]"
               style={{ aspectRatio: ratio }}
             >
               <Image
@@ -44,11 +43,11 @@ export function CtaPanel({
                 alt={alt}
                 fill
                 sizes="(max-width: 768px) 92vw, 40vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                className="object-cover"
               />
             </div>
           </div>
-        </Card>
+        </div>
       </Reveal>
     </section>
   );

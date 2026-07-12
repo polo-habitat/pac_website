@@ -6,7 +6,7 @@ import { PhonePill } from "@/components/phone-pill";
 
 export default function NotFound() {
   return (
-    <section className="relative mx-auto flex max-w-6xl flex-col items-start overflow-hidden px-5 py-24">
+    <section className="relative mx-auto flex max-w-6xl flex-col items-start overflow-hidden px-5 pb-24 pt-40">
       <p className="font-wide text-[clamp(5rem,18vw,12rem)] font-extrabold leading-none tracking-tight">
         404
       </p>

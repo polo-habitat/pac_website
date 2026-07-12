@@ -11,6 +11,7 @@ import {
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
 
+/** Bannière de sous-page v6 : plaque sable centrée sous le header fixe. */
 export function PageBanner({
   fil,
   titre,
@@ -23,11 +24,11 @@ export function PageBanner({
   action?: React.ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-5 pb-12 pt-14 sm:pb-16 sm:pt-20">
-        <Reveal y={16}>
+    <section className="bg-sable">
+      <div className="mx-auto flex max-w-4xl flex-col items-center px-5 pb-16 pt-36 text-center sm:pb-24 sm:pt-44">
+        <Reveal y={12}>
           <Breadcrumb>
-            <BreadcrumbList>
+            <BreadcrumbList className="justify-center">
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
                   <Link href="/">Accueil</Link>
@@ -40,19 +41,19 @@ export function PageBanner({
             </BreadcrumbList>
           </Breadcrumb>
         </Reveal>
-        <h1 className="mt-6 max-w-[18ch] text-[clamp(2.4rem,6vw,4.6rem)] font-bold leading-[1.02] tracking-[-0.02em]">
+        <h1 className="mt-7 max-w-[20ch] text-[clamp(2.2rem,5.4vw,4.2rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
           <SplitText text={titre} />
         </h1>
         {chapo ? (
-          <Reveal delay={0.25}>
-            <p className="mt-6 max-w-[62ch] text-lg leading-relaxed text-muted-foreground">
+          <Reveal delay={0.3}>
+            <p className="mx-auto mt-7 max-w-[58ch] text-lg leading-relaxed text-muted-foreground">
               {chapo}
             </p>
           </Reveal>
         ) : null}
         {action ? (
-          <Reveal delay={0.35}>
-            <div className="mt-8">{action}</div>
+          <Reveal delay={0.4}>
+            <div className="mt-9">{action}</div>
           </Reveal>
         ) : null}
       </div>

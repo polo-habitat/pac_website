@@ -8,9 +8,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 Site vitrine de **P.A.C. Pièces Auto Cass**, casse automobile et pièces
 détachées neuves et d'occasion à La Farlède (Var). Slogan : « la bonne
-pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
+pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
 
-## État actuel : EN LIGNE ✅ (refonte v4 React/shadcn)
+## État actuel : EN LIGNE ✅ (v6 « Roulez », esprit zoox.com)
 
 - **Prod** : https://polo-habitat.github.io/pac_website/
 - **Repo** : https://github.com/polo-habitat/pac_website (branche `main`)
@@ -50,7 +50,9 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
   `basePath: "/pac_website"`, images `unoptimized`
 - **Tailwind CSS v4 + shadcn/ui** (base radix, préset nova) : Button,
   Card, Badge, Accordion, Sheet (menu mobile), Table, Breadcrumb, Separator
-- **motion** (Framer Motion) pour la couche animation
+- **motion** (Framer Motion) pour Counter/Magnetic + **lenis** (défilement
+  inertiel, monté par `src/components/motion/smooth-scroll.tsx`, désactivé
+  sur pointer:coarse ; purement décoratif, aucun contenu n'en dépend)
 - Jetons dans `src/app/globals.css` : neutres shadcn réchauffés
   (#fefdfb/#131312/#f5f3ee/#6f6d68) + `--accent`/`--jaune` **#ffd400** +
   `--sable` #f8f2dd. Radius panneaux 28px, pilules rounded-full.
@@ -73,11 +75,8 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
 - `public/` : robots.txt, sitemap.xml, llms.txt, `.nojekyll`
   (obligatoire sinon Pages ignore `_next/`)
 
-## Couche motion (composants `src/components/motion/`)
+## Couche motion v6 (composants `src/components/motion/` + CSS)
 
-- Préloader rideau noir/jaune : **CSS pur** (fiable même renderer gelé),
-  1×/session via sessionStorage `pac_vu` + script inline dans layout qui
-  pose `html[data-pac-vu]` avant peinture
 - `use-reveal.ts` : IntersectionObserver + filet scroll/visibilitychange
   (équivalent du `balayer()` de l'ancien site)
 - **Reveal et SplitText sont en transitions CSS pures** (`[data-reveal]`,
@@ -88,11 +87,22 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
   12/07/2026). Filet ultime : keyframe `pac-secours` force la visibilité
   après 4 s. L'espace entre mots du SplitText doit rester HORS du span
   inline-block overflow-hidden (sinon il est rogné).
-- Counter (motion animate + setTimeout de secours, affiche la valeur
-  finale tant que non déclenché), Magnetic (pilules magnétiques), Gear
-  (engrenage piloté au scroll), CursorHalo (halo jaune, pointer:fine
-  uniquement), Marquee (bandeau jaune + bouton pause WCAG) — motion est
-  acceptable pour ceux-là (décoratifs ou pilotés par le pointeur)
+- **Animations pilotées par le scroll en CSS pur** (`@supports
+  (animation-timeline: view())`, globals.css) : `.pac-grandit` (média qui
+  s'élargit en traversant le viewport), `.pac-zoom` (zoom lent d'image),
+  `.pac-roue` (roues de la petite voiture du header, `scroll(root)`).
+  Sans support, l'état de base = état final : rien n'est jamais caché.
+- Header : nav complète en haut de page ; au-delà de 72 px les liens
+  s'effacent (`inert`), le wordmark devient une pastille blanche avec la
+  petite voiture (`src/components/nav-voiture.tsx`, SVG maison) et le
+  burger apparaît. Menu = Sheet Radix côté gauche restylé (panneau blanc
+  arrondi, liens en cascade `.pac-menu-item`).
+- `mots-defilants.tsx` : colonne de mots en boucle CSS + bouton pause
+  (WCAG 2.2.2), carte « pièces neuves » de l'accueil.
+- Counter (motion animate + setTimeout de secours) et Magnetic restent
+  sur motion (décoratifs). **Supprimés en v6 : Préloader rideau,
+  CursorHalo, Marquee jaune** (pas dans l'esprit zoox voulu par le
+  client). Le script sessionStorage `pac_vu` du layout reste (inoffensif).
 
 ## ⚠️ Particularités du poste client (IMPORTANT)
 
@@ -114,16 +124,25 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
 3. v3 = v2 + couche motion vanilla JS → validée
 4. v4 = même direction visuelle Kolibri reconstruite sur
    Next/shadcn/Tailwind/motion — jugée « un peu cheap » par le client
-5. **v5 (actuelle, 12/07/2026) = « Verre clair »** : choisie par le client
-   parmi 10 maquettes (scratchpad maquettes/09-verre.html). Fond mesh
-   gradient crème/jaune pâle fixe (body, globals.css), panneaux verre
-   dépoli via l'utilitaire `.pac-verre` (blanc 55 % + blur 20px + bord
-   blanc 75 % + ombre douce, radius laissé aux appelants), header pilule
-   verre, CTA/marquee restent jaune plein, footer noir. muted-foreground
-   passé à #52525b pour la lisibilité sur verre.
-   ⚠️ **L'ENGRENAGE EST SUPPRIMÉ** : le client ne l'aime pas
-   (« j'aime pas la roue crantée ») — gear.tsx effacé, ne pas le
-   réintroduire. La signature visuelle = le fond mesh + le verre.
+5. ~~v5 (12/07/2026) = « Verre clair »~~ : mesh gradient + panneaux verre
+   dépoli, choisie parmi 10 maquettes — remplacée le jour même.
+   ⚠️ **L'ENGRENAGE RESTE SUPPRIMÉ** : le client ne l'aime pas
+   (« j'aime pas la roue crantée ») — ne jamais le réintroduire.
+6. **v6 (actuelle, 12/07/2026) = « Roulez », esprit zoox.com** : le client
+   a demandé de reproduire à 100 % l'esprit de zoox.com (menu, arrivée,
+   apparitions au scroll, structure) en gardant contenu/textes/polices/
+   couleurs P.A.C. Grandes plaques plates (hero + bannières sable
+   `--sable`, sections noires `--primary`, fond crème), titres géants
+   centrés en Archivo semibold, sur-titres `.pac-eyebrow`, pilules CTA
+   `cta-pill.tsx` (capitales espacées + chevron), cartes très arrondies
+   (24-32 px). Header : liens autour du logo centré → pastille voiture
+   au scroll. Footer : panneau blanc arrondi sur fond noir + photo +
+   wordmark géant. `.pac-verre` est redéfini en panneau BLANC PLAT
+   (plus aucun verre dépoli ni mesh). Défilement inertiel lenis.
+   Déroulé de l'accueil calqué sur zoox.com : hero → image qui
+   s'élargit + texte → 2 cartes (mots défilants / carte sombre) →
+   pleine page comptoir → plaque noire (stats + 2 cartes) → plaque
+   sable (méthode + 2 cartes) → FAQ en rangées → contact/horaires.
 
 Voir `PRODUCT.md` (voix, utilisateurs) et `DESIGN.md` (jetons v2/v3,
 toujours la référence visuelle).

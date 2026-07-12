@@ -3,8 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 
-import { CursorHalo } from "@/components/motion/cursor-halo";
-import { Preloader } from "@/components/motion/preloader";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SITE_URL } from "@/lib/site";
@@ -58,8 +57,7 @@ export default function RootLayout({
         >
           Aller au contenu
         </a>
-        <Preloader />
-        <CursorHalo />
+        <SmoothScroll />
         <SiteHeader />
         <main id="contenu" className="flex-1">
           {children}

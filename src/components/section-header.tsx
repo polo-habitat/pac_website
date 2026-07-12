@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
 
-/** Grille asymétrique kicker / statement (geste Kolibri). */
+/** Tête de section v6 : sur-titre + grand titre centrés, façon Zoox. */
 export function SectionHeader({
   kicker,
   titre,
@@ -14,21 +14,19 @@ export function SectionHeader({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="grid gap-4 md:grid-cols-[11rem_1fr] md:gap-10">
-      <Reveal y={12}>
-        <p className="pt-2 text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-          {kicker}
-        </p>
-      </Reveal>
-      <div>
+    <div>
+      <div className="text-center">
+        <Reveal y={12}>
+          <p className="pac-eyebrow text-muted-foreground">{kicker}</p>
+        </Reveal>
         <h2
           id={id}
-          className="max-w-[24ch] text-[clamp(2rem,4.6vw,3.6rem)] font-bold leading-[1.05] tracking-[-0.02em]"
+          className="mx-auto mt-5 max-w-[26ch] text-[clamp(1.9rem,4vw,3.2rem)] font-semibold leading-[1.12] tracking-[-0.015em]"
         >
           <SplitText text={titre} />
         </h2>
-        {children}
       </div>
+      {children}
     </div>
   );
 }

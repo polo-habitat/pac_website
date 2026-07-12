@@ -50,7 +50,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Palette P.A.C. « Kolibri » : neutres shadcn réchauffés + jaune #ffd400 en accent unique */
+/* Palette P.A.C. : neutres shadcn réchauffés + jaune #ffd400 en accent unique */
 :root {
   --background: #fefdfb;
   --foreground: #131312;
@@ -121,16 +121,9 @@
     @apply font-sans scroll-smooth;
   }
   body {
-    @apply text-foreground antialiased;
-    /* Fond « verre clair » : mesh gradient crème/jaune pâle, fixe */
-    background:
-      radial-gradient(900px 700px at 8% -5%, rgb(255 212 0 / 0.3), transparent 60%),
-      radial-gradient(1000px 800px at 95% 10%, rgb(255 236 168 / 0.55), transparent 55%),
-      radial-gradient(800px 900px at 15% 60%, rgb(255 212 0 / 0.16), transparent 55%),
-      radial-gradient(1100px 900px at 85% 95%, rgb(255 212 0 / 0.2), transparent 55%),
-      radial-gradient(700px 700px at 50% 40%, rgb(255 255 255 / 0.9), transparent 70%),
-      linear-gradient(180deg, #fffdf5 0%, #fefbf0 40%, #fdf6e3 100%);
-    background-attachment: fixed;
+    /* v6 « Roulez » : fond plat crème, les sections posent leurs propres blocs
+       de couleur (sable, noir, blanc) comme de grandes plaques. */
+    @apply bg-background text-foreground antialiased;
   }
   ::selection {
     background: var(--jaune);
@@ -139,16 +132,20 @@
 }
 
 @layer utilities {
-  /* Panneau verre dépoli (direction « Verre clair » validée le 12/07/2026).
+  /* Panneau plat v6 (ex-verre) : blanc franc, bord discret, ombre légère.
      Ne fixe pas de radius : chaque usage garde son rounded-*. */
   .pac-verre {
-    background: rgb(255 255 255 / 0.55);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    border: 1px solid rgb(255 255 255 / 0.75);
-    box-shadow:
-      0 20px 60px -20px rgb(43 43 40 / 0.25),
-      0 2px 8px rgb(43 43 40 / 0.06);
+    background: #ffffff;
+    border: 1px solid rgb(19 19 18 / 0.07);
+    box-shadow: 0 1px 2px rgb(19 19 18 / 0.05);
+  }
+
+  /* Sur-titre façon Zoox : petites capitales espacées */
+  .pac-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
   /* Largeur variable Archivo (wdth 62–125) */
@@ -160,7 +157,22 @@
   }
 }
 
-/* ===================== Couche motion P.A.C. ===================== */
+/* ===================== Couche motion P.A.C. v6 ===================== */
+
+/* Lenis (défilement inertiel) — CSS d'accompagnement standard */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
 
 /* Révélations au scroll en CSS pur : les transitions/animations CSS se
    terminent à l'horloge même quand rAF est suspendu (renderer gelé du
@@ -169,10 +181,10 @@
    même si la classe .pac-vu n'arrive jamais. */
 html.js [data-reveal] {
   opacity: 0;
-  transform: translateY(var(--r-y, 28px));
+  transform: translateY(var(--r-y, 40px));
   transition:
-    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   animation: pac-secours 0.4s ease 4s forwards;
 }
 html.js [data-reveal].pac-vu {
@@ -187,7 +199,7 @@ html.js [data-reveal].pac-vu {
 }
 html.js [data-split] [data-mot] {
   transform: translateY(110%);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   animation: pac-secours-mot 0.4s ease 4s forwards;
 }
 html.js [data-split].pac-vu [data-mot] {
@@ -199,96 +211,98 @@ html.js [data-split].pac-vu [data-mot] {
   }
 }
 
-/* Préloader rideau noir/jaune — piloté en CSS pur (robuste même si rAF est suspendu).
-   html[data-pac-vu] = déjà vu cette session (posé par un script inline avant peinture). */
-html[data-pac-vu] .pac-preloader {
-  display: none;
+/* Animations pilotées par la position de scroll (CSS pur, compositor).
+   Sans support, l'état de base = état final : rien n'est jamais caché. */
+@keyframes pac-grandit {
+  from {
+    transform: scale(0.88);
+    border-radius: 40px;
+  }
+  to {
+    transform: none;
+    border-radius: 0px;
+  }
 }
-.pac-preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  background: #131312;
-  animation: pac-rideau 0.7s cubic-bezier(0.83, 0, 0.17, 1) 1.35s forwards;
+@keyframes pac-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1.01);
+  }
 }
-.pac-preloader::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--jaune);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  animation: pac-rideau-jaune 0.55s cubic-bezier(0.83, 0, 0.17, 1) 1.05s forwards;
+@keyframes pac-roule {
+  to {
+    transform: rotate(2.5turn);
+  }
 }
-.pac-preloader-logo {
-  color: #fefdfb;
-  font-weight: 800;
-  font-variation-settings: "wdth" 125;
-  font-size: clamp(2.5rem, 9vw, 6rem);
-  letter-spacing: -0.02em;
-  animation: pac-logo-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+@supports (animation-timeline: view()) {
+  /* Le média s'élargit en pleine page pendant qu'il traverse le viewport */
+  .pac-grandit {
+    animation: pac-grandit linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 45%;
+  }
+  /* Zoom lent de l'image pendant la traversée (parallaxe douce) */
+  .pac-zoom {
+    animation: pac-zoom linear both;
+    animation-timeline: view();
+  }
 }
-@keyframes pac-logo-in {
+/* Roues de la petite voiture du header : tournent avec le scroll */
+.pac-roue {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@supports (animation-timeline: scroll()) {
+  .pac-roue {
+    animation: pac-roule linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+/* Arrivée de la nav au chargement (jouée une fois, CSS pur) */
+.pac-nav-entree {
+  animation: pac-nav-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+@keyframes pac-nav-in {
   from {
     opacity: 0;
-    transform: translateY(0.5em);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes pac-rideau-jaune {
-  to {
-    transform: scaleY(1);
-  }
-}
-@keyframes pac-rideau {
-  to {
-    transform: translateY(-100%);
-    visibility: hidden;
+    transform: translateY(-16px);
   }
 }
 
-/* Marquee jaune */
-.pac-marquee-piste {
-  display: flex;
-  width: max-content;
-  animation: pac-defile 28s linear infinite;
+/* Items du menu latéral : entrée en cascade à l'ouverture */
+.pac-menu-item {
+  animation: pac-menu-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.pac-marquee[data-pause="true"] .pac-marquee-piste {
+@keyframes pac-menu-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* Colonne de mots qui défile verticalement (carte « stock ») */
+.pac-mots {
+  mask-image: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent);
+}
+.pac-mots-piste {
+  display: flex;
+  flex-direction: column;
+  animation: pac-defile-v 22s linear infinite;
+}
+.pac-mots[data-pause="true"] .pac-mots-piste {
   animation-play-state: paused;
 }
-@keyframes pac-defile {
+@keyframes pac-defile-v {
   to {
-    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }
 
-/* Curseur halo (desktop pointer fin uniquement) */
-.pac-halo {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 90;
-  width: 36px;
-  height: 36px;
-  margin: -18px 0 0 -18px;
-  border: 1.5px solid var(--jaune);
-  border-radius: 999px;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
-@media (pointer: coarse) {
-  .pac-halo {
-    display: none;
-  }
-}
-
-/* Wordmark géant coupé par le bas du hero */
+/* Wordmark géant (footer) */
 .pac-wordmark {
   display: block;
   font-weight: 800;

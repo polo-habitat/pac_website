@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Car, CreditCard, MapPin, ParkingSquare, Recycle, Search, Truck } from "lucide-react";
+import { ChevronRight, CreditCard, MapPin, ParkingSquare } from "lucide-react";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from "@/components/ui/table";
-import { CtaPanel } from "@/components/cta-panel";
+import { CtaPill } from "@/components/cta-pill";
 import { JsonLd } from "@/components/json-ld";
-import { Marquee } from "@/components/marquee";
+import { MotsDefilants } from "@/components/mots-defilants";
 import { Counter } from "@/components/motion/counter";
-import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
-import { PhonePill } from "@/components/phone-pill";
-import { SectionHeader } from "@/components/section-header";
 import {
   asset,
   etablissementComplet,
@@ -42,51 +36,16 @@ export const metadata: Metadata = {
   },
 };
 
-const SERVICES = [
-  {
-    icone: Search,
-    titre: "Recherche de pièce",
-    texte:
-      "Vous appelez avec la carte grise, on cherche dans le stock et chez nos confrères si besoin. Réponse immédiate ou rappel dans la journée.",
-    lien: undefined as undefined | { href: string; label: string },
-  },
-  {
-    icone: Truck,
-    titre: "Enlèvement d'épaves",
-    texte:
-      "Votre véhicule ne roule plus ? P.A.C. organise son enlèvement dans le secteur de La Farlède et Toulon Est et gère le recyclage.",
-    lien: { href: "/enlevement-epave", label: "Voir les modalités" },
-  },
-  {
-    icone: Recycle,
-    titre: "Recyclage VHU",
-    texte:
-      "Dépollution et valorisation des véhicules hors d'usage : chaque voiture est vidée de ses fluides puis démontée pour redonner une vie à ses pièces.",
-    lien: undefined,
-  },
-  {
-    icone: Car,
-    titre: "Rachat de véhicules",
-    texte:
-      "Selon le véhicule et son état, P.A.C. peut racheter votre voiture : ce n'est pas systématique, contactez-nous ou passez directement au comptoir pour une réponse rapide.",
-    lien: { href: "/contact", label: "Nous contacter" },
-  },
-];
-
-const ETAPES = [
-  {
-    titre: "Vous appelez",
-    texte: "Le 04 94 08 15 33, avec votre carte grise ou la référence de la pièce sous les yeux.",
-  },
-  {
-    titre: "On vérifie",
-    texte: "Stock, état, compatibilité avec votre véhicule et prix : tout est annoncé au téléphone, franchement.",
-  },
-  {
-    titre: "Vous repartez équipé",
-    texte: "La pièce vous attend au comptoir du 25 rue Gay Lussac. Carte bancaire acceptée, parking sur place.",
-  },
-];
+const PIECES_NEUVES_LISTE = [
+  "Plaquettes de frein",
+  "Filtres & huiles",
+  "Courroies",
+  "Amortisseurs",
+  "Embrayages",
+  "Batteries",
+  "Bougies",
+  "Disques de frein",
+] as const;
 
 const HORAIRES = [
   ["Lundi", "8h–12h · 14h–18h"],
@@ -103,91 +62,190 @@ export default function Accueil() {
       <JsonLd data={webSiteJsonLd} />
       <JsonLd data={faqPageJsonLd} />
 
-      {/* ================= HERO ================= */}
-      <section aria-label="Présentation" className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-6xl px-5 pt-16 sm:pt-24">
-          <Reveal y={12}>
-            <Badge className="rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
-              Casse automobile à La Farlède depuis 1992
-            </Badge>
-          </Reveal>
-          <h1 className="mt-7 max-w-[16ch] text-[clamp(2.8rem,7vw,5.6rem)] font-bold leading-[1.02] tracking-[-0.02em]">
-            <SplitText text="La bonne pièce, au bon prix." accentFrom={3} delay={0.15} />
+      {/* ================= HERO : plaque sable, titre géant centré,
+          image pleine largeur qui zoome doucement ================= */}
+      <section aria-label="Présentation" className="bg-sable">
+        <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center px-5 pb-16 pt-40 text-center sm:pt-48">
+          <h1 className="text-[clamp(2.2rem,5.4vw,4.4rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
+            <SplitText text="Ce n'est pas qu'une casse auto." delay={0.15} />
+            <br />
+            <SplitText text="C'est la bonne pièce, au bon prix, depuis 1992." delay={0.55} />
           </h1>
-          <Reveal delay={0.5}>
-            <p className="mt-7 max-w-[58ch] text-lg leading-relaxed text-muted-foreground">
-              <strong className="text-foreground">P.A.C. Pièces Auto Cass</strong> vend des pièces
-              détachées <strong className="text-foreground">neuves et d&apos;occasion vérifiées</strong>{" "}
-              pour voitures et utilitaires, reprend vos épaves et recycle les véhicules hors
-              d&apos;usage. Vous appelez, on vérifie, vous repartez avec la pièce.
+          <Reveal delay={0.9} y={20}>
+            <p className="mx-auto mt-8 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
+              Pièces détachées <strong className="text-foreground">neuves et d&apos;occasion
+              vérifiées</strong> pour voitures et utilitaires, au comptoir de la ZI Toulon Est,
+              à La Farlède.
             </p>
           </Reveal>
-          <Reveal delay={0.6}>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <PhonePill />
-              <Magnetic>
-                <Button
-                  asChild
-                  variant="ghost"
-                  className="h-12 rounded-full px-5 text-base font-semibold"
-                >
-                  <Link href="#gammes">
-                    Voir les pièces
-                    <ArrowRight className="size-4.5" aria-hidden="true" />
-                  </Link>
-                </Button>
-              </Magnetic>
+          <Reveal delay={1.05} y={16}>
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+              <CtaPill href={NAP.telephoneHref}>Appeler le {NAP.telephone}</CtaPill>
+              <CtaPill href="#gammes" tone="blanche">
+                Voir les pièces
+              </CtaPill>
             </div>
           </Reveal>
         </div>
-        <div className="mt-10 h-[0.42em] overflow-hidden sm:mt-14" style={{ fontSize: "clamp(6rem, 19vw, 22rem)" }} aria-hidden="true">
-          <Reveal y={60}>
-            <span className="pac-wordmark text-foreground">P.A.C.</span>
+        <div className="relative h-[68vh] overflow-hidden sm:h-[82vh]">
+          <div className="pac-zoom absolute inset-0">
+            <Image
+              src={asset("/img/hero-moteur-1600.webp")}
+              alt="Serrage d'un écrou à la clé plate sur un moteur, dans la pénombre de l'atelier"
+              fill
+              sizes="100vw"
+              priority
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ================= UNE MEILLEURE FAÇON : image qui s'élargit
+          + grand texte à droite ================= */}
+      <section aria-labelledby="t-methode" className="overflow-x-clip bg-background py-24 sm:py-36">
+        <div className="mx-auto grid max-w-[100rem] items-center gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:gap-20">
+          <div className="pac-grandit relative aspect-[4/3] overflow-hidden md:aspect-[5/4]">
+            <div className="pac-zoom absolute inset-0">
+              <Image
+                src={asset("/img/equipe-900.webp")}
+                alt="Mécanicien souriant devant un véhicule capot ouvert, en atelier"
+                fill
+                sizes="(max-width: 768px) 100vw, 55vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <div className="md:pr-10">
+            <Reveal y={16}>
+              <p className="pac-eyebrow text-muted-foreground">
+                Une meilleure façon de se fournir
+              </p>
+            </Reveal>
+            <h2 id="t-methode" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
+              <SplitText text="Passez votre temps sur la route, pas à chercher : vous appelez, on vérifie le stock, la pièce vous attend au comptoir." />
+            </h2>
+            <Reveal delay={0.25}>
+              <p className="mt-6 max-w-[48ch] leading-relaxed text-muted-foreground">
+                Le{" "}
+                <a
+                  href={NAP.telephoneHref}
+                  className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
+                >
+                  {NAP.telephone}
+                </a>{" "}
+                répond du lundi au vendredi, carte grise ou référence en main. Stock, état et
+                prix sont annoncés immédiatement — pas de panier en ligne, pas de mauvaise
+                surprise.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= DEUX CARTES : neuves (mots défilants) /
+          occasion & collection (carte sombre) ================= */}
+      <section id="gammes" aria-label="Les gammes" className="scroll-mt-28 px-3 sm:px-4">
+        <div className="mx-auto grid max-w-[100rem] gap-3 sm:gap-4 md:grid-cols-2">
+          <Reveal className="h-full">
+            <article className="flex h-full min-h-[34rem] flex-col rounded-[32px] bg-sable p-8 sm:p-10">
+              <p className="pac-eyebrow text-center text-muted-foreground">
+                Pièces neuves au tarif comptoir
+              </p>
+              <div className="my-8 flex min-h-72 flex-1 flex-col">
+                <MotsDefilants mots={PIECES_NEUVES_LISTE} />
+              </div>
+              <p className="mx-auto max-w-[38ch] text-center text-sm leading-relaxed text-muted-foreground">
+                Pièces d&apos;usure et de sécurité commandées neuves sur référence ou carte
+                grise, retrait sous 24-48 h, sans la marge d&apos;un réseau constructeur.
+              </p>
+              <div className="mt-7 text-center">
+                <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
+              </div>
+            </article>
+          </Reveal>
+
+          <Reveal delay={0.12} className="h-full">
+            <article className="relative flex h-full min-h-[34rem] flex-col overflow-hidden rounded-[32px] bg-primary p-8 text-primary-foreground sm:p-10">
+              <div className="absolute inset-0">
+                <Image
+                  src={asset("/img/courroie-900.webp")}
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover opacity-55"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-primary/40" aria-hidden="true" />
+              </div>
+              <div className="relative flex flex-1 flex-col">
+                <p className="pac-eyebrow text-center text-primary-foreground/80">
+                  L&apos;occasion vérifiée
+                </p>
+                <h2 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
+                  Anciens modèles, youngtimers, collection : la pièce introuvable est souvent ici.
+                </h2>
+                <p className="mx-auto mt-4 max-w-[40ch] text-center text-sm leading-relaxed text-primary-foreground/75">
+                  Moteurs, boîtes, optiques, carrosserie : chaque pièce est démontée et
+                  contrôlée avant la vente, à une fraction du prix du neuf.
+                </p>
+                <div className="mt-7 text-center">
+                  <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
+                </div>
+              </div>
+            </article>
           </Reveal>
         </div>
       </section>
 
-      <Marquee />
-
-      {/* ================= LE COMPTOIR ================= */}
-      <section aria-labelledby="t-comptoir" className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <SectionHeader kicker="Le comptoir" titre="Une casse auto de métier, pas un site de plus." id="t-comptoir">
-          <div className="mt-9 grid gap-10 md:grid-cols-[1.15fr_1fr]">
-            <Reveal delay={0.08}>
-              <div className="space-y-5 leading-relaxed text-muted-foreground">
-                <p>
-                  Depuis le 1<sup>er</sup> février 1992, P.A.C. démonte, contrôle et revend des
-                  pièces automobiles au 25 rue Gay Lussac, dans la zone industrielle Toulon Est de
-                  La Farlède. Trente-quatre ans plus tard, la méthode n&apos;a pas changé : une
-                  pièce vérifiée, un prix annoncé franchement, un comptoir où l&apos;on vous
-                  répond.
-                </p>
-                <p>
-                  Automobilistes du Var, garagistes, professionnels de la carrosserie : tout le
-                  monde passe par le même téléphone, le{" "}
-                  <a href={NAP.telephoneHref} className="font-semibold text-foreground underline underline-offset-4 decoration-accent decoration-2 hover:decoration-4">
-                    04 94 08 15 33
-                  </a>
-                  . Vous donnez votre carte grise ou la référence, on vous dit si la pièce est là
-                  et combien elle coûte. Pas de panier en ligne, pas de mauvaise surprise : la
-                  pièce vous attend au comptoir.
-                </p>
-              </div>
+      {/* ================= PLEINE PAGE : le comptoir depuis 1992 ================= */}
+      <section aria-labelledby="t-comptoir" className="mt-24 sm:mt-36">
+        <div className="relative flex min-h-[92vh] items-center overflow-hidden">
+          <div className="pac-zoom absolute inset-0">
+            <Image
+              src={asset("/img/atelier-900.webp")}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" aria-hidden="true" />
+          <div className="relative mx-auto w-full max-w-[100rem] px-5 py-24 sm:px-10">
+            <Reveal y={16}>
+              <p className="pac-eyebrow text-white/80">Le comptoir, depuis 1992</p>
             </Reveal>
-            <Reveal delay={0.16}>
-              <div className="group relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "4/5" }}>
-                <Image
-                  src={asset("/img/hero-moteur-800.webp")}
-                  alt="Serrage d'un écrou à la clé plate sur un moteur, dans la pénombre de l'atelier"
-                  fill
-                  sizes="(max-width: 768px) 92vw, 38vw"
-                  priority
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                />
+            <h2 id="t-comptoir" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
+              <SplitText text="34 ans de métier au même endroit : une pièce vérifiée, un prix annoncé franchement, un comptoir où l'on vous répond." />
+            </h2>
+            <Reveal delay={0.3}>
+              <div className="mt-8">
+                <CtaPill href="/contact">Contact &amp; accès</CtaPill>
               </div>
             </Reveal>
           </div>
-          <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-8 lg:grid-cols-4">
+        </div>
+      </section>
+
+      {/* ================= PLAQUE SOMBRE : réemploi + deux cartes ================= */}
+      <section aria-labelledby="t-reemploi" className="bg-primary py-24 text-primary-foreground sm:py-36">
+        <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
+          <Reveal y={16}>
+            <p className="pac-eyebrow text-primary-foreground/70">Le réemploi a de l&apos;avenir</p>
+          </Reveal>
+          <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
+            <SplitText text="Une voiture contient 85 % de matériaux valorisables :" />
+            <br />
+            <span className="text-accent">
+              <SplitText text="moins cher pour vous, plus propre pour le Var." delay={0.4} />
+            </span>
+          </h2>
+          <Reveal delay={0.5}>
+            <div className="mt-9">
+              <CtaPill href="/enlevement-epave">Épaves &amp; recyclage</CtaPill>
+            </div>
+          </Reveal>
+
+          <dl className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {[
               { valeur: <><Counter value={34} /> ans</>, legende: "de métier au même endroit" },
               { valeur: <>1992</>, legende: "année de création de la maison" },
@@ -200,245 +258,193 @@ export default function Accueil() {
                   <dd className="font-wide text-4xl font-extrabold tracking-tight sm:text-5xl">
                     {stat.valeur}
                   </dd>
-                  <dd className="mt-2 text-sm text-muted-foreground">{stat.legende}</dd>
+                  <dd className="mt-2 text-sm text-primary-foreground/65">{stat.legende}</dd>
                 </div>
               </Reveal>
             ))}
           </dl>
-        </SectionHeader>
-      </section>
 
-      {/* ================= LES GAMMES (neuves en tête) ================= */}
-      <section id="gammes" aria-labelledby="t-gammes" className="mx-auto max-w-6xl scroll-mt-24 px-5 pb-20 sm:pb-28">
-        <SectionHeader kicker="Les gammes" titre="Deux gammes, un seul comptoir." id="t-gammes" />
-        <div className="mt-10 space-y-6">
-          <Reveal>
-            <Card className="pac-verre overflow-hidden rounded-[28px] p-0">
-              <div className="grid items-center gap-8 p-8 sm:p-12 md:grid-cols-[1.15fr_1fr]">
-                <div>
-                  <Badge className="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-accent-foreground">
-                    La gamme à connaître
-                  </Badge>
-                  <h3 className="mt-4 text-[clamp(1.5rem,3vw,2.2rem)] font-bold leading-tight tracking-[-0.015em]">
-                    Pièces neuves au tarif comptoir
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Pour les pièces d&apos;usure et de sécurité (freinage, filtration,
-                    distribution), P.A.C. commande la pièce neuve adaptée à votre véhicule et
-                    l&apos;obtient rapidement, sans la marge d&apos;un réseau constructeur.
-                  </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-border pt-5 text-sm leading-relaxed">
-                    <li>Freinage, filtres, courroies, consommables</li>
-                    <li>Pièces mécaniques et électriques neuves</li>
-                    <li>Commande sur référence ou carte grise, retrait sous 24-48 h</li>
-                  </ul>
-                  <div className="mt-7">
-                    <Magnetic>
-                      <Button asChild className="h-12 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/85">
-                        <Link href="/pieces-neuves">
-                          La gamme neuve
-                          <ArrowRight className="size-4.5" aria-hidden="true" />
-                        </Link>
-                      </Button>
-                    </Magnetic>
-                  </div>
-                </div>
-                <figure className="group">
-                  <div className="relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "5/4" }}>
+          <div className="mt-20 grid gap-10 text-left md:grid-cols-2 md:gap-6 lg:px-16">
+            {[
+              {
+                image: "/img/roue-900.webp",
+                alt: "Roue et pneu d'un véhicule en cours de démontage",
+                titre: "Enlèvement d'épaves",
+                texte:
+                  "Votre véhicule ne roule plus ? P.A.C. organise l'enlèvement dans l'est varois, dépollue et recycle.",
+                href: "/enlevement-epave",
+                label: "Voir les modalités",
+              },
+              {
+                image: "/img/compteur-900.webp",
+                alt: "Compteur de vitesse en gros plan, aiguille au repos",
+                titre: "Rachat de véhicules",
+                texte:
+                  "Selon le véhicule et son état, un rachat est possible — pas systématique. Appelez ou passez au comptoir pour une réponse rapide et franche.",
+                href: "/contact",
+                label: "Nous contacter",
+              },
+            ].map((carte, i) => (
+              <Reveal key={carte.titre} delay={i * 0.1} className="h-full">
+                <article className="flex h-full flex-col items-center text-center">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] sm:mx-auto sm:w-4/5">
                     <Image
-                      src={asset("/img/vidange-900.webp")}
-                      alt="Bidon d'huile neuve versé dans un moteur, capot ouvert"
+                      src={asset(carte.image)}
+                      alt={carte.alt}
                       fill
                       sizes="(max-width: 768px) 92vw, 40vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                      className="object-cover"
                     />
                   </div>
-                  <figcaption className="mt-3 text-sm text-muted-foreground">
-                    Neuf, au tarif comptoir
-                  </figcaption>
-                </figure>
-              </div>
-            </Card>
-          </Reveal>
-
-          <Reveal>
-            <Card className="pac-verre overflow-hidden rounded-[28px] p-0">
-              <div className="grid items-center gap-8 p-8 sm:p-12 md:grid-cols-[1fr_1.15fr]">
-                <figure className="group order-2 md:order-1">
-                  <div className="relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "5/4" }}>
-                    <Image
-                      src={asset("/img/courroie-900.webp")}
-                      alt="Courroie et poulies d'un moteur démonté, prêtes au contrôle avant la mise en vente"
-                      fill
-                      sizes="(max-width: 768px) 92vw, 40vw"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
-                    />
-                  </div>
-                  <figcaption className="mt-3 text-sm text-muted-foreground">
-                    Contrôlée avant la vente
-                  </figcaption>
-                </figure>
-                <div className="order-1 md:order-2">
-                  <h3 className="text-[clamp(1.5rem,3vw,2.2rem)] font-bold leading-tight tracking-[-0.015em]">
-                    Pièces d&apos;occasion vérifiées
-                  </h3>
-                  <p className="mt-4 leading-relaxed text-muted-foreground">
-                    Des pièces démontées et contrôlées une par une, vendues à une fraction du prix
-                    du neuf. Et pour les anciens modèles, youngtimers et véhicules de collection,
-                    c&apos;est souvent ici que se trouve la pièce introuvable ailleurs.
+                  <h3 className="mt-7 text-2xl font-semibold tracking-[-0.01em]">{carte.titre}</h3>
+                  <p className="mx-auto mt-3 max-w-[44ch] text-sm leading-relaxed text-primary-foreground/70">
+                    {carte.texte}
                   </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-border pt-5 text-sm leading-relaxed">
-                    <li>Moteurs, boîtes de vitesses, turbos, injection</li>
-                    <li>Optiques, carrosserie, portières, rétroviseurs</li>
-                    <li>Pièces pour anciens modèles et véhicules de collection</li>
-                  </ul>
-                  <div className="mt-7">
-                    <Magnetic>
-                      <Button asChild className="h-12 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/85">
-                        <Link href="/pieces-occasion">
-                          La gamme occasion
-                          <ArrowRight className="size-4.5" aria-hidden="true" />
-                        </Link>
-                      </Button>
-                    </Magnetic>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </Reveal>
+                  <CtaPill href={carte.href} tone="jaune" className="mt-6 h-10 px-5">
+                    {carte.label}
+                  </CtaPill>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ================= SERVICES ================= */}
-      <section aria-labelledby="t-services" className="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
-        <SectionHeader kicker="Services" titre="Tout ce qu'on fait pour vous." id="t-services">
-          <ul className="mt-9 grid gap-4 sm:grid-cols-2">
-            {SERVICES.map((service, i) => (
-              <Reveal key={service.titre} delay={i * 0.06} className="h-full">
-                <li className="pac-verre group h-full rounded-[28px] p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-8">
-                  <span className="grid size-11 place-items-center rounded-full bg-accent text-accent-foreground transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
-                    <service.icone className="size-5" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 text-lg font-bold">{service.titre}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-                    {service.texte}
-                    {service.lien ? (
-                      <>
-                        {" "}
-                        <Link
-                          href={service.lien.href}
-                          className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
-                        >
-                          {service.lien.label}
-                        </Link>
-                        .
-                      </>
-                    ) : null}
+      {/* ================= PLAQUE SABLE : la méthode + deux cartes ================= */}
+      <section aria-labelledby="t-vision" className="bg-sable py-24 sm:py-36">
+        <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
+          <div className="text-center">
+            <Reveal y={16}>
+              <p className="pac-eyebrow text-muted-foreground">La méthode P.A.C.</p>
+            </Reveal>
+            <h2 id="t-vision" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
+              <SplitText text="Vous appelez, on vérifie," />{" "}
+              <span className="text-muted-foreground">
+                <SplitText text="vous repartez équipé." delay={0.35} />
+              </span>
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-10 md:grid-cols-2 md:gap-6 lg:px-16">
+            {[
+              {
+                image: "/img/vidange-900.webp",
+                alt: "Bidon d'huile neuve versé dans un moteur, capot ouvert",
+                eyebrow: "Comment ça marche",
+                texte:
+                  "Le 04 94 08 15 33 avec la carte grise sous les yeux ; on annonce stock, état et prix ; la pièce vous attend au 25 rue Gay Lussac. CB acceptée, parking sur place.",
+                href: NAP.telephoneHref,
+                label: "Appeler le comptoir",
+              },
+              {
+                image: "/img/equipe-900.webp",
+                alt: "Mécanicien au travail dans l'atelier, en discussion devant un véhicule",
+                eyebrow: "Professionnels",
+                texte:
+                  "Garagistes, carrossiers et mécaniciens du Var travaillent avec P.A.C. depuis des décennies : le comptoir connaît les contraintes d'atelier et répond référence en main.",
+                href: "/contact",
+                label: "Contact & accès",
+              },
+            ].map((carte, i) => (
+              <Reveal key={carte.eyebrow} delay={i * 0.1} className="h-full">
+                <article className="flex h-full flex-col items-center text-center">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] sm:mx-auto sm:w-4/5">
+                    <Image
+                      src={asset(carte.image)}
+                      alt={carte.alt}
+                      fill
+                      sizes="(max-width: 768px) 92vw, 40vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="pac-eyebrow mt-7 text-muted-foreground">{carte.eyebrow}</p>
+                  <p className="mx-auto mt-3 max-w-[46ch] leading-relaxed text-muted-foreground">
+                    {carte.texte}
                   </p>
-                </li>
+                  <CtaPill href={carte.href} tone="noire" className="mt-6 h-10 px-5">
+                    {carte.label}
+                  </CtaPill>
+                </article>
               </Reveal>
             ))}
-          </ul>
-        </SectionHeader>
+          </div>
+        </div>
       </section>
 
-      {/* ================= COMMENT ÇA MARCHE ================= */}
-      <section aria-labelledby="t-etapes" className="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
-        <SectionHeader kicker="Comment ça marche" titre="Votre pièce en trois gestes." id="t-etapes">
-          <ol className="mt-9 grid gap-6 sm:grid-cols-3">
-            {ETAPES.map((etape, i) => (
-              <Reveal key={etape.titre} delay={i * 0.08} className="h-full">
-                <li className="pac-verre h-full rounded-[28px] p-7">
-                  <span className="font-wide text-5xl font-extrabold text-accent" aria-hidden="true">
-                    {i + 1}
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold">{etape.titre}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{etape.texte}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-        </SectionHeader>
-      </section>
-
-      {/* ================= PANNEAU PRIX ================= */}
-      <div className="pb-20 sm:pb-28">
-        <CtaPanel
-          titre="Le juste prix se dit au téléphone, pas en petits caractères."
-          texte="Une pièce d'occasion vérifiée coûte souvent 40 à 70 % de moins que la même pièce neuve en concession. Chez P.A.C., le prix est annoncé avant votre déplacement et il ne change pas au comptoir. C'est notre devise depuis 1992 : la bonne pièce au bon prix."
-          image="/img/compteur-900.webp"
-          alt="Compteur de vitesse en gros plan, aiguille au repos"
-        />
-      </div>
-
-      {/* ================= FAQ ================= */}
-      <section aria-labelledby="t-faq" className="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
-        <SectionHeader kicker="Questions fréquentes" titre="Vous vous demandez sûrement…" id="t-faq">
-          <Reveal>
-            <Accordion type="single" collapsible className="pac-verre mt-9 rounded-[28px] px-6 sm:px-8">
+      {/* ================= FAQ : rangées façon journal ================= */}
+      <section aria-labelledby="t-faq" className="mx-auto max-w-[100rem] px-5 py-24 sm:px-10 sm:py-36">
+        <div className="grid gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
+          <div>
+            <Reveal y={16}>
+              <p className="pac-eyebrow text-muted-foreground">Questions fréquentes</p>
+            </Reveal>
+            <h2 id="t-faq" className="mt-5 max-w-[14ch] text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
+              <SplitText text="Vous vous demandez sûrement…" />
+            </h2>
+          </div>
+          <Reveal delay={0.15}>
+            <Accordion type="single" collapsible>
               {FAQ.map((item, i) => (
-                <AccordionItem key={i} value={`faq-${i}`}>
-                  <AccordionTrigger className="cursor-pointer py-5 text-left text-base font-semibold hover:no-underline">
-                    {item.question}
+                <AccordionItem key={i} value={`faq-${i}`} className="border-border/70">
+                  <AccordionTrigger className="group cursor-pointer items-center py-6 text-left text-base font-semibold hover:no-underline sm:text-lg [&>svg]:hidden">
+                    <span className="pr-4">{item.question}</span>
+                    <span
+                      className="grid size-9 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground transition-transform duration-300 group-data-[state=open]:rotate-90"
+                      aria-hidden="true"
+                    >
+                      <ChevronRight className="size-4" />
+                    </span>
                   </AccordionTrigger>
-                  <AccordionContent className="max-w-[68ch] pb-6 text-base leading-relaxed text-muted-foreground">
+                  <AccordionContent className="max-w-[68ch] pb-7 text-base leading-relaxed text-muted-foreground">
                     {item.reponse}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </Reveal>
-        </SectionHeader>
+        </div>
       </section>
 
       {/* ================= VENIR AU COMPTOIR ================= */}
-      <section id="contact" aria-labelledby="t-contact" className="mx-auto max-w-6xl px-5">
-        <SectionHeader kicker="Venir au comptoir" titre="Besoin d'une pièce ? Appelez." id="t-contact">
-          <div className="mt-9 grid gap-10 md:grid-cols-[1.2fr_1fr]">
-            <Reveal>
-              <div>
-                <a
-                  href={NAP.telephoneHref}
-                  className="font-wide inline-block text-[clamp(2rem,5.4vw,4rem)] font-extrabold tracking-tight underline decoration-accent decoration-[0.08em] underline-offset-8 transition-all hover:decoration-[0.14em]"
-                >
-                  {NAP.telephone}
-                </a>
-                <address className="mt-6 not-italic leading-relaxed text-muted-foreground">
-                  <b className="text-foreground">{NAP.nom}</b>
-                  <br />
-                  {NAP.rue} · {NAP.zone}
-                  <br />
-                  {NAP.codePostal} {NAP.ville} · {NAP.departement}
-                </address>
-                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Services sur place">
-                  {[
-                    { icone: CreditCard, label: "Carte bancaire" },
-                    { icone: MapPin, label: "Retrait au comptoir" },
-                    { icone: ParkingSquare, label: "Parking · accès PMR" },
-                  ].map((b) => (
-                    <li key={b.label}>
-                      <Badge variant="secondary" className="gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold">
-                        <b.icone className="size-3.5" aria-hidden="true" />
-                        {b.label}
-                      </Badge>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-7">
-                  <Magnetic>
-                    <Button asChild className="h-12 rounded-full bg-accent px-6 text-base font-bold text-accent-foreground hover:bg-accent/85">
-                      <a href={NAP.mapsUrl} target="_blank" rel="noopener noreferrer">
-                        Itinéraire Google Maps
-                        <span className="sr-only"> (nouvelle fenêtre)</span>
-                        <ArrowRight className="size-4.5" aria-hidden="true" />
-                      </a>
-                    </Button>
-                  </Magnetic>
-                </div>
+      <section id="contact" aria-labelledby="t-contact" className="mx-auto max-w-[100rem] px-5 sm:px-10">
+        <div className="grid gap-10 rounded-[32px] bg-sable p-8 sm:p-12 md:grid-cols-[1.2fr_1fr]">
+          <Reveal>
+            <div>
+              <p className="pac-eyebrow text-muted-foreground">Venir au comptoir</p>
+              <a
+                href={NAP.telephoneHref}
+                className="font-wide mt-5 inline-block text-[clamp(1.9rem,5vw,3.7rem)] font-extrabold tracking-tight underline decoration-accent decoration-[0.08em] underline-offset-8 transition-all hover:decoration-[0.14em]"
+              >
+                {NAP.telephone}
+              </a>
+              <address className="mt-6 not-italic leading-relaxed text-muted-foreground">
+                <b className="text-foreground">{NAP.nom}</b>
+                <br />
+                {NAP.rue} · {NAP.zone}
+                <br />
+                {NAP.codePostal} {NAP.ville} · {NAP.departement}
+              </address>
+              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Services sur place">
+                {[
+                  { icone: CreditCard, label: "Carte bancaire" },
+                  { icone: MapPin, label: "Retrait au comptoir" },
+                  { icone: ParkingSquare, label: "Parking · accès PMR" },
+                ].map((b) => (
+                  <li key={b.label}>
+                    <Badge className="gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-xs font-semibold text-foreground">
+                      <b.icone className="size-3.5" aria-hidden="true" />
+                      {b.label}
+                    </Badge>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-7">
+                <CtaPill href={NAP.mapsUrl}>Itinéraire Google Maps</CtaPill>
               </div>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <div className="pac-verre rounded-[28px] p-5 sm:p-7">
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="rounded-[24px] bg-white p-5 sm:p-7">
               <Table>
                 <TableCaption className="text-left">Horaires du comptoir</TableCaption>
                 <TableBody>
@@ -458,10 +464,9 @@ export default function Accueil() {
                   </TableRow>
                 </TableBody>
               </Table>
-              </div>
-            </Reveal>
-          </div>
-        </SectionHeader>
+            </div>
+          </Reveal>
+        </div>
       </section>
     </>
   );
