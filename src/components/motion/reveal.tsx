@@ -1,9 +1,15 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useRef } from "react";
+import { CSSProperties, useRef } from "react";
+
+import { cn } from "@/lib/utils";
 import { useReveal } from "./use-reveal";
 
+/**
+ * Fondu + translation au scroll, en transitions CSS pures (voir
+ * globals.css) : l'animation se termine à l'horloge même si rAF est
+ * suspendu, et un filet CSS force la visibilité après 4 s.
+ */
 export function Reveal({
   children,
   delay = 0,
@@ -19,14 +25,19 @@ export function Reveal({
   const visible = useReveal(ref);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      className={className}
-      initial={{ opacity: 0, y }}
-      animate={visible ? { opacity: 1, y: 0 } : undefined}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      data-reveal
+      className={cn(visible && "pac-vu", className)}
+      style={
+        {
+          "--r-y": `${y}px`,
+          transitionDelay: `${delay}s`,
+          animationDelay: `${4 + delay}s`,
+        } as CSSProperties
+      }
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

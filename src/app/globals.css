@@ -141,6 +141,43 @@
 
 /* ===================== Couche motion P.A.C. ===================== */
 
+/* Révélations au scroll en CSS pur : les transitions/animations CSS se
+   terminent à l'horloge même quand rAF est suspendu (renderer gelé du
+   poste client). Sans JS (pas de html.js), tout est visible d'emblée.
+   Filet ultime : l'animation pac-secours force l'état final après 4 s
+   même si la classe .pac-vu n'arrive jamais. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--r-y, 28px));
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: pac-secours 0.4s ease 4s forwards;
+}
+html.js [data-reveal].pac-vu {
+  opacity: 1;
+  transform: none;
+}
+@keyframes pac-secours {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html.js [data-split] [data-mot] {
+  transform: translateY(110%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: pac-secours-mot 0.4s ease 4s forwards;
+}
+html.js [data-split].pac-vu [data-mot] {
+  transform: none;
+}
+@keyframes pac-secours-mot {
+  to {
+    transform: none;
+  }
+}
+
 /* Préloader rideau noir/jaune — piloté en CSS pur (robuste même si rAF est suspendu).
    html[data-pac-vu] = déjà vu cette session (posé par un script inline avant peinture). */
 html[data-pac-vu] .pac-preloader {

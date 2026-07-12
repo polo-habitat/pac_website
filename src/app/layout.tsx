@@ -45,9 +45,10 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${archivo.variable} h-full`} suppressHydrationWarning>
       <head>
-        {/* Avant peinture : masque le préloader si déjà vu cette session */}
+        {/* Avant peinture : classe .js (progressive enhancement, gate des
+            révélations CSS) + masque le préloader si déjà vu cette session */}
         <Script id="pac-vu" strategy="beforeInteractive">
-          {`try{if(sessionStorage.getItem('pac_vu'))document.documentElement.setAttribute('data-pac-vu','1')}catch(e){}`}
+          {`document.documentElement.classList.add('js');try{if(sessionStorage.getItem('pac_vu'))document.documentElement.setAttribute('data-pac-vu','1')}catch(e){}`}
         </Script>
       </head>
       <body className="flex min-h-full flex-col overflow-x-clip">
