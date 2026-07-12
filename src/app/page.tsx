@@ -67,15 +67,16 @@ export default function Accueil() {
       <section aria-label="Présentation" className="bg-sable">
         <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center px-5 pb-16 pt-40 text-center sm:pt-48">
           <h1 className="text-[clamp(2.2rem,5.4vw,4.4rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
-            <SplitText text="Ce n'est pas qu'une casse auto." delay={0.15} />
+            <SplitText text="La bonne pièce," delay={0.15} />
             <br />
-            <SplitText text="C'est la bonne pièce, au bon prix, depuis 1992." delay={0.55} />
+            <SplitText text="au bon prix." delay={0.45} />
           </h1>
           <Reveal delay={0.9} y={20}>
             <p className="mx-auto mt-8 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-              Pièces détachées <strong className="text-foreground">neuves et d&apos;occasion
-              vérifiées</strong> pour voitures et utilitaires, au comptoir de la ZI Toulon Est,
-              à La Farlède.
+              Casse auto et magasin de pièces à La Farlède : du{" "}
+              <strong className="text-foreground">neuf</strong>, de l&apos;
+              <strong className="text-foreground">occasion contrôlée</strong>, pour les voitures
+              et les utilitaires. Depuis 1992 dans la ZI Toulon Est.
             </p>
           </Reveal>
           <Reveal delay={1.05} y={16}>
@@ -118,25 +119,22 @@ export default function Accueil() {
           </div>
           <div className="md:pr-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">
-                Une meilleure façon de se fournir
-              </p>
+              <p className="pac-eyebrow text-muted-foreground">Comment on travaille</p>
             </Reveal>
             <h2 id="t-methode" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
-              <SplitText text="Passez votre temps sur la route, pas à chercher : vous appelez, on vérifie le stock, la pièce vous attend au comptoir." />
+              <SplitText text="Ici, pas de commande en ligne. Un coup de fil, on vérifie le stock, et votre pièce vous attend au comptoir." />
             </h2>
             <Reveal delay={0.25}>
               <p className="mt-6 max-w-[48ch] leading-relaxed text-muted-foreground">
-                Le{" "}
+                On répond au{" "}
                 <a
                   href={NAP.telephoneHref}
                   className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
                 >
                   {NAP.telephone}
                 </a>{" "}
-                répond du lundi au vendredi, carte grise ou référence en main. Stock, état et
-                prix sont annoncés immédiatement — pas de panier en ligne, pas de mauvaise
-                surprise.
+                du lundi au vendredi. Ayez la carte grise ou la référence sous les yeux : on vous
+                dit tout de suite si la pièce est là, dans quel état elle est et combien elle coûte.
               </p>
             </Reveal>
           </div>
@@ -149,15 +147,13 @@ export default function Accueil() {
         <div className="mx-auto grid max-w-[100rem] gap-3 sm:gap-4 md:grid-cols-2">
           <Reveal className="h-full">
             <article className="flex h-full min-h-[34rem] flex-col rounded-[32px] bg-sable p-8 sm:p-10">
-              <p className="pac-eyebrow text-center text-muted-foreground">
-                Pièces neuves au tarif comptoir
-              </p>
+              <p className="pac-eyebrow text-center text-muted-foreground">Pièces neuves</p>
               <div className="my-8 flex min-h-72 flex-1 flex-col">
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
               </div>
               <p className="mx-auto max-w-[38ch] text-center text-sm leading-relaxed text-muted-foreground">
-                Pièces d&apos;usure et de sécurité commandées neuves sur référence ou carte
-                grise, retrait sous 24-48 h, sans la marge d&apos;un réseau constructeur.
+                Freinage, filtres, courroies, amortisseurs : ce qui se change en neuf, on le
+                commande pour votre voiture. En général prêt sous 24 à 48 h, au prix du comptoir.
               </p>
               <div className="mt-7 text-center">
                 <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
@@ -179,14 +175,14 @@ export default function Accueil() {
               </div>
               <div className="relative flex flex-1 flex-col">
                 <p className="pac-eyebrow text-center text-primary-foreground/80">
-                  L&apos;occasion vérifiée
+                  L&apos;occasion
                 </p>
                 <h2 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
-                  Anciens modèles, youngtimers, collection : la pièce introuvable est souvent ici.
+                  Modèles anciens ou de collection : la pièce introuvable est souvent chez nous.
                 </h2>
                 <p className="mx-auto mt-4 max-w-[40ch] text-center text-sm leading-relaxed text-primary-foreground/75">
-                  Moteurs, boîtes, optiques, carrosserie : chaque pièce est démontée et
-                  contrôlée avant la vente, à une fraction du prix du neuf.
+                  Moteurs, boîtes, optiques, carrosserie… tout est démonté et contrôlé avant la
+                  vente, à une fraction du prix du neuf.
                 </p>
                 <div className="mt-7 text-center">
                   <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
@@ -212,10 +208,10 @@ export default function Accueil() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" aria-hidden="true" />
           <div className="relative mx-auto w-full max-w-[100rem] px-5 py-24 sm:px-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-white/80">Le comptoir, depuis 1992</p>
+              <p className="pac-eyebrow text-white/80">Le comptoir</p>
             </Reveal>
             <h2 id="t-comptoir" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
-              <SplitText text="34 ans de métier au même endroit : une pièce vérifiée, un prix annoncé franchement, un comptoir où l'on vous répond." />
+              <SplitText text="La même adresse depuis 1992. Vous tombez sur quelqu'un qui connaît les voitures et le stock, pas sur un répondeur." />
             </h2>
             <Reveal delay={0.3}>
               <div className="mt-8">
@@ -230,13 +226,13 @@ export default function Accueil() {
       <section aria-labelledby="t-reemploi" className="bg-primary py-24 text-primary-foreground sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-primary-foreground/70">Le réemploi a de l&apos;avenir</p>
+            <p className="pac-eyebrow text-primary-foreground/70">Le réemploi</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-            <SplitText text="Une voiture contient 85 % de matériaux valorisables :" />
+            <SplitText text="Dans une voiture, presque tout se récupère." />
             <br />
             <span className="text-accent">
-              <SplitText text="moins cher pour vous, plus propre pour le Var." delay={0.4} />
+              <SplitText text="Moins cher pour vous, moins de gâchis." delay={0.4} />
             </span>
           </h2>
           <Reveal delay={0.5}>
@@ -271,18 +267,18 @@ export default function Accueil() {
                 alt: "Roue et pneu d'un véhicule en cours de démontage",
                 titre: "Enlèvement d'épaves",
                 texte:
-                  "Votre véhicule ne roule plus ? P.A.C. organise l'enlèvement dans l'est varois, dépollue et recycle.",
+                  "Une voiture qui ne roule plus ? On vient la chercher dans l'est du Var, on la dépollue et on la recycle.",
                 href: "/enlevement-epave",
-                label: "Voir les modalités",
+                label: "Comment ça se passe",
               },
               {
                 image: "/img/compteur-900.webp",
                 alt: "Compteur de vitesse en gros plan, aiguille au repos",
                 titre: "Rachat de véhicules",
                 texte:
-                  "Selon le véhicule et son état, un rachat est possible — pas systématique. Appelez ou passez au comptoir pour une réponse rapide et franche.",
+                  "Selon le véhicule et son état, on peut aussi le racheter. Pas toujours, ça se regarde au cas par cas. Un appel ou un passage suffit pour savoir.",
                 href: "/contact",
-                label: "Nous contacter",
+                label: "Nous joindre",
               },
             ].map((carte, i) => (
               <Reveal key={carte.titre} delay={i * 0.1} className="h-full">
@@ -315,12 +311,12 @@ export default function Accueil() {
         <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
           <div className="text-center">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">La méthode P.A.C.</p>
+              <p className="pac-eyebrow text-muted-foreground">En pratique</p>
             </Reveal>
             <h2 id="t-vision" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-              <SplitText text="Vous appelez, on vérifie," />{" "}
+              <SplitText text="Un coup de fil" />{" "}
               <span className="text-muted-foreground">
-                <SplitText text="vous repartez équipé." delay={0.35} />
+                <SplitText text="et vous êtes fixé." delay={0.35} />
               </span>
             </h2>
           </div>
@@ -330,9 +326,9 @@ export default function Accueil() {
               {
                 image: "/img/vidange-900.webp",
                 alt: "Bidon d'huile neuve versé dans un moteur, capot ouvert",
-                eyebrow: "Comment ça marche",
+                eyebrow: "Au téléphone",
                 texte:
-                  "Le 04 94 08 15 33 avec la carte grise sous les yeux ; on annonce stock, état et prix ; la pièce vous attend au 25 rue Gay Lussac. CB acceptée, parking sur place.",
+                  "Appelez le 04 94 08 15 33 avec la carte grise. On vous dit si on a la pièce et à quel prix, on la met de côté, vous passez la chercher au 25 rue Gay Lussac. CB acceptée, parking devant.",
                 href: NAP.telephoneHref,
                 label: "Appeler le comptoir",
               },
@@ -341,7 +337,7 @@ export default function Accueil() {
                 alt: "Mécanicien au travail dans l'atelier, en discussion devant un véhicule",
                 eyebrow: "Professionnels",
                 texte:
-                  "Garagistes, carrossiers et mécaniciens du Var travaillent avec P.A.C. depuis des décennies : le comptoir connaît les contraintes d'atelier et répond référence en main.",
+                  "Garagistes, carrossiers, mécaniciens : beaucoup d'ateliers du Var travaillent avec nous depuis des années. On connaît vos délais et on répond vite, référence en main.",
                 href: "/contact",
                 label: "Contact & accès",
               },
@@ -379,7 +375,7 @@ export default function Accueil() {
               <p className="pac-eyebrow text-muted-foreground">Questions fréquentes</p>
             </Reveal>
             <h2 id="t-faq" className="mt-5 max-w-[14ch] text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
-              <SplitText text="Vous vous demandez sûrement…" />
+              <SplitText text="Les questions qu'on nous pose." />
             </h2>
           </div>
           <Reveal delay={0.15}>

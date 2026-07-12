@@ -14,8 +14,8 @@ export default function NotFound() {
         Cette pièce n&apos;est pas au catalogue.
       </h1>
       <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-        La page demandée n&apos;existe pas ou a changé d&apos;adresse. Le comptoir, lui, est
-        toujours au même endroit depuis 1992.
+        Cette page n&apos;existe pas ou a changé d&apos;adresse. Le comptoir, lui, n&apos;a pas
+        bougé.
       </p>
       <div className="mt-9 flex flex-wrap gap-4">
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/85">

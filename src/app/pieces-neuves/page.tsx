@@ -48,8 +48,8 @@ export default function PiecesNeuves() {
       />
       <PageBanner
         fil="Pièces neuves"
-        titre="Le neuf quand il le faut, au tarif comptoir."
-        chapo="Certaines pièces se remplacent toujours par du neuf : plaquettes et disques de frein, filtres, courroies de distribution, amortisseurs. P.A.C. les commande pour votre véhicule et vous les remet au comptoir, sans la marge d'un réseau constructeur."
+        titre="Du neuf, quand c'est ce qu'il faut."
+        chapo="Freins, filtres, distribution, amortisseurs : il y a des pièces qu'on change toujours par du neuf. On les commande pour votre voiture et vous les récupérez au comptoir, sans la marge d'une concession."
         action={<PhonePill label="Demander un tarif" />}
       />
 
@@ -93,12 +93,11 @@ export default function PiecesNeuves() {
           </Reveal>
           <Reveal>
             <p>
-              La règle du métier est simple. Les pièces de sécurité et d&apos;usure (freinage,
-              distribution, filtres) se posent neuves. Les pièces de structure et d&apos;équipement
-              (moteur, boîte, carrosserie, optiques, sellerie) se trouvent en occasion vérifiée
-              pour une fraction du prix. Au téléphone, P.A.C. vous oriente franchement vers
-              l&apos;option la plus sensée pour votre véhicule et votre budget : c&apos;est
-              l&apos;avantage d&apos;un comptoir qui vend les deux gammes depuis 1992.
+              La règle est simple. Les pièces de sécurité et d&apos;usure (freinage, distribution,
+              filtres) se posent en neuf. Le reste (moteur, boîte, carrosserie, optiques, sellerie)
+              se trouve très bien en occasion, pour beaucoup moins cher. Au téléphone, on vous
+              oriente vers ce qui est le plus logique pour votre voiture et votre budget. C&apos;est
+              l&apos;intérêt d&apos;un comptoir qui vend les deux.
             </p>
           </Reveal>
           <Reveal>
@@ -112,17 +111,16 @@ export default function PiecesNeuves() {
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                 04 94 08 15 33
               </a>{" "}
-              avec votre carte grise ou la référence constructeur. Le prix et le délai sont
-              annoncés immédiatement ; la plupart des références arrivent sous 24 à 48 h ouvrées
-              au comptoir de la ZI Toulon Est.
+              avec la carte grise ou la référence constructeur. On vous donne le prix et le délai
+              tout de suite. La plupart des pièces arrivent au comptoir sous 24 à 48 h ouvrées.
             </p>
           </Reveal>
         </div>
       </section>
 
       <CtaPanel
-        titre="Comparez avant d'acheter : le devis est gratuit et immédiat."
-        texte="Un appel, deux prix (neuf et occasion quand elle existe), et vous décidez."
+        titre="Un devis ? C'est gratuit et immédiat."
+        texte="Un appel, deux prix quand l'occasion existe (neuf et occasion), et vous décidez."
         image="/img/roue-900.webp"
         alt="Serrage d'une jante à la boulonneuse en atelier"
       />

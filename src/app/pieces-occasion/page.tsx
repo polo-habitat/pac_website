@@ -49,8 +49,8 @@ export default function PiecesOccasion() {
       />
       <PageBanner
         fil="Pièces d'occasion"
-        titre="Pièces d'occasion vérifiées, de la casse au comptoir."
-        chapo="Une pièce d'occasion contrôlée coûte en général 40 à 70 % de moins que la même pièce neuve en concession. Chez P.A.C. à La Farlède, chaque pièce est démontée, contrôlée et référencée avant d'être proposée à la vente."
+        titre="L'occasion, contrôlée une par une."
+        chapo="En occasion, vous payez souvent 40 à 70 % de moins qu'une pièce neuve en concession. Chez nous, chaque pièce est démontée, contrôlée et référencée avant d'être mise en vente."
         action={<PhonePill label="Vérifier une disponibilité" />}
       />
 
@@ -89,57 +89,55 @@ export default function PiecesOccasion() {
         <div className="mt-14 max-w-[68ch] space-y-5 leading-relaxed text-muted-foreground">
           <Reveal>
             <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Anciens modèles, youngtimers et véhicules de collection
+              Anciens modèles et véhicules de collection
             </h2>
           </Reveal>
           <Reveal>
             <p>
-              C&apos;est la vraie force d&apos;une casse installée depuis 1992 : des pièces que
-              plus personne ne fabrique. Optique de phare d&apos;une compacte des années 90,
-              poignée de portière introuvable, moteur complet d&apos;un ancien modèle, garnitures
-              d&apos;origine pour une restauration : ce qui a disparu des catalogues passe encore
-              régulièrement dans le stock de La Farlède. Collectionneurs et restaurateurs du Var,
-              appelez avec la référence ou la carte grise : l&apos;équipe cherche dans le stock,
-              et chez les confrères si besoin.
+              C&apos;est le vrai atout d&apos;une casse installée depuis longtemps : on a des
+              pièces que plus personne ne fabrique. Un optique de phare d&apos;une compacte des
+              années 90, une poignée introuvable, un moteur d&apos;ancien modèle, des garnitures
+              d&apos;origine pour une restauration… ça passe régulièrement dans notre stock.
+              Collectionneurs et restaurateurs du Var, appelez avec la référence ou la carte
+              grise : on cherche chez nous, et chez les confrères si besoin.
             </p>
           </Reveal>
           <Reveal>
             <h2 className="pt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Pourquoi l&apos;occasion d&apos;une casse professionnelle
+              Pourquoi passer par une casse
             </h2>
           </Reveal>
           <Reveal>
             <p>
-              Un véhicule hors d&apos;usage contient des dizaines de pièces qui ont encore des
-              années de service devant elles. Le rôle d&apos;une casse automobile comme P.A.C. est
-              de les identifier, de les démonter proprement et de les contrôler avant de les
-              revendre. Résultat : vous payez la pièce, pas le marketing. C&apos;est aussi le
-              choix le plus écologique, puisqu&apos;une pièce réutilisée est une pièce qui
-              n&apos;a pas besoin d&apos;être fabriquée.
+              Une voiture en fin de vie, c&apos;est des dizaines de pièces qui ont encore des
+              années devant elles. Notre travail, c&apos;est de les repérer, de les démonter
+              proprement et de les contrôler avant de les revendre. Vous payez la pièce, rien
+              d&apos;autre. Et une pièce réutilisée, c&apos;est une pièce qu&apos;on n&apos;a pas
+              eu besoin de fabriquer.
             </p>
           </Reveal>
           <Reveal>
             <p>
-              Depuis 2017, la loi française oblige d&apos;ailleurs les garagistes à proposer des
-              pièces issues de l&apos;économie circulaire pour de nombreuses réparations (article
-              L.224-67 du Code de la consommation). Les professionnels du Var qui
-              s&apos;approvisionnent chez P.A.C. le font depuis bien plus longtemps.
+              Depuis 2017, les garagistes sont d&apos;ailleurs tenus de proposer des pièces
+              d&apos;occasion pour une bonne partie des réparations (article L.224-67 du Code de
+              la consommation). Beaucoup de pros du Var n&apos;ont pas attendu la loi pour venir
+              chez nous.
             </p>
           </Reveal>
           <Reveal>
             <h2 className="pt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Comment vérifier une disponibilité
+              Vérifier une disponibilité
             </h2>
           </Reveal>
           <Reveal>
             <p>
-              Le stock d&apos;une casse change tous les jours. Appelez le{" "}
+              Le stock change tous les jours. Appelez le{" "}
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                 04 94 08 15 33
               </a>{" "}
-              (lun–ven, 8h–12h et 14h–18h) avec votre carte grise sous les yeux : l&apos;équipe
-              identifie précisément votre véhicule, vérifie la pièce, annonce l&apos;état et le
-              prix, et la met de côté à votre nom.
+              (lun–ven, 8h–12h et 14h–18h) avec la carte grise sous les yeux : on identifie votre
+              véhicule, on vérifie la pièce, on vous donne l&apos;état et le prix, et on la met de
+              côté à votre nom.
             </p>
           </Reveal>
         </div>
@@ -147,7 +145,7 @@ export default function PiecesOccasion() {
 
       <CtaPanel
         titre="Votre pièce est peut-être déjà sur l'étagère."
-        texte="Un coup de fil suffit pour le savoir. Réponse immédiate pendant les horaires du comptoir."
+        texte="Un coup de fil suffit pour le savoir, pendant les heures d'ouverture."
         image="/img/atelier-900.webp"
         alt="Atelier avec véhicule capot ouvert sur un pont élévateur"
       />

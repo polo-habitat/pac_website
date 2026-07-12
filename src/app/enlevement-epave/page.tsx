@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 };
 
 const ETAPES = [
-  ["Vous appelez le 04 94 08 15 33", "et décrivez le véhicule : marque, modèle, état, lieu de stationnement."],
-  ["On convient des modalités", "date d'enlèvement et documents à préparer (carte grise, pièce d'identité, certificat de situation administrative)."],
-  ["Le véhicule est enlevé", "puis dépollué : batterie, fluides, pneumatiques et éléments dangereux sont extraits et traités."],
-  ["Les pièces réutilisables sont sauvées", "et rejoignent le stock ; le reste part au recyclage matière."],
+  ["Vous appelez", "au 04 94 08 15 33. Dites-nous la marque, le modèle, l'état et où se trouve la voiture."],
+  ["On fixe un rendez-vous", "et on vous dit quels papiers préparer : carte grise, pièce d'identité et certificat de situation administrative."],
+  ["On enlève et on dépollue", "batterie, fluides, pneus : tout ce qui est polluant est retiré et traité comme il faut."],
+  ["On garde ce qui ressert", "les pièces encore bonnes rejoignent le stock, le reste part au recyclage."],
 ] as const;
 
 export default function EnlevementEpave() {
@@ -46,8 +46,8 @@ export default function EnlevementEpave() {
       />
       <PageBanner
         fil="Épaves & recyclage"
-        titre="Votre épave repart, ses pièces revivent."
-        chapo="Un véhicule qui ne roule plus n'a rien à faire dans votre jardin ou sur un parking : la loi impose de le confier à un centre de traitement des véhicules hors d'usage. P.A.C. organise l'enlèvement dans l'est varois et prend en charge la dépollution, le démontage et le recyclage."
+        titre="Votre épave, on vient la chercher."
+        chapo="Une voiture qui ne roule plus doit être confiée à un centre agréé VHU, c'est la loi. On vient la chercher dans l'est du Var, on la dépollue et on la démonte pour le recyclage."
         action={<PhonePill label="Organiser un enlèvement" />}
       />
 
@@ -77,9 +77,8 @@ export default function EnlevementEpave() {
           </ol>
           <Reveal>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              À l&apos;issue du traitement, le véhicule est sorti du fichier des
-              immatriculations : vous n&apos;êtes plus responsable de rien, ni assurance, ni
-              fourrière, ni amende.
+              Une fois le véhicule traité, il est sorti du fichier des immatriculations. Vous
+              n&apos;avez plus rien à gérer : ni assurance, ni fourrière, ni amende.
             </p>
           </Reveal>
 
@@ -90,29 +89,26 @@ export default function EnlevementEpave() {
           </Reveal>
           <Reveal>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Selon le véhicule et son état, P.A.C. peut également racheter votre voiture. Ce
-              n&apos;est pas systématique : chaque cas est étudié. Le plus simple est de nous
-              contacter au{" "}
+              Selon le véhicule et son état, on peut aussi vous le racheter. Ce n&apos;est pas
+              automatique, chaque cas est différent. Appelez le{" "}
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                 04 94 08 15 33
               </a>{" "}
-              ou de vous rendre directement au comptoir du 25 rue Gay Lussac à La Farlède : vous
-              aurez une réponse rapide et franche.
+              ou passez au comptoir, 25 rue Gay Lussac à La Farlède, on vous répond rapidement.
             </p>
           </Reveal>
 
           <Reveal>
             <h2 className="mt-14 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
-              Pourquoi c&apos;est important
+              Pourquoi c&apos;est utile
             </h2>
           </Reveal>
           <Reveal>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Une voiture contient environ 85 % de matériaux valorisables : métaux, verre,
-              plastiques, et surtout des dizaines de pièces en parfait état de marche. Chaque
-              véhicule traité proprement, c&apos;est moins de pollution dans les sols et des
-              pièces d&apos;occasion au bon prix pour les automobilistes du Var. La boucle est
-              bouclée au même comptoir depuis 1992.
+              Une voiture, c&apos;est environ 85 % de matière qui se récupère : métaux, verre,
+              plastiques, et surtout des dizaines de pièces encore en état de marche. Bien traité,
+              chaque véhicule évite de la pollution et remet des pièces d&apos;occasion en
+              circulation dans le Var.
             </p>
           </Reveal>
         </div>

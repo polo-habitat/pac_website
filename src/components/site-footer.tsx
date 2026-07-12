@@ -56,7 +56,7 @@ export function SiteFooter() {
             <div className="md:justify-self-end">
               <p className="pac-eyebrow text-muted-foreground">Besoin d&apos;une pièce ?</p>
               <p className="mt-5 max-w-[26ch] text-xl font-semibold leading-snug tracking-[-0.01em]">
-                Un appel suffit : stock, état et prix annoncés immédiatement.
+                Un coup de fil, et on vous dit si on a la pièce et à quel prix.
               </p>
               <a
                 href={NAP.telephoneHref}
@@ -71,8 +71,8 @@ export function SiteFooter() {
           <Separator className="my-8" />
           <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:justify-between">
             <span>
-              Casse automobile et pièces détachées neuves et d&apos;occasion depuis 1992 —
-              la bonne pièce au bon prix.
+              Casse automobile et pièces détachées neuves et d&apos;occasion à La Farlède,
+              depuis 1992.
             </span>
             <span>Photos d&apos;illustration : Unsplash</span>
           </div>

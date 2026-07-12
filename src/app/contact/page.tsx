@@ -41,8 +41,8 @@ export default function Contact() {
       <JsonLd data={sousPageJsonLd({ breadcrumb: "Contact & accès", contactPage: true })} />
       <PageBanner
         fil="Contact & accès"
-        titre="Un téléphone, un comptoir."
-        chapo="Le plus court chemin vers votre pièce reste le téléphone : stock, état et prix annoncés immédiatement, pièce mise de côté à votre nom."
+        titre="Appelez, ou passez nous voir."
+        chapo="Pour une pièce précise, un coup de fil avant de venir vous fait gagner du temps : on vérifie qu'elle est là, on vous donne le prix et on la garde à votre nom."
       />
 
       <section aria-label="Coordonnées et horaires" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">
@@ -133,20 +133,19 @@ export default function Contact() {
             </Reveal>
             <Reveal>
               <p>
-                La zone industrielle Toulon Est se trouve au sud de La Farlède, à une dizaine de
-                minutes du centre de Toulon par l&apos;A57 (sortie La Farlède). La rue Gay Lussac
-                dessert la zone ; le comptoir P.A.C. est au numéro 25, avec parking devant
-                l&apos;entrée.
+                La ZI Toulon Est est au sud de La Farlède, à une dizaine de minutes de Toulon par
+                l&apos;A57, sortie La Farlède. On est au 25 rue Gay Lussac, avec le parking juste
+                devant.
               </p>
             </Reveal>
             <Reveal>
               <p>
-                Avant de vous déplacer pour une pièce précise, appelez le{" "}
+                Un conseil : passez un coup de fil au{" "}
                 <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                   04 94 08 15 33
                 </a>{" "}
-                : vous éviterez un aller-retour si la référence demande un délai, et la pièce
-                vous attendra au comptoir si elle est en stock.
+                avant de faire la route. Si la pièce doit être commandée, ça vous évite un
+                aller-retour ; si elle est en stock, elle vous attend au comptoir.
               </p>
             </Reveal>
             <Reveal>
@@ -156,9 +155,9 @@ export default function Contact() {
             </Reveal>
             <Reveal>
               <p>
-                Garagistes, carrossiers et mécaniciens du Var travaillent avec P.A.C. depuis des
-                décennies. Présentez-vous par téléphone : le comptoir connaît les contraintes de
-                l&apos;atelier et répond en conséquence, référence en main.
+                Garagistes et carrossiers du Var comptent sur nous depuis longtemps. Appelez,
+                dites-nous ce qu&apos;il vous faut : on connaît le rythme d&apos;un atelier et on
+                répond en conséquence.
               </p>
             </Reveal>
           </div>

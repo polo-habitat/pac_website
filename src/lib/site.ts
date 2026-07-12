@@ -108,39 +108,39 @@ export const etablissementComplet = {
 /* FAQ : la version visible (accueil) et le JSON-LD FAQPage doivent rester MOT À MOT identiques. */
 export const FAQ = [
   {
-    question: "Quelles pièces détachées trouve-t-on chez P.A.C. à La Farlède ?",
+    question: "Quelles pièces trouve-t-on chez P.A.C. à La Farlède ?",
     reponse:
-      "P.A.C. vend des pièces détachées neuves et d'occasion pour voitures et utilitaires : moteurs, boîtes de vitesses, alternateurs, démarreurs, optiques, éléments de carrosserie, portières, rétroviseurs, jantes, sellerie et électronique embarquée. Le stock tourne en permanence : le plus simple est d'appeler le 04 94 08 15 33 pour vérifier la disponibilité.",
+      "Un peu de tout, en neuf comme en occasion, pour les voitures et les utilitaires : moteurs, boîtes, alternateurs, démarreurs, optiques, portières, ailes, rétroviseurs, jantes, sièges, électronique. Le stock bouge tous les jours, alors le mieux reste d'appeler le 04 94 08 15 33 pour savoir si on a votre pièce.",
   },
   {
     question: "Comment savoir si ma pièce est en stock ?",
     reponse:
-      "Appelez le comptoir au 04 94 08 15 33 du lundi au vendredi, de 8h à 12h et de 14h à 18h, avec votre carte grise ou la référence de la pièce. L'équipe vérifie le stock immédiatement et met la pièce de côté pour votre passage.",
+      "Vous appelez le 04 94 08 15 33 aux heures d'ouverture, du lundi au vendredi de 8h à 12h et de 14h à 18h, avec la carte grise ou la référence sous les yeux. On regarde tout de suite et on met la pièce de côté si elle est là.",
   },
   {
     question: "Les pièces d'occasion sont-elles vérifiées ?",
     reponse:
-      "Oui. Chaque pièce d'occasion est démontée, contrôlée et référencée avant sa mise en vente. Les conditions exactes (état, provenance, modalités de reprise) sont précisées au comptoir pour chaque pièce.",
+      "Oui. On les démonte, on les contrôle et on les range référencées avant de les vendre. Pour l'état exact et les conditions de reprise, on vous dit tout au comptoir, la pièce en main.",
   },
   {
     question: "Trouve-t-on des pièces pour anciens modèles ou véhicules de collection ?",
     reponse:
-      "Oui, c'est une des forces de l'occasion en casse : des pièces introuvables en neuf pour les anciens modèles, youngtimers et véhicules de collection passent régulièrement dans le stock. Appelez le 04 94 08 15 33 avec la référence ou la carte grise, l'équipe cherche dans le stock et chez les confrères si besoin.",
+      "Souvent, oui. C'est même l'avantage d'une casse : on a des pièces que plus personne ne fabrique, pour des modèles anciens ou de collection. Appelez avec la référence ou la carte grise, on cherche dans notre stock et chez les confrères s'il le faut.",
   },
   {
     question: "P.A.C. reprend-il les épaves et véhicules hors d'usage ?",
     reponse:
-      "Oui. P.A.C. assure l'enlèvement des épaves et le recyclage des véhicules hors d'usage dans le secteur de La Farlède, Toulon et l'est varois. Appelez le 04 94 08 15 33 pour convenir des modalités et des documents à préparer.",
+      "Oui. On s'occupe de l'enlèvement et du recyclage des épaves sur La Farlède, Toulon et l'est du Var. Appelez le 04 94 08 15 33, on convient d'un rendez-vous et on vous dit quels papiers préparer.",
   },
   {
     question: "P.A.C. rachète-t-il les véhicules ?",
     reponse:
-      "C'est possible dans certains cas, selon le véhicule et son état, mais pas systématique. Le plus simple est de nous contacter au 04 94 08 15 33 ou de passer directement au comptoir du 25 rue Gay Lussac à La Farlède pour une réponse rapide.",
+      "Ça dépend du véhicule et de son état, donc pas toujours. Le plus simple est d'appeler ou de passer au comptoir, 25 rue Gay Lussac à La Farlède : on regarde et on vous répond vite.",
   },
   {
-    question: "Quels sont les horaires et comment accéder au comptoir ?",
+    question: "Quels sont les horaires et comment venir au comptoir ?",
     reponse:
-      "Le comptoir du 25 rue Gay Lussac (ZI Toulon Est, 83210 La Farlède) est ouvert du lundi au vendredi de 8h à 12h et de 14h à 18h, fermé le week-end et les jours fériés. Parking sur place, accès adapté aux personnes à mobilité réduite, carte bancaire acceptée.",
+      "On est ouverts du lundi au vendredi, de 8h à 12h et de 14h à 18h, fermé le week-end et les jours fériés. C'est au 25 rue Gay Lussac, dans la ZI Toulon Est à La Farlède. Parking devant, accès pour personnes à mobilité réduite, carte bancaire acceptée.",
   },
 ] as const;
 
