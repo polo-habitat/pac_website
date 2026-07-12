@@ -10,7 +10,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
-import { asset, NAP, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { asset, NAP, SITE_URL, sousPageJsonLd, WEB3FORMS_ACCESS_KEY } from "@/lib/site";
 
 const TITRE = "Contact P.A.C. La Farlède · 04 94 08 15 33 (Var)";
 const DESCRIPTION =
@@ -124,6 +124,7 @@ export default function Contact() {
         </div>
       </section>
 
+      {WEB3FORMS_ACCESS_KEY ? (
       <section aria-labelledby="t-ecrire" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">
         <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr]">
           <div>
@@ -148,6 +149,7 @@ export default function Contact() {
           </Reveal>
         </div>
       </section>
+      ) : null}
 
       <section className="mx-auto max-w-6xl px-5">
         <div className="grid gap-10 md:grid-cols-[1.1fr_1fr]">

@@ -148,16 +148,28 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
    12/07/2026 — les photos moteur puis Impala ont été rejetées). Voile
    sombre `from-black/70 via-black/40 to-black/75` + renfort haut pour la
    lisibilité du titre et du menu blancs.
-   ⚠️ **En-tête = menu « Métal & Gas »** (site-header.tsx, refonte
-   12/07/2026, réf. metalandgas.com imposée) : **liens verticaux empilés
-   en haut à gauche** (capitales espacées, soulignement jaune animé au
-   survol via `.pac-navlink`), **CTA tél jaune en haut à droite**
-   (toujours visible). Liens BLANCS sur l'accueil (hero sombre), SOMBRES
-   sur les pages claires ; le bloc gauche (logo + liens) s'efface au
-   défilement (`scrolled`, seuil 0.72×vh sur l'accueil), le CTA tél reste.
-   ⚠️ **SUPPRIMÉS** : la pastille-voiture (NavVoiture) et sa condensation
-   au scroll (« icône voiture qui sert à rien », rejetée), le Sheet mobile,
-   les styles `.pac-roue`/`.pac-menu-item`. Ne pas réintroduire.
+   ⚠️ **En-tête = menu « Métal & Gas »** (site-header.tsx, réf.
+   metalandgas.com imposée). Haut de page : **liens verticaux empilés en
+   haut à gauche** (capitales, soulignement jaune au survol `.pac-navlink`),
+   blancs sur l'accueil / sombres sur pages claires. **Au défilement** ce
+   bloc se transforme (fondu) en **HAMBURGER** qui ouvre un **menu plein
+   écran** animé (liens en cascade `.pac-menu-lien`). **CTA tél jaune en
+   haut à droite, toujours visible.**
+   ⚠️ **Hamburger à couleur adaptative** : blanc quand une section
+   `data-nav="dark"` est derrière lui, noir sinon. Marquer toute section
+   sombre plein cadre avec `data-nav="dark"` (accueil : hero, pleine page
+   comptoir, plaque réemploi). `mix-blend-mode` NE marche PAS (l'en-tête
+   fixe isole le mélange) — d'où l'approche `data-nav`.
+   ⚠️ **Détection du scroll = boucle rAF**, PAS `window.addEventListener
+   ('scroll')` : avec **Lenis**, l'événement `scroll` natif ne se déclenche
+   pas de façon fiable (vérifié : `nativeScrollFires:0`). Corollaire : quand
+   la fenêtre est occultée (`document.hidden`), rAF est suspendu → l'en-tête
+   ne réagit pas et les captures CDP sont figées. C'est sans impact réel
+   (on ne scrolle pas une fenêtre cachée) mais ça empêche la validation
+   visuelle en automatisation — valider sur l'URL en ligne, fenêtre au
+   premier plan.
+   ⚠️ **SUPPRIMÉS** : la pastille-voiture (NavVoiture, « icône qui sert à
+   rien »), `.pac-roue`. Ne pas réintroduire.
    ⚠️ **Registre éditorial : professionnel et sobre**, pas familier
    (« on/vous » proscrits) ni redondant. Le client a rejeté deux passes :
    trop « IA » (marketing/triades), puis trop familière. Voir aussi

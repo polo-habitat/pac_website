@@ -64,7 +64,7 @@ export default function Accueil() {
 
       {/* ================= HERO : image automobile plein cadre,
           voile sombre, titre sobre centré par-dessus ================= */}
-      <section aria-label="Présentation" className="relative flex min-h-[100svh] items-center overflow-hidden">
+      <section aria-label="Présentation" data-nav="dark" className="relative flex min-h-[100svh] items-center overflow-hidden">
         <div className="pac-zoom absolute inset-0">
           <Image
             src={asset("/img/hero-voiture-1600.webp")}
@@ -206,7 +206,7 @@ export default function Accueil() {
 
       {/* ================= PLEINE PAGE : le comptoir depuis 1992 ================= */}
       <section aria-labelledby="t-comptoir" className="mt-24 sm:mt-36">
-        <div className="relative flex min-h-[92vh] items-center overflow-hidden">
+        <div data-nav="dark" className="relative flex min-h-[92vh] items-center overflow-hidden">
           <div className="pac-zoom absolute inset-0">
             <Image
               src={asset("/img/atelier-900.webp")}
@@ -234,7 +234,7 @@ export default function Accueil() {
       </section>
 
       {/* ================= PLAQUE SOMBRE : réemploi + deux cartes ================= */}
-      <section aria-labelledby="t-reemploi" className="bg-primary py-24 text-primary-foreground sm:py-36">
+      <section aria-labelledby="t-reemploi" data-nav="dark" className="bg-primary py-24 text-primary-foreground sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
             <p className="pac-eyebrow text-primary-foreground/70">Réemploi</p>

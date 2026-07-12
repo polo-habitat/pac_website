@@ -6,7 +6,7 @@ export const SITE_URL = "https://polo-habitat.github.io/pac_website";
  * doit recevoir les messages, puis coller la clé ici. Vide = formulaire
  * inactif (il renvoie alors vers le téléphone).
  */
-export const WEB3FORMS_ACCESS_KEY = "";
+export const WEB3FORMS_ACCESS_KEY: string = "";
 
 /** next/image n'applique pas basePath aux src chaînes : préfixer via ce helper. */
 export const BASE_PATH = "/pac_website";

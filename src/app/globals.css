@@ -283,6 +283,19 @@ html.js [data-split].pac-vu [data-mot] {
   width: 100%;
 }
 
+/* Liens du menu plein écran : entrée en cascade à l'ouverture. */
+.pac-menu-lien {
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pac-menu-lien.in {
+  transform: none;
+  opacity: 1;
+}
+
 /* Colonne de mots qui défile verticalement (carte « stock ») */
 .pac-mots {
   mask-image: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent);
