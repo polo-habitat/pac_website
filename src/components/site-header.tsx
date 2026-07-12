@@ -14,8 +14,8 @@ const LIENS_MENU = [{ href: "/", label: "Accueil" }, ...NAV];
  * En-tête « Métal & Gas » :
  *  - en haut de page : menu vertical (logo + liens, soulignement animé) ;
  *  - au défilement : ce menu se transforme (fondu + glissé) en HAMBURGER
- *    dont la couleur s'adapte au fond via `mix-blend-mode: difference`
- *    (toujours visible, sur clair, sombre ou image) ;
+ *    dont la couleur s'adapte au fond via la détection des sections
+ *    `data-nav="dark"` (toujours visible, sur clair, sombre ou image) ;
  *  - le hamburger ouvre un menu plein écran animé (liens en cascade).
  * Le CTA téléphone reste à droite, toujours accessible.
  */
@@ -138,7 +138,7 @@ export function SiteHeader() {
               onClick={() => setOuvert(true)}
               className={cn(
                 "absolute left-0 top-0 grid h-11 w-11 cursor-pointer place-items-center transition-all duration-500",
-                scrolled ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0",
+                scrolled ? "pointer-events-auto scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0",
               )}
             >
               <span className="relative block h-[15px] w-7" aria-hidden="true">
