@@ -12,7 +12,6 @@ import { CtaPanel } from "@/components/cta-panel";
 import { JsonLd } from "@/components/json-ld";
 import { Marquee } from "@/components/marquee";
 import { Counter } from "@/components/motion/counter";
-import { Gear } from "@/components/motion/gear";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
@@ -106,7 +105,6 @@ export default function Accueil() {
 
       {/* ================= HERO ================= */}
       <section aria-label="Présentation" className="relative overflow-hidden">
-        <Gear className="pointer-events-none absolute -right-28 top-6 size-80 text-accent sm:-right-20 sm:size-[28rem] lg:size-[34rem]" />
         <div className="relative mx-auto max-w-6xl px-5 pt-16 sm:pt-24">
           <Reveal y={12}>
             <Badge className="rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-secondary-foreground">
@@ -215,7 +213,7 @@ export default function Accueil() {
         <SectionHeader kicker="Les gammes" titre="Deux gammes, un seul comptoir." id="t-gammes" />
         <div className="mt-10 space-y-6">
           <Reveal>
-            <Card className="overflow-hidden rounded-[28px] border-0 bg-sable p-0 shadow-none">
+            <Card className="pac-verre overflow-hidden rounded-[28px] p-0">
               <div className="grid items-center gap-8 p-8 sm:p-12 md:grid-cols-[1.15fr_1fr]">
                 <div>
                   <Badge className="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-accent-foreground">
@@ -264,7 +262,7 @@ export default function Accueil() {
           </Reveal>
 
           <Reveal>
-            <Card className="overflow-hidden rounded-[28px] border-0 bg-card p-0 shadow-none">
+            <Card className="pac-verre overflow-hidden rounded-[28px] p-0">
               <div className="grid items-center gap-8 p-8 sm:p-12 md:grid-cols-[1fr_1.15fr]">
                 <figure className="group order-2 md:order-1">
                   <div className="relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "5/4" }}>
@@ -314,10 +312,10 @@ export default function Accueil() {
       {/* ================= SERVICES ================= */}
       <section aria-labelledby="t-services" className="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
         <SectionHeader kicker="Services" titre="Tout ce qu'on fait pour vous." id="t-services">
-          <ul className="mt-9 grid gap-px overflow-hidden rounded-[28px] border border-border bg-border sm:grid-cols-2">
+          <ul className="mt-9 grid gap-4 sm:grid-cols-2">
             {SERVICES.map((service, i) => (
               <Reveal key={service.titre} delay={i * 0.06} className="h-full">
-                <li className="group h-full bg-background p-7 transition-colors duration-300 hover:bg-sable sm:p-8">
+                <li className="pac-verre group h-full rounded-[28px] p-7 transition-transform duration-300 hover:-translate-y-1 sm:p-8">
                   <span className="grid size-11 place-items-center rounded-full bg-accent text-accent-foreground transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <service.icone className="size-5" aria-hidden="true" />
                   </span>
@@ -350,7 +348,7 @@ export default function Accueil() {
           <ol className="mt-9 grid gap-6 sm:grid-cols-3">
             {ETAPES.map((etape, i) => (
               <Reveal key={etape.titre} delay={i * 0.08} className="h-full">
-                <li className="h-full rounded-[28px] bg-card p-7">
+                <li className="pac-verre h-full rounded-[28px] p-7">
                   <span className="font-wide text-5xl font-extrabold text-accent" aria-hidden="true">
                     {i + 1}
                   </span>
@@ -377,7 +375,7 @@ export default function Accueil() {
       <section aria-labelledby="t-faq" className="mx-auto max-w-6xl px-5 pb-20 sm:pb-28">
         <SectionHeader kicker="Questions fréquentes" titre="Vous vous demandez sûrement…" id="t-faq">
           <Reveal>
-            <Accordion type="single" collapsible className="mt-9">
+            <Accordion type="single" collapsible className="pac-verre mt-9 rounded-[28px] px-6 sm:px-8">
               {FAQ.map((item, i) => (
                 <AccordionItem key={i} value={`faq-${i}`}>
                   <AccordionTrigger className="cursor-pointer py-5 text-left text-base font-semibold hover:no-underline">
@@ -440,6 +438,7 @@ export default function Accueil() {
               </div>
             </Reveal>
             <Reveal delay={0.12}>
+              <div className="pac-verre rounded-[28px] p-5 sm:p-7">
               <Table>
                 <TableCaption className="text-left">Horaires du comptoir</TableCaption>
                 <TableBody>
@@ -459,6 +458,7 @@ export default function Accueil() {
                   </TableRow>
                 </TableBody>
               </Table>
+              </div>
             </Reveal>
           </div>
         </SectionHeader>

@@ -92,6 +92,7 @@ export default function Contact() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
+            <div className="pac-verre rounded-[28px] p-5 sm:p-7">
             <Table>
               <TableCaption className="text-left">Horaires du comptoir</TableCaption>
               <TableBody>
@@ -117,6 +118,7 @@ export default function Contact() {
                 </TableRow>
               </TableBody>
             </Table>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -2,13 +2,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Gear } from "@/components/motion/gear";
 import { PhonePill } from "@/components/phone-pill";
 
 export default function NotFound() {
   return (
     <section className="relative mx-auto flex max-w-6xl flex-col items-start overflow-hidden px-5 py-24">
-      <Gear className="pointer-events-none absolute -right-24 top-0 size-72 text-accent sm:size-96" />
       <p className="font-wide text-[clamp(5rem,18vw,12rem)] font-extrabold leading-none tracking-tight">
         404
       </p>

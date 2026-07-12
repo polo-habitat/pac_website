@@ -8,7 +8,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Gear } from "@/components/motion/gear";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
 
@@ -25,7 +24,6 @@ export function PageBanner({
 }) {
   return (
     <section className="relative overflow-hidden">
-      <Gear className="pointer-events-none absolute -right-24 -top-16 size-72 text-accent opacity-90 sm:-right-16 sm:size-96" />
       <div className="mx-auto max-w-6xl px-5 pb-12 pt-14 sm:pb-16 sm:pt-20">
         <Reveal y={16}>
           <Breadcrumb>

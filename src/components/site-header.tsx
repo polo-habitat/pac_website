@@ -23,7 +23,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-3 z-50 px-3">
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 rounded-full border border-border/60 bg-background/85 pl-2 pr-2 shadow-[0_10px_40px_-18px_rgb(19_19_18/0.35)] backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-6xl items-center gap-2 rounded-full border border-white/80 bg-white/60 pl-2 pr-2 shadow-[0_12px_40px_-12px_rgb(43_43_40/0.22)] backdrop-blur-xl backdrop-saturate-150">
         <Magnetic strength={0.2}>
           <Link
             href="/"
@@ -47,7 +47,7 @@ export function SiteHeader() {
                       "inline-flex h-10 items-center rounded-full px-4 text-sm font-medium transition-colors duration-200",
                       actif
                         ? "bg-accent text-accent-foreground"
-                        : "text-foreground/80 hover:bg-muted hover:text-foreground",
+                        : "text-foreground/80 hover:bg-accent/35 hover:text-foreground",
                     )}
                   >
                     {item.label}

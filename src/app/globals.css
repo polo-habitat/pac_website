@@ -63,7 +63,7 @@
   --secondary: #f5f3ee;
   --secondary-foreground: #131312;
   --muted: #f5f3ee;
-  --muted-foreground: #6f6d68;
+  --muted-foreground: #52525b;
   --accent: #ffd400;
   --accent-foreground: #131312;
   --destructive: oklch(0.577 0.245 27.325);
@@ -121,7 +121,16 @@
     @apply font-sans scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
+    /* Fond « verre clair » : mesh gradient crème/jaune pâle, fixe */
+    background:
+      radial-gradient(900px 700px at 8% -5%, rgb(255 212 0 / 0.3), transparent 60%),
+      radial-gradient(1000px 800px at 95% 10%, rgb(255 236 168 / 0.55), transparent 55%),
+      radial-gradient(800px 900px at 15% 60%, rgb(255 212 0 / 0.16), transparent 55%),
+      radial-gradient(1100px 900px at 85% 95%, rgb(255 212 0 / 0.2), transparent 55%),
+      radial-gradient(700px 700px at 50% 40%, rgb(255 255 255 / 0.9), transparent 70%),
+      linear-gradient(180deg, #fffdf5 0%, #fefbf0 40%, #fdf6e3 100%);
+    background-attachment: fixed;
   }
   ::selection {
     background: var(--jaune);
@@ -130,6 +139,18 @@
 }
 
 @layer utilities {
+  /* Panneau verre dépoli (direction « Verre clair » validée le 12/07/2026).
+     Ne fixe pas de radius : chaque usage garde son rounded-*. */
+  .pac-verre {
+    background: rgb(255 255 255 / 0.55);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgb(255 255 255 / 0.75);
+    box-shadow:
+      0 20px 60px -20px rgb(43 43 40 / 0.25),
+      0 2px 8px rgb(43 43 40 / 0.06);
+  }
+
   /* Largeur variable Archivo (wdth 62–125) */
   .font-wide {
     font-variation-settings: "wdth" 125;

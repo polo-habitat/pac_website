@@ -112,11 +112,18 @@ pièce au bon prix ». Dernière mise à jour : 11 juillet 2026.
 1. ~~v1 « comptoir d'atelier » bleu de France/chanfreins~~ → rejetée
 2. v2 minimaliste façon kolibri.is/en (référence imposée) → validée
 3. v3 = v2 + couche motion vanilla JS → validée
-4. **v4 (actuelle)** = même direction visuelle Kolibri (blanc cassé, noir,
-   jaune #ffd400 unique, Archivo, pilules, panneaux 28px, wordmark géant
-   coupé, engrenage) reconstruite sur Next/shadcn/Tailwind/motion à la
-   demande du client (« refonte avec shadcn, jaune en plus des couleurs
-   shadcn, hyper réactif, magnifique »)
+4. v4 = même direction visuelle Kolibri reconstruite sur
+   Next/shadcn/Tailwind/motion — jugée « un peu cheap » par le client
+5. **v5 (actuelle, 12/07/2026) = « Verre clair »** : choisie par le client
+   parmi 10 maquettes (scratchpad maquettes/09-verre.html). Fond mesh
+   gradient crème/jaune pâle fixe (body, globals.css), panneaux verre
+   dépoli via l'utilitaire `.pac-verre` (blanc 55 % + blur 20px + bord
+   blanc 75 % + ombre douce, radius laissé aux appelants), header pilule
+   verre, CTA/marquee restent jaune plein, footer noir. muted-foreground
+   passé à #52525b pour la lisibilité sur verre.
+   ⚠️ **L'ENGRENAGE EST SUPPRIMÉ** : le client ne l'aime pas
+   (« j'aime pas la roue crantée ») — gear.tsx effacé, ne pas le
+   réintroduire. La signature visuelle = le fond mesh + le verre.
 
 Voir `PRODUCT.md` (voix, utilisateurs) et `DESIGN.md` (jetons v2/v3,
 toujours la référence visuelle).
