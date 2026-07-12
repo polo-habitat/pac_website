@@ -1,3 +1,3 @@
-:HL["/pac_website/_next/static/chunks/17z9otz0ei0c2.css","style"]
+:HL["/pac_website/_next/static/chunks/3p59-uvxpt61p.css","style"]
 :HL["/pac_website/_next/static/media/archivo_var_latin-s.p.1h4hl0m83hjjz.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"pieces-neuves","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"rIN26J53vJqoTDSBNIWba"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"pieces-neuves","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"mS33L5CSi5Tt6U3S1BCbn"}
