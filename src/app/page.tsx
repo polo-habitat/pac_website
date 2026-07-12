@@ -67,8 +67,8 @@ export default function Accueil() {
       <section aria-label="Présentation" className="relative flex min-h-[100svh] items-center overflow-hidden">
         <div className="pac-zoom absolute inset-0">
           <Image
-            src={asset("/img/hero-moteur-1600.webp")}
-            alt="Intervention à la clé sur un moteur automobile, à l'atelier"
+            src={asset("/img/hero-voiture-1600.webp")}
+            alt="Automobile de collection, berline noire aux chromes, phares allumés"
             fill
             sizes="100vw"
             priority
@@ -76,7 +76,13 @@ export default function Accueil() {
           />
         </div>
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"
+          className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/75"
+          aria-hidden="true"
+        />
+        {/* Renfort d'en-tête : assombrit la bande supérieure pour la lisibilité
+            du menu blanc, même là où la photo est claire (ciel, bâtiments). */}
+        <div
+          className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/55 to-transparent"
           aria-hidden="true"
         />
         <div className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-32 text-center">

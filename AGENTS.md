@@ -143,6 +143,15 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
    s'élargit + texte → 2 cartes (mots défilants / carte sombre) →
    pleine page comptoir → plaque noire (stats + 2 cartes) → plaque
    sable (méthode + 2 cartes) → FAQ en rangées → contact/horaires.
+   ⚠️ **Hero = image auto plein cadre** (`public/img/hero-voiture-1600.webp`,
+   Chevrolet Impala noire, Unsplash, choisie par le client le 12/07/2026 —
+   l'ancienne photo moteur a été rejetée). Voile sombre + renfort haut pour
+   la lisibilité ; l'en-tête passe en BLANC quand `surHero` (accueil,
+   non replié) via `pathname === "/" && !replie` dans site-header.
+   ⚠️ **Registre éditorial : professionnel et sobre**, pas familier
+   (« on/vous » proscrits) ni redondant. Le client a rejeté deux passes :
+   trop « IA » (marketing/triades), puis trop familière. Voir aussi
+   [[reduced-motion-windows]] / [[renderer-gele-css-only]].
 
 Voir `PRODUCT.md` (voix, utilisateurs) et `DESIGN.md` (jetons v2/v3,
 toujours la référence visuelle).
