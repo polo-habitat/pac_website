@@ -41,8 +41,8 @@ export default function Contact() {
       <JsonLd data={sousPageJsonLd({ breadcrumb: "Contact & accès", contactPage: true })} />
       <PageBanner
         fil="Contact & accès"
-        titre="Appelez, ou passez nous voir."
-        chapo="Pour une pièce précise, un coup de fil avant de venir vous fait gagner du temps : on vérifie qu'elle est là, on vous donne le prix et on la garde à votre nom."
+        titre="Nous contacter."
+        chapo="Pour une pièce précise, un appel préalable permet de vérifier la disponibilité, d'obtenir le prix et de réserver la pièce à votre nom."
       />
 
       <section aria-label="Coordonnées et horaires" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">
@@ -133,19 +133,19 @@ export default function Contact() {
             </Reveal>
             <Reveal>
               <p>
-                La ZI Toulon Est est au sud de La Farlède, à une dizaine de minutes de Toulon par
-                l&apos;A57, sortie La Farlède. On est au 25 rue Gay Lussac, avec le parking juste
-                devant.
+                La ZI Toulon Est se situe au sud de La Farlède, à une dizaine de minutes de Toulon
+                par l&apos;A57, sortie La Farlède. Le comptoir est au 25 rue Gay Lussac ; un
+                parking est disponible devant l&apos;entrée.
               </p>
             </Reveal>
             <Reveal>
               <p>
-                Un conseil : passez un coup de fil au{" "}
+                Pour une pièce précise, un appel au{" "}
                 <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                   04 94 08 15 33
                 </a>{" "}
-                avant de faire la route. Si la pièce doit être commandée, ça vous évite un
-                aller-retour ; si elle est en stock, elle vous attend au comptoir.
+                avant tout déplacement évite un aller-retour inutile : si la référence doit être
+                commandée, le délai est annoncé ; si elle est en stock, elle est réservée.
               </p>
             </Reveal>
             <Reveal>
@@ -155,9 +155,9 @@ export default function Contact() {
             </Reveal>
             <Reveal>
               <p>
-                Garagistes et carrossiers du Var comptent sur nous depuis longtemps. Appelez,
-                dites-nous ce qu&apos;il vous faut : on connaît le rythme d&apos;un atelier et on
-                répond en conséquence.
+                Garages et carrosseries du Var s&apos;approvisionnent chez P.A.C. de longue date.
+                Communiquez vos références par téléphone : le comptoir tient compte des
+                contraintes d&apos;atelier.
               </p>
             </Reveal>
           </div>

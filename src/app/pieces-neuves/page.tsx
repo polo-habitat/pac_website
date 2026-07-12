@@ -48,8 +48,8 @@ export default function PiecesNeuves() {
       />
       <PageBanner
         fil="Pièces neuves"
-        titre="Du neuf, quand c'est ce qu'il faut."
-        chapo="Freins, filtres, distribution, amortisseurs : il y a des pièces qu'on change toujours par du neuf. On les commande pour votre voiture et vous les récupérez au comptoir, sans la marge d'une concession."
+        titre="Pièces détachées neuves."
+        chapo="Certaines pièces se remplacent nécessairement par du neuf : freinage, filtration, distribution, suspension. P.A.C. les commande pour votre véhicule, sans la marge d'un réseau constructeur."
         action={<PhonePill label="Demander un tarif" />}
       />
 
@@ -93,11 +93,11 @@ export default function PiecesNeuves() {
           </Reveal>
           <Reveal>
             <p>
-              La règle est simple. Les pièces de sécurité et d&apos;usure (freinage, distribution,
-              filtres) se posent en neuf. Le reste (moteur, boîte, carrosserie, optiques, sellerie)
-              se trouve très bien en occasion, pour beaucoup moins cher. Au téléphone, on vous
-              oriente vers ce qui est le plus logique pour votre voiture et votre budget. C&apos;est
-              l&apos;intérêt d&apos;un comptoir qui vend les deux.
+              Le principe est constant : les pièces de sécurité et d&apos;usure (freinage,
+              distribution, filtration) se posent en neuf ; les pièces de structure et
+              d&apos;équipement (moteur, boîte, carrosserie, optiques, sellerie) se trouvent en
+              occasion contrôlée, à un coût nettement inférieur. Le comptoir oriente vers
+              l&apos;option la plus adaptée au véhicule et au budget.
             </p>
           </Reveal>
           <Reveal>
@@ -111,16 +111,17 @@ export default function PiecesNeuves() {
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                 04 94 08 15 33
               </a>{" "}
-              avec la carte grise ou la référence constructeur. On vous donne le prix et le délai
-              tout de suite. La plupart des pièces arrivent au comptoir sous 24 à 48 h ouvrées.
+              avec la carte grise ou la référence constructeur. Le prix et le délai sont
+              communiqués immédiatement ; la plupart des références sont disponibles au comptoir
+              sous 24 à 48 heures ouvrées.
             </p>
           </Reveal>
         </div>
       </section>
 
       <CtaPanel
-        titre="Un devis ? C'est gratuit et immédiat."
-        texte="Un appel, deux prix quand l'occasion existe (neuf et occasion), et vous décidez."
+        titre="Devis gratuit et immédiat."
+        texte="Un appel suffit pour obtenir le prix du neuf et, lorsqu'elle existe, celui de l'occasion."
         image="/img/roue-900.webp"
         alt="Serrage d'une jante à la boulonneuse en atelier"
       />

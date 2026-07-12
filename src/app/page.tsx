@@ -62,24 +62,40 @@ export default function Accueil() {
       <JsonLd data={webSiteJsonLd} />
       <JsonLd data={faqPageJsonLd} />
 
-      {/* ================= HERO : plaque sable, titre géant centré,
-          image pleine largeur qui zoome doucement ================= */}
-      <section aria-label="Présentation" className="bg-sable">
-        <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center px-5 pb-16 pt-40 text-center sm:pt-48">
-          <h1 className="text-[clamp(2.2rem,5.4vw,4.4rem)] font-semibold leading-[1.08] tracking-[-0.02em]">
-            <SplitText text="La bonne pièce," delay={0.15} />
-            <br />
-            <SplitText text="au bon prix." delay={0.45} />
-          </h1>
-          <Reveal delay={0.9} y={20}>
-            <p className="mx-auto mt-8 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-              Casse auto et magasin de pièces à La Farlède : du{" "}
-              <strong className="text-foreground">neuf</strong>, de l&apos;
-              <strong className="text-foreground">occasion contrôlée</strong>, pour les voitures
-              et les utilitaires. Depuis 1992 dans la ZI Toulon Est.
+      {/* ================= HERO : image automobile plein cadre,
+          voile sombre, titre sobre centré par-dessus ================= */}
+      <section aria-label="Présentation" className="relative flex min-h-[100svh] items-center overflow-hidden">
+        <div className="pac-zoom absolute inset-0">
+          <Image
+            src={asset("/img/hero-moteur-1600.webp")}
+            alt="Intervention à la clé sur un moteur automobile, à l'atelier"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
+          />
+        </div>
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-32 text-center">
+          <Reveal y={12}>
+            <p className="pac-eyebrow text-white/70">
+              Casse automobile · La Farlède depuis 1992
             </p>
           </Reveal>
-          <Reveal delay={1.05} y={16}>
+          <h1 className="mt-6 text-[clamp(2.4rem,5.8vw,4.8rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
+            <SplitText text="Pièces détachées automobiles," delay={0.15} />
+            <br />
+            <SplitText text="neuves et d'occasion." delay={0.55} />
+          </h1>
+          <Reveal delay={0.95} y={20}>
+            <p className="mx-auto mt-7 max-w-[46ch] text-lg leading-relaxed text-white/80">
+              Pour voitures et utilitaires, au comptoir de la ZI Toulon Est.
+            </p>
+          </Reveal>
+          <Reveal delay={1.1} y={16}>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <CtaPill href={NAP.telephoneHref}>Appeler le {NAP.telephone}</CtaPill>
               <CtaPill href="#gammes" tone="blanche">
@@ -87,18 +103,6 @@ export default function Accueil() {
               </CtaPill>
             </div>
           </Reveal>
-        </div>
-        <div className="relative h-[68vh] overflow-hidden sm:h-[82vh]">
-          <div className="pac-zoom absolute inset-0">
-            <Image
-              src={asset("/img/hero-moteur-1600.webp")}
-              alt="Serrage d'un écrou à la clé plate sur un moteur, dans la pénombre de l'atelier"
-              fill
-              sizes="100vw"
-              priority
-              className="object-cover"
-            />
-          </div>
         </div>
       </section>
 
@@ -119,22 +123,22 @@ export default function Accueil() {
           </div>
           <div className="md:pr-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Comment on travaille</p>
+              <p className="pac-eyebrow text-muted-foreground">Fonctionnement</p>
             </Reveal>
             <h2 id="t-methode" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
-              <SplitText text="Ici, pas de commande en ligne. Un coup de fil, on vérifie le stock, et votre pièce vous attend au comptoir." />
+              <SplitText text="Pas de vente en ligne. Une pièce se demande par téléphone et se retire au comptoir." />
             </h2>
             <Reveal delay={0.25}>
               <p className="mt-6 max-w-[48ch] leading-relaxed text-muted-foreground">
-                On répond au{" "}
+                Le comptoir répond au{" "}
                 <a
                   href={NAP.telephoneHref}
                   className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
                 >
                   {NAP.telephone}
                 </a>{" "}
-                du lundi au vendredi. Ayez la carte grise ou la référence sous les yeux : on vous
-                dit tout de suite si la pièce est là, dans quel état elle est et combien elle coûte.
+                du lundi au vendredi. Avec la carte grise ou la référence, la disponibilité,
+                l&apos;état et le prix sont communiqués avant tout déplacement.
               </p>
             </Reveal>
           </div>
@@ -152,8 +156,8 @@ export default function Accueil() {
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
               </div>
               <p className="mx-auto max-w-[38ch] text-center text-sm leading-relaxed text-muted-foreground">
-                Freinage, filtres, courroies, amortisseurs : ce qui se change en neuf, on le
-                commande pour votre voiture. En général prêt sous 24 à 48 h, au prix du comptoir.
+                Pièces d&apos;usure et de sécurité commandées neuves pour votre véhicule,
+                disponibles au comptoir sous 24 à 48 heures.
               </p>
               <div className="mt-7 text-center">
                 <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
@@ -178,11 +182,12 @@ export default function Accueil() {
                   L&apos;occasion
                 </p>
                 <h2 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
-                  Modèles anciens ou de collection : la pièce introuvable est souvent chez nous.
+                  Modèles anciens et de collection : la pièce introuvable ailleurs se trouve
+                  souvent ici.
                 </h2>
                 <p className="mx-auto mt-4 max-w-[40ch] text-center text-sm leading-relaxed text-primary-foreground/75">
-                  Moteurs, boîtes, optiques, carrosserie… tout est démonté et contrôlé avant la
-                  vente, à une fraction du prix du neuf.
+                  Mécanique, carrosserie, optiques : chaque pièce est contrôlée avant la vente, à
+                  une fraction du prix du neuf.
                 </p>
                 <div className="mt-7 text-center">
                   <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
@@ -211,7 +216,7 @@ export default function Accueil() {
               <p className="pac-eyebrow text-white/80">Le comptoir</p>
             </Reveal>
             <h2 id="t-comptoir" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
-              <SplitText text="La même adresse depuis 1992. Vous tombez sur quelqu'un qui connaît les voitures et le stock, pas sur un répondeur." />
+              <SplitText text="Au même endroit depuis 1992 : le démontage, le contrôle et la vente de pièces automobiles, pour les particuliers comme pour les professionnels." />
             </h2>
             <Reveal delay={0.3}>
               <div className="mt-8">
@@ -226,13 +231,13 @@ export default function Accueil() {
       <section aria-labelledby="t-reemploi" className="bg-primary py-24 text-primary-foreground sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-primary-foreground/70">Le réemploi</p>
+            <p className="pac-eyebrow text-primary-foreground/70">Réemploi</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-            <SplitText text="Dans une voiture, presque tout se récupère." />
+            <SplitText text="Près de 85 % d'une automobile est réutilisable." />
             <br />
             <span className="text-accent">
-              <SplitText text="Moins cher pour vous, moins de gâchis." delay={0.4} />
+              <SplitText text="Un choix économique et responsable." delay={0.4} />
             </span>
           </h2>
           <Reveal delay={0.5}>
@@ -267,18 +272,18 @@ export default function Accueil() {
                 alt: "Roue et pneu d'un véhicule en cours de démontage",
                 titre: "Enlèvement d'épaves",
                 texte:
-                  "Une voiture qui ne roule plus ? On vient la chercher dans l'est du Var, on la dépollue et on la recycle.",
+                  "Enlèvement, dépollution et recyclage des véhicules hors d'usage dans l'est du Var.",
                 href: "/enlevement-epave",
-                label: "Comment ça se passe",
+                label: "En savoir plus",
               },
               {
                 image: "/img/compteur-900.webp",
                 alt: "Compteur de vitesse en gros plan, aiguille au repos",
                 titre: "Rachat de véhicules",
                 texte:
-                  "Selon le véhicule et son état, on peut aussi le racheter. Pas toujours, ça se regarde au cas par cas. Un appel ou un passage suffit pour savoir.",
+                  "Selon le véhicule et son état, un rachat peut être proposé. L'évaluation se fait au comptoir ou par téléphone.",
                 href: "/contact",
-                label: "Nous joindre",
+                label: "Nous contacter",
               },
             ].map((carte, i) => (
               <Reveal key={carte.titre} delay={i * 0.1} className="h-full">
@@ -311,12 +316,12 @@ export default function Accueil() {
         <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
           <div className="text-center">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">En pratique</p>
+              <p className="pac-eyebrow text-muted-foreground">Clientèle</p>
             </Reveal>
             <h2 id="t-vision" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-              <SplitText text="Un coup de fil" />{" "}
+              <SplitText text="Particuliers et professionnels," />{" "}
               <span className="text-muted-foreground">
-                <SplitText text="et vous êtes fixé." delay={0.35} />
+                <SplitText text="au même comptoir." delay={0.35} />
               </span>
             </h2>
           </div>
@@ -326,9 +331,9 @@ export default function Accueil() {
               {
                 image: "/img/vidange-900.webp",
                 alt: "Bidon d'huile neuve versé dans un moteur, capot ouvert",
-                eyebrow: "Au téléphone",
+                eyebrow: "Particuliers",
                 texte:
-                  "Appelez le 04 94 08 15 33 avec la carte grise. On vous dit si on a la pièce et à quel prix, on la met de côté, vous passez la chercher au 25 rue Gay Lussac. CB acceptée, parking devant.",
+                  "Automobilistes du Var : un conseil sur le choix entre neuf et occasion, adapté au véhicule et au budget, et un retrait au comptoir.",
                 href: NAP.telephoneHref,
                 label: "Appeler le comptoir",
               },
@@ -337,7 +342,7 @@ export default function Accueil() {
                 alt: "Mécanicien au travail dans l'atelier, en discussion devant un véhicule",
                 eyebrow: "Professionnels",
                 texte:
-                  "Garagistes, carrossiers, mécaniciens : beaucoup d'ateliers du Var travaillent avec nous depuis des années. On connaît vos délais et on répond vite, référence en main.",
+                  "Garages et carrosseries du Var s'approvisionnent chez P.A.C. de longue date. Le comptoir tient compte des contraintes d'atelier et répond référence en main.",
                 href: "/contact",
                 label: "Contact & accès",
               },
@@ -372,10 +377,10 @@ export default function Accueil() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div>
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Questions fréquentes</p>
+              <p className="pac-eyebrow text-muted-foreground">FAQ</p>
             </Reveal>
             <h2 id="t-faq" className="mt-5 max-w-[14ch] text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
-              <SplitText text="Les questions qu'on nous pose." />
+              <SplitText text="Les questions les plus fréquentes." />
             </h2>
           </div>
           <Reveal delay={0.15}>

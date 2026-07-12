@@ -11,11 +11,10 @@ export default function NotFound() {
         404
       </p>
       <h1 className="mt-4 max-w-[22ch] text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-[-0.02em]">
-        Cette pièce n&apos;est pas au catalogue.
+        Page introuvable.
       </h1>
       <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-        Cette page n&apos;existe pas ou a changé d&apos;adresse. Le comptoir, lui, n&apos;a pas
-        bougé.
+        Cette page n&apos;existe pas ou a changé d&apos;adresse.
       </p>
       <div className="mt-9 flex flex-wrap gap-4">
         <Button asChild className="h-12 rounded-full bg-primary px-6 text-base font-bold text-primary-foreground hover:bg-primary/85">

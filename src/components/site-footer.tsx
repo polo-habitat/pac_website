@@ -56,7 +56,7 @@ export function SiteFooter() {
             <div className="md:justify-self-end">
               <p className="pac-eyebrow text-muted-foreground">Besoin d&apos;une pièce ?</p>
               <p className="mt-5 max-w-[26ch] text-xl font-semibold leading-snug tracking-[-0.01em]">
-                Un coup de fil, et on vous dit si on a la pièce et à quel prix.
+                Un appel suffit pour vérifier une disponibilité et obtenir un prix.
               </p>
               <a
                 href={NAP.telephoneHref}

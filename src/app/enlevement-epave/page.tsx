@@ -25,10 +25,10 @@ export const metadata: Metadata = {
 };
 
 const ETAPES = [
-  ["Vous appelez", "au 04 94 08 15 33. Dites-nous la marque, le modèle, l'état et où se trouve la voiture."],
-  ["On fixe un rendez-vous", "et on vous dit quels papiers préparer : carte grise, pièce d'identité et certificat de situation administrative."],
-  ["On enlève et on dépollue", "batterie, fluides, pneus : tout ce qui est polluant est retiré et traité comme il faut."],
-  ["On garde ce qui ressert", "les pièces encore bonnes rejoignent le stock, le reste part au recyclage."],
+  ["Prise de contact", "Appelez le 04 94 08 15 33 en précisant la marque, le modèle, l'état et le lieu de stationnement."],
+  ["Rendez-vous", "Une date d'enlèvement est fixée et les documents à réunir vous sont indiqués : carte grise, pièce d'identité, certificat de situation administrative."],
+  ["Enlèvement et dépollution", "Le véhicule est enlevé puis dépollué : batterie, fluides, pneumatiques et éléments dangereux sont extraits et traités."],
+  ["Recyclage", "Les pièces réutilisables rejoignent le stock ; le reste est orienté vers le recyclage matière."],
 ] as const;
 
 export default function EnlevementEpave() {
@@ -46,8 +46,8 @@ export default function EnlevementEpave() {
       />
       <PageBanner
         fil="Épaves & recyclage"
-        titre="Votre épave, on vient la chercher."
-        chapo="Une voiture qui ne roule plus doit être confiée à un centre agréé VHU, c'est la loi. On vient la chercher dans l'est du Var, on la dépollue et on la démonte pour le recyclage."
+        titre="Enlèvement d'épaves dans l'est du Var."
+        chapo="Un véhicule hors d'usage doit être confié à un centre agréé VHU. P.A.C. prend en charge l'enlèvement dans l'est du Var, la dépollution et le recyclage."
         action={<PhonePill label="Organiser un enlèvement" />}
       />
 
@@ -77,8 +77,8 @@ export default function EnlevementEpave() {
           </ol>
           <Reveal>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Une fois le véhicule traité, il est sorti du fichier des immatriculations. Vous
-              n&apos;avez plus rien à gérer : ni assurance, ni fourrière, ni amende.
+              Une fois le véhicule traité, il est retiré du fichier des immatriculations. Vous
+              n&apos;êtes plus redevable de rien : ni assurance, ni fourrière, ni amende.
             </p>
           </Reveal>
 
@@ -89,34 +89,33 @@ export default function EnlevementEpave() {
           </Reveal>
           <Reveal>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Selon le véhicule et son état, on peut aussi vous le racheter. Ce n&apos;est pas
-              automatique, chaque cas est différent. Appelez le{" "}
+              Selon le véhicule et son état, un rachat peut être proposé. Cette évaluation
+              n&apos;est pas systématique. Contactez le{" "}
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                 04 94 08 15 33
               </a>{" "}
-              ou passez au comptoir, 25 rue Gay Lussac à La Farlède, on vous répond rapidement.
+              ou le comptoir du 25 rue Gay Lussac à La Farlède.
             </p>
           </Reveal>
 
           <Reveal>
             <h2 className="mt-14 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
-              Pourquoi c&apos;est utile
+              L&apos;intérêt du recyclage
             </h2>
           </Reveal>
           <Reveal>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Une voiture, c&apos;est environ 85 % de matière qui se récupère : métaux, verre,
-              plastiques, et surtout des dizaines de pièces encore en état de marche. Bien traité,
-              chaque véhicule évite de la pollution et remet des pièces d&apos;occasion en
-              circulation dans le Var.
+              Une automobile est composée à près de 85 % de matières valorisables : métaux, verre,
+              plastiques, ainsi que de nombreuses pièces en état de marche. Un traitement conforme
+              limite la pollution et alimente la filière d&apos;occasion locale.
             </p>
           </Reveal>
         </div>
       </section>
 
       <CtaPanel
-        titre="Une épave à enlever dans l'est varois ?"
-        texte="La Farlède, Toulon, La Garde, La Valette, Solliès, La Crau, Cuers, Hyères : un appel et c'est réglé."
+        titre="Un véhicule hors d'usage à faire enlever ?"
+        texte="Intervention sur La Farlède, Toulon, La Garde, La Valette, Solliès, La Crau, Cuers, Hyères et l'ensemble de l'est varois."
         image="/img/atelier-900.webp"
         alt="Véhicule pris en charge en atelier, capot ouvert sur le pont"
       />

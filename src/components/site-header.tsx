@@ -36,6 +36,10 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", surScroll);
   }, []);
 
+  // En haut de l'accueil, l'en-tête flotte sur l'image sombre du hero :
+  // logo et liens passent en blanc pour rester lisibles.
+  const surHero = pathname === "/" && !replie;
+
   return (
     <header className="pac-nav-entree fixed inset-x-0 top-0 z-50">
       <div className="relative mx-auto flex h-20 max-w-[100rem] items-center px-4 sm:h-24 sm:px-7">
@@ -171,6 +175,7 @@ export function SiteHeader() {
             className={cn(
               "hidden transition-all duration-500 md:block",
               replie ? "-translate-y-2 opacity-0" : "pointer-events-auto",
+              surHero && "text-white",
             )}
           >
             <ul className="flex items-center gap-7">
@@ -202,6 +207,7 @@ export function SiteHeader() {
               className={cn(
                 "font-wide text-xl font-extrabold tracking-tight transition-all duration-500",
                 replie && "scale-50 opacity-0",
+                surHero && "text-white",
               )}
             >
               P.A.C.
@@ -223,6 +229,7 @@ export function SiteHeader() {
             className={cn(
               "hidden transition-all duration-500 md:block",
               replie ? "-translate-y-2 opacity-0" : "pointer-events-auto",
+              surHero && "text-white",
             )}
           >
             <ul className="flex items-center gap-7">
