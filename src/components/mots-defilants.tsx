@@ -12,7 +12,10 @@ export function MotsDefilants({ mots }: { mots: readonly string[] }) {
   const [pause, setPause] = useState(false);
 
   return (
-    <div className="relative flex-1">
+    // Hauteur FIXE : la fenêtre de défilement clippe la liste (qui peut être
+    // longue et est doublée pour la boucle). Sans hauteur fixe, `overflow-hidden`
+    // ne rogne rien et la carte s'étire à l'infini.
+    <div className="relative h-56 sm:h-64">
       <div
         className="pac-mots h-full overflow-hidden"
         data-pause={pause}

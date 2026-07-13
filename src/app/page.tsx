@@ -143,7 +143,7 @@ export default function Accueil() {
       </section>
 
       {/* ================= NOTRE HISTOIRE : image qui s'élargit + texte ================= */}
-      <section aria-labelledby="t-histoire" className="overflow-x-clip bg-background py-24 sm:py-36">
+      <section aria-labelledby="t-histoire" className="overflow-x-clip bg-background py-16 sm:py-24">
         <div className="mx-auto grid max-w-[100rem] items-center gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:gap-20">
           <div className="pac-grandit relative aspect-[4/3] overflow-hidden md:aspect-[5/4]">
             <div className="pac-zoom absolute inset-0">
@@ -164,12 +164,10 @@ export default function Accueil() {
               <SplitText text="Plus de trente ans au service des particuliers et des professionnels." />
             </h2>
             <Reveal delay={0.25}>
-              <p className="mt-6 max-w-[52ch] leading-relaxed text-muted-foreground">
-                Fondée en 1992, P.A.C. Pièces Auto Cass accompagne les particuliers et les
-                professionnels dans la recherche et la fourniture de pièces détachées automobiles.
-                Implantée à La Farlède, l&apos;entreprise a construit au fil des années une
-                connaissance fine du secteur et un réseau de partenaires permettant de répondre à des
-                demandes variées, y compris les plus spécifiques.
+              <p className="mt-6 max-w-[50ch] leading-relaxed text-muted-foreground">
+                Fondée en 1992 à La Farlède, P.A.C. accompagne particuliers et professionnels
+                dans la recherche de pièces détachées — avec une connaissance fine du secteur et
+                un réseau de partenaires pour les demandes les plus spécifiques.
               </p>
             </Reveal>
           </div>
@@ -188,24 +186,22 @@ export default function Accueil() {
         </div>
         <div className="mx-auto grid max-w-[100rem] gap-3 sm:gap-4 md:grid-cols-2">
           <Reveal className="h-full">
-            <article className="flex h-full min-h-[34rem] flex-col rounded-[32px] bg-sable p-8 sm:p-10">
+            <article className="flex h-full min-h-[22rem] flex-col rounded-[28px] bg-sable p-7 sm:p-9">
               <p className="pac-eyebrow text-center text-muted-foreground">Pièces neuves</p>
-              <div className="my-8 flex min-h-72 flex-1 flex-col">
+              <div className="my-6 flex flex-1 flex-col justify-center">
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
               </div>
-              <p className="mx-auto max-w-[40ch] text-center text-sm leading-relaxed text-muted-foreground">
-                L&apos;essentiel de l&apos;activité : la fourniture de pièces neuves, toutes marques
-                et tous modèles, pour l&apos;entretien courant comme pour les réparations plus
-                importantes.
+              <p className="mx-auto max-w-[36ch] text-center text-sm leading-relaxed text-muted-foreground">
+                Toutes marques, tous modèles — de l&apos;entretien courant aux grosses réparations.
               </p>
-              <div className="mt-7 text-center">
+              <div className="mt-6 text-center">
                 <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
               </div>
             </article>
           </Reveal>
 
           <Reveal delay={0.12} className="h-full">
-            <article className="relative flex h-full min-h-[34rem] flex-col overflow-hidden rounded-[32px] bg-primary p-8 text-primary-foreground sm:p-10">
+            <article className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[28px] bg-primary p-7 text-primary-foreground sm:p-9">
               <div className="absolute inset-0">
                 <Image
                   src={asset("/img/courroie-900.webp")}
@@ -214,21 +210,17 @@ export default function Accueil() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover opacity-55"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-primary/40" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-primary/40" aria-hidden="true" />
               </div>
               <div className="relative flex flex-1 flex-col">
-                <p className="pac-eyebrow text-center text-primary-foreground/80">
-                  Pièces d&apos;occasion
-                </p>
-                <h3 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
-                  Véhicules anciens et de collection : la référence introuvable en neuf se trouve
-                  souvent ici.
+                <p className="pac-eyebrow text-primary-foreground/80">Pièces d&apos;occasion</p>
+                <h3 className="mt-auto max-w-[20ch] text-[clamp(1.5rem,2.4vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
+                  La référence introuvable en neuf se trouve souvent ici.
                 </h3>
-                <p className="mx-auto mt-4 max-w-[42ch] text-center text-sm leading-relaxed text-primary-foreground/75">
-                  Des pièces d&apos;occasion pour les modèles dont certaines références ne sont plus
-                  disponibles en neuf. Chaque pièce est contrôlée avant la vente.
+                <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-primary-foreground/75">
+                  Véhicules anciens et de collection. Chaque pièce est contrôlée avant la vente.
                 </p>
-                <div className="mt-7 text-center">
+                <div className="mt-6">
                   <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
                 </div>
               </div>
@@ -238,7 +230,7 @@ export default function Accueil() {
       </section>
 
       {/* ================= PLAQUE SOMBRE : réemploi & rachat ================= */}
-      <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-24 bg-primary py-24 text-primary-foreground sm:mt-36 sm:py-36">
+      <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-16 bg-primary py-16 text-primary-foreground sm:mt-24 sm:py-24">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
             <p className="pac-eyebrow text-primary-foreground/70">Réemploi &amp; rachat</p>
@@ -256,7 +248,7 @@ export default function Accueil() {
             </div>
           </Reveal>
 
-          <dl className="mx-auto mt-20 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          <dl className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {[
               { valeur: <><Counter value={34} /> ans</>, legende: "de métier au même endroit" },
               { valeur: <>1992</>, legende: "année de création de la maison" },
@@ -275,7 +267,7 @@ export default function Accueil() {
             ))}
           </dl>
 
-          <div className="mt-20 grid gap-10 text-left md:grid-cols-2 md:gap-6 lg:px-16">
+          <div className="mt-16 grid gap-10 text-left md:grid-cols-2 md:gap-6 lg:px-16">
             {[
               {
                 image: "/img/roue-900.webp",
@@ -323,7 +315,7 @@ export default function Accueil() {
 
       {/* ================= PLAQUE SABLE : au-delà du stock —
           réseau de partenaires + pièces sur commande ================= */}
-      <section aria-labelledby="t-ressources" className="bg-sable py-24 sm:py-36">
+      <section aria-labelledby="t-ressources" className="bg-sable py-16 sm:py-24">
         <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
           <div className="text-center">
             <Reveal y={16}>
@@ -364,8 +356,8 @@ export default function Accueil() {
       </section>
 
       {/* ================= PLEINE PAGE : notre fonctionnement ================= */}
-      <section aria-labelledby="t-fonctionnement" className="mt-24 sm:mt-36">
-        <div data-nav="dark" className="relative flex min-h-[92vh] items-center overflow-hidden">
+      <section aria-labelledby="t-fonctionnement" className="mt-16 sm:mt-24">
+        <div data-nav="dark" className="relative flex min-h-[68vh] items-center overflow-hidden">
           <div className="pac-zoom absolute inset-0">
             <Image
               src={asset("/img/atelier-900.webp")}
@@ -376,7 +368,7 @@ export default function Accueil() {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" aria-hidden="true" />
-          <div className="relative mx-auto w-full max-w-[100rem] px-5 py-24 sm:px-10">
+          <div className="relative mx-auto w-full max-w-[100rem] px-5 py-20 sm:px-10">
             <Reveal y={16}>
               <p className="pac-eyebrow text-white/80">Notre fonctionnement</p>
             </Reveal>
@@ -399,7 +391,7 @@ export default function Accueil() {
       </section>
 
       {/* ================= FAQ : rangées façon journal ================= */}
-      <section aria-labelledby="t-faq" className="mx-auto max-w-[100rem] px-5 py-24 sm:px-10 sm:py-36">
+      <section aria-labelledby="t-faq" className="mx-auto max-w-[100rem] px-5 py-16 sm:px-10 sm:py-24">
         <div className="grid gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div>
             <Reveal y={16}>

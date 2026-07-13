@@ -11,7 +11,7 @@ import { asset, NAP, NAV, SECTEUR } from "@/lib/site";
  */
 export function SiteFooter() {
   return (
-    <footer className="mt-28 bg-primary text-primary-foreground">
+    <footer className="mt-20 bg-primary text-primary-foreground">
       <div className="px-3 pt-3">
         <div className="mx-auto max-w-[100rem] rounded-[28px] bg-background p-8 text-foreground sm:p-12">
           <div className="grid gap-10 md:grid-cols-[1fr_1fr_1.2fr]">
@@ -48,9 +48,11 @@ export function SiteFooter() {
                 <br />
                 Lun–ven 8h–12h · 14h–18h
                 <br />
-                Fax {NAP.fax}
+                Tél {NAP.telephone}
               </address>
-              <p className="mt-4 text-muted-foreground">{SECTEUR}</p>
+              {/* Secteur d'intervention : présent pour le référencement local
+                  mais masqué visuellement (demande cliente, 13/07/2026). */}
+              <p className="sr-only">{SECTEUR}</p>
             </div>
 
             <div className="md:justify-self-end">
