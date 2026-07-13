@@ -71,12 +71,13 @@ export function SiteFooter() {
           </div>
 
           <Separator className="my-8" />
-          <div className="flex flex-col gap-2 text-xs text-muted-foreground sm:flex-row sm:justify-between">
+          <div className="text-xs text-muted-foreground">
+            {/* Crédit photos déplacé dans les mentions légales (§ Propriété
+                intellectuelle) — plus affiché ici (demande cliente). */}
             <span>
               Casse automobile et pièces détachées neuves et d&apos;occasion à La Farlède,
               depuis 1992.
             </span>
-            <span>Photos d&apos;illustration : Unsplash</span>
           </div>
         </div>
       </div>
