@@ -38,7 +38,7 @@ export function SiteFooter() {
             </nav>
 
             <div className="text-sm leading-relaxed">
-              <p className="pac-eyebrow text-muted-foreground">Le comptoir</p>
+              <p className="pac-eyebrow text-muted-foreground">Pièces Auto Cass</p>
               <address className="mt-5 not-italic leading-relaxed text-muted-foreground">
                 <b className="text-foreground">{NAP.nom}</b>
                 <br />
