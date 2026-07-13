@@ -125,29 +125,15 @@ export default function Contact() {
       </section>
 
       {WEB3FORMS_ACCESS_KEY ? (
-      <section aria-labelledby="t-ecrire" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">
-        <div className="grid gap-10 md:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <Reveal>
-              <p className="pac-eyebrow text-muted-foreground">Écrire au comptoir</p>
-            </Reveal>
-            <Reveal>
-              <h2 id="t-ecrire" className="mt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
-                Vous préférez écrire ?
-              </h2>
-            </Reveal>
-            <Reveal>
-              <p className="mt-4 max-w-[42ch] leading-relaxed text-muted-foreground">
-                Tout le monde n&apos;a pas envie d&apos;appeler. Laissez votre demande ici et le
-                comptoir vous répond par e-mail. Pour une réponse immédiate, le téléphone reste
-                le plus direct.
-              </p>
-            </Reveal>
-          </div>
-          <Reveal delay={0.1}>
+      <section aria-labelledby="t-ecrire" className="mx-auto max-w-3xl px-5 pb-14 sm:pb-20">
+        <Reveal>
+          <h2 id="t-ecrire" className="pac-eyebrow text-muted-foreground">Écrire au comptoir</h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="mt-5">
             <ContactForm />
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
       </section>
       ) : null}
 
