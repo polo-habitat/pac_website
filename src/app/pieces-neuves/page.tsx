@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
 import { PhonePill } from "@/components/phone-pill";
-import { asset, NAP, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { asset, SITE_URL, sousPageJsonLd } from "@/lib/site";
 
 const TITRE = "Pièces auto neuves au tarif comptoir · P.A.C. La Farlède";
 const DESCRIPTION =
@@ -129,33 +129,19 @@ export default function PiecesNeuves() {
 
         <div className="mt-14 max-w-[68ch] space-y-5 leading-relaxed text-muted-foreground">
           <Reveal>
-            <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Neuf ou occasion : le bon choix pièce par pièce
-            </h2>
-          </Reveal>
-          <Reveal>
             <p>
-              Le principe est constant : les pièces de sécurité et d&apos;usure (freinage,
-              distribution, filtration) se posent en neuf ; les pièces de structure et
-              d&apos;équipement (moteur, boîte, carrosserie, optiques, sellerie) se trouvent en
-              occasion contrôlée, à un coût nettement inférieur. Le comptoir oriente vers
-              l&apos;option la plus adaptée au véhicule et au budget.
+              La fourniture de pièces détachées neuves constitue l&apos;activité principale de
+              l&apos;établissement. Le stock disponible couvre les besoins d&apos;entretien
+              courant, de mécanique et de carrosserie pour le parc automobile contemporain.
             </p>
           </Reveal>
           <Reveal>
-            <h2 className="pt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Commande et retrait
-            </h2>
-          </Reveal>
-          <Reveal>
             <p>
-              Appelez le{" "}
-              <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
-                04 94 08 15 33
-              </a>{" "}
-              avec la carte grise ou la référence constructeur. Le prix et le délai sont
-              communiqués immédiatement ; la plupart des références sont disponibles au comptoir
-              sous 24 à 48 heures ouvrées.
+              La distribution s&apos;effectue exclusivement au comptoir. Ce processus impose une
+              vérification systématique des références et des spécifications techniques avant
+              toute remise de matériel. En cas d&apos;indisponibilité immédiate d&apos;une
+              référence, les relations établies avec un réseau de fournisseurs professionnels
+              permettent un approvisionnement sur commande dans des délais restreints.
             </p>
           </Reveal>
         </div>

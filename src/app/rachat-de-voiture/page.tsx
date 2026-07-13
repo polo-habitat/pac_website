@@ -55,8 +55,25 @@ export default function RachatDeVoiture() {
 
       <section className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
         <div className="max-w-[70ch]">
+          <div className="space-y-5 leading-relaxed text-muted-foreground">
+            <Reveal>
+              <p>
+                L&apos;entreprise étudie les opportunités d&apos;acquisition de véhicules. Cette
+                activité demeure sélective et s&apos;opère de manière stricte au cas par cas.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p>
+                L&apos;évaluation repose sur une analyse technique approfondie du modèle présenté
+                et dépend directement des besoins en approvisionnement de l&apos;établissement. Il
+                n&apos;existe pas de procédure de reprise systématique. Les propositions
+                d&apos;acquisition sont formulées uniquement à l&apos;issue d&apos;une expertise
+                physique du véhicule.
+              </p>
+            </Reveal>
+          </div>
           <Reveal>
-            <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
+            <h2 className="mt-12 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
               Comment se passe le rachat
             </h2>
           </Reveal>

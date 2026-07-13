@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
 import { PhonePill } from "@/components/phone-pill";
-import { asset, NAP, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { asset, SITE_URL, sousPageJsonLd } from "@/lib/site";
 
 const TITRE = "Pièces auto d'occasion vérifiées · P.A.C. La Farlède (Var)";
 const DESCRIPTION =
@@ -90,53 +90,19 @@ export default function PiecesOccasion() {
 
         <div className="mt-14 max-w-[68ch] space-y-5 leading-relaxed text-muted-foreground">
           <Reveal>
-            <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Anciens modèles et véhicules de collection
-            </h2>
-          </Reveal>
-          <Reveal>
             <p>
-              C&apos;est l&apos;atout d&apos;une casse établie : des pièces qui ne sont plus
-              fabriquées restent disponibles pour les modèles anciens et de collection. Optiques,
-              poignées, moteurs, garnitures d&apos;origine passent régulièrement en stock.
-              Collectionneurs et restaurateurs peuvent communiquer une référence ou une carte
-              grise ; la recherche est étendue aux confrères si nécessaire.
-            </p>
-          </Reveal>
-          <Reveal>
-            <h2 className="pt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              L&apos;intérêt de l&apos;occasion professionnelle
-            </h2>
-          </Reveal>
-          <Reveal>
-            <p>
-              Un véhicule hors d&apos;usage comporte de nombreuses pièces encore fonctionnelles.
-              Le rôle d&apos;une casse est de les identifier, de les démonter et de les contrôler
-              avant revente. Le prix ne comprend que la pièce. Une pièce réutilisée est par
-              ailleurs une pièce qui n&apos;a pas à être fabriquée.
+              Le département des pièces d&apos;occasion est spécifiquement orienté vers les anciens
+              modèles et les véhicules de collection.
             </p>
           </Reveal>
           <Reveal>
             <p>
-              Depuis 2017, les réparateurs sont tenus de proposer des pièces d&apos;occasion pour
-              une part importante des réparations (article L.224-67 du Code de la consommation).
-              Les professionnels du Var s&apos;approvisionnent chez P.A.C. de longue date.
-            </p>
-          </Reveal>
-          <Reveal>
-            <h2 className="pt-4 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em] text-foreground">
-              Vérifier une disponibilité
-            </h2>
-          </Reveal>
-          <Reveal>
-            <p>
-              Le stock évolue quotidiennement. Appelez le{" "}
-              <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
-                04 94 08 15 33
-              </a>{" "}
-              (lundi au vendredi, 8h–12h et 14h–18h) muni de la carte grise. Le véhicule est
-              identifié, la pièce vérifiée, l&apos;état et le prix communiqués, et la pièce
-              réservée à votre nom.
+              Cette sélection vise à répondre aux exigences de restauration et de maintien en
+              circulation des automobiles classiques. Les pièces disponibles au comptoir
+              proviennent d&apos;un inventaire ciblé et font l&apos;objet d&apos;un contrôle
+              technique strict préalable à la distribution. Tout comme pour le matériel neuf,
+              l&apos;identification des pièces requiert une analyse directe pour garantir
+              l&apos;intégrité et la compatibilité de chaque élément.
             </p>
           </Reveal>
         </div>
@@ -144,7 +110,7 @@ export default function PiecesOccasion() {
 
       <CtaPanel
         titre="La pièce est peut-être déjà en stock."
-        texte="Un appel suffit pour le vérifier, aux heures d'ouverture du comptoir."
+        texte="Un appel suffit pour le vérifier, aux heures d'ouverture du comptoir. N'hésitez pas à contacter Pièces Auto Cass : ils auront peut-être votre pièce."
         image="/img/atelier-900.webp"
         alt="Atelier avec véhicule capot ouvert sur un pont élévateur"
       />
