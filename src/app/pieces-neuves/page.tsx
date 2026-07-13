@@ -49,6 +49,8 @@ export default function PiecesNeuves() {
       <PageBanner
         fil="Pièces neuves"
         titre="Pièces détachées neuves."
+        image="/img/hero-neuves-1600.webp"
+        imageAlt="Disque de frein et étrier neufs, en gros plan"
         chapo="Certaines pièces se remplacent nécessairement par du neuf : freinage, filtration, distribution, suspension. P.A.C. les commande pour votre véhicule, sans la marge d'un réseau constructeur."
         action={<PhonePill label="Demander un tarif" />}
       />

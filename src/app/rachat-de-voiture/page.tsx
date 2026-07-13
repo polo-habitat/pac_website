@@ -47,6 +47,8 @@ export default function RachatDeVoiture() {
       <PageBanner
         fil="Rachat de voiture"
         titre="Rachat de voiture dans l'est du Var."
+        image="/img/hero-rachat-1600.webp"
+        imageAlt="Ancienne berline garée le long d'un mur de pierre"
         chapo="Selon le modèle et son état, P.A.C. peut racheter votre voiture. L'évaluation se fait au comptoir de La Farlède ou par téléphone ; elle n'est pas systématique."
         action={<PhonePill label="Faire évaluer un véhicule" />}
       />

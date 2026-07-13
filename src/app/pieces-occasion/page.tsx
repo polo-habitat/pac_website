@@ -50,6 +50,8 @@ export default function PiecesOccasion() {
       <PageBanner
         fil="Pièces d'occasion"
         titre="Pièces détachées d'occasion contrôlées."
+        image="/img/hero-occasion-1600.webp"
+        imageAlt="Voitures anciennes et de collection réunies dans un garage"
         chapo="Une pièce d'occasion contrôlée coûte généralement 40 à 70 % de moins qu'une pièce neuve en concession. Chaque pièce est démontée, contrôlée et référencée avant la vente."
         action={<PhonePill label="Vérifier une disponibilité" />}
       />

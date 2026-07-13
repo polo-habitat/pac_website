@@ -43,6 +43,8 @@ export default function Contact() {
       <PageBanner
         fil="Contact & accès"
         titre="Nous contacter."
+        image="/img/hero-contact-1600.webp"
+        imageAlt="Mécanicien à l'établi dans l'atelier"
         chapo="Pour une pièce précise, un appel préalable permet de vérifier la disponibilité, d'obtenir le prix et de réserver la pièce à votre nom."
       />
 
