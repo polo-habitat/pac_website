@@ -26,13 +26,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "P.A.C. · La bonne pièce au bon prix · La Farlède (Var)",
     description:
-      "Pièces auto neuves et d'occasion depuis 1992. Enlèvement d'épaves, recyclage VHU. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
+      "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves, pièces d'occasion pour véhicules anciens et de collection, rachat de véhicules. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
     url: `${SITE_URL}/`,
   },
   twitter: {
     title: "P.A.C. · La bonne pièce au bon prix · La Farlède (Var)",
     description:
-      "Pièces auto neuves et d'occasion depuis 1992 à La Farlède. Tél 04 94 08 15 33.",
+      "Pièces détachées automobiles neuves et d'occasion depuis 1992 à La Farlède. Tél 04 94 08 15 33.",
   },
 };
 
@@ -62,8 +62,8 @@ export default function Accueil() {
       <JsonLd data={webSiteJsonLd} />
       <JsonLd data={faqPageJsonLd} />
 
-      {/* ================= HERO : image automobile plein cadre,
-          voile sombre, titre sobre centré par-dessus ================= */}
+      {/* ================= HERO / ACCROCHE : image automobile plein cadre,
+          voile sombre, slogan sobre centré par-dessus ================= */}
       <section aria-label="Présentation" data-nav="dark" className="relative flex min-h-[100svh] items-center overflow-hidden">
         <div className="pac-zoom absolute inset-0">
           <Image
@@ -88,39 +88,39 @@ export default function Accueil() {
         <div className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-32 text-center">
           <Reveal y={12}>
             <p className="pac-eyebrow text-white/70">
-              Casse automobile · La Farlède depuis 1992
+              Pièces détachées automobiles · La Farlède depuis 1992
             </p>
           </Reveal>
           <h1 className="mt-6 text-[clamp(2.4rem,5.8vw,4.8rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
-            <SplitText text="Pièces détachées automobiles," delay={0.15} />
+            <SplitText text="La bonne pièce" delay={0.15} />
             <br />
-            <SplitText text="neuves et d'occasion." delay={0.55} />
+            <SplitText text="au bon prix." delay={0.5} />
           </h1>
-          <Reveal delay={0.95} y={20}>
-            <p className="mx-auto mt-7 max-w-[46ch] text-lg leading-relaxed text-white/80">
-              Pour voitures et utilitaires, au comptoir de la ZI Toulon Est.
+          <Reveal delay={0.9} y={20}>
+            <p className="mx-auto mt-7 max-w-[52ch] text-lg leading-relaxed text-white/80">
+              Vente au comptoir de pièces neuves, de pièces d&apos;occasion pour véhicules anciens
+              et de collection, et rachat de véhicules sur étude de dossier.
             </p>
           </Reveal>
-          <Reveal delay={1.1} y={16}>
+          <Reveal delay={1.05} y={16}>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <CtaPill href={NAP.telephoneHref}>Appeler le {NAP.telephone}</CtaPill>
-              <CtaPill href="#gammes" tone="blanche">
-                Voir les pièces
+              <CtaPill href="#activites" tone="blanche">
+                Nos activités
               </CtaPill>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ================= UNE MEILLEURE FAÇON : image qui s'élargit
-          + grand texte à droite ================= */}
-      <section aria-labelledby="t-methode" className="overflow-x-clip bg-background py-24 sm:py-36">
+      {/* ================= NOTRE HISTOIRE : image qui s'élargit + texte ================= */}
+      <section aria-labelledby="t-histoire" className="overflow-x-clip bg-background py-24 sm:py-36">
         <div className="mx-auto grid max-w-[100rem] items-center gap-12 px-5 sm:px-10 md:grid-cols-[1.1fr_1fr] md:gap-20">
           <div className="pac-grandit relative aspect-[4/3] overflow-hidden md:aspect-[5/4]">
             <div className="pac-zoom absolute inset-0">
               <Image
                 src={asset("/img/equipe-900.webp")}
-                alt="Mécanicien souriant devant un véhicule capot ouvert, en atelier"
+                alt="Mécanicien devant un véhicule capot ouvert, en atelier"
                 fill
                 sizes="(max-width: 768px) 100vw, 55vw"
                 className="object-cover"
@@ -129,31 +129,34 @@ export default function Accueil() {
           </div>
           <div className="md:pr-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Fonctionnement</p>
+              <p className="pac-eyebrow text-muted-foreground">Notre histoire</p>
             </Reveal>
-            <h2 id="t-methode" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
-              <SplitText text="Pas de vente en ligne. Une pièce se demande par téléphone et se retire au comptoir." />
+            <h2 id="t-histoire" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
+              <SplitText text="Plus de trente ans au service des particuliers et des professionnels." />
             </h2>
             <Reveal delay={0.25}>
-              <p className="mt-6 max-w-[48ch] leading-relaxed text-muted-foreground">
-                Le comptoir répond au{" "}
-                <a
-                  href={NAP.telephoneHref}
-                  className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
-                >
-                  {NAP.telephone}
-                </a>{" "}
-                du lundi au vendredi. Avec la carte grise ou la référence, la disponibilité,
-                l&apos;état et le prix sont communiqués avant tout déplacement.
+              <p className="mt-6 max-w-[52ch] leading-relaxed text-muted-foreground">
+                Fondée en 1992, P.A.C. Pièces Auto Cass accompagne les particuliers et les
+                professionnels dans la recherche et la fourniture de pièces détachées automobiles.
+                Implantée à La Farlède, l&apos;entreprise a construit au fil des années une
+                connaissance fine du secteur et un réseau de partenaires permettant de répondre à des
+                demandes variées, y compris les plus spécifiques.
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ================= DEUX CARTES : neuves (mots défilants) /
-          occasion & collection (carte sombre) ================= */}
-      <section id="gammes" aria-label="Les gammes" className="scroll-mt-28 px-3 sm:px-4">
+      {/* ================= NOS ACTIVITÉS : pièces neuves / pièces d'occasion ================= */}
+      <section id="activites" aria-labelledby="t-activites" className="scroll-mt-28 px-3 sm:px-4">
+        <div className="mx-auto mb-10 max-w-[100rem] px-2 text-center sm:mb-12">
+          <Reveal y={16}>
+            <p className="pac-eyebrow text-muted-foreground">Nos activités</p>
+          </Reveal>
+          <h2 id="t-activites" className="mx-auto mt-5 max-w-[24ch] text-[clamp(1.7rem,3.4vw,2.8rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
+            <SplitText text="Pièces neuves et pièces d'occasion, toutes marques." />
+          </h2>
+        </div>
         <div className="mx-auto grid max-w-[100rem] gap-3 sm:gap-4 md:grid-cols-2">
           <Reveal className="h-full">
             <article className="flex h-full min-h-[34rem] flex-col rounded-[32px] bg-sable p-8 sm:p-10">
@@ -161,9 +164,10 @@ export default function Accueil() {
               <div className="my-8 flex min-h-72 flex-1 flex-col">
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
               </div>
-              <p className="mx-auto max-w-[38ch] text-center text-sm leading-relaxed text-muted-foreground">
-                Pièces d&apos;usure et de sécurité commandées neuves pour votre véhicule,
-                disponibles au comptoir sous 24 à 48 heures.
+              <p className="mx-auto max-w-[40ch] text-center text-sm leading-relaxed text-muted-foreground">
+                L&apos;essentiel de l&apos;activité : la fourniture de pièces neuves, toutes marques
+                et tous modèles, pour l&apos;entretien courant comme pour les réparations plus
+                importantes.
               </p>
               <div className="mt-7 text-center">
                 <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
@@ -185,15 +189,15 @@ export default function Accueil() {
               </div>
               <div className="relative flex flex-1 flex-col">
                 <p className="pac-eyebrow text-center text-primary-foreground/80">
-                  L&apos;occasion
+                  Pièces d&apos;occasion
                 </p>
-                <h2 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
-                  Modèles anciens et de collection : la pièce introuvable ailleurs se trouve
+                <h3 className="mx-auto mt-auto max-w-[22ch] pt-40 text-center text-[clamp(1.6rem,2.6vw,2.3rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
+                  Véhicules anciens et de collection : la référence introuvable en neuf se trouve
                   souvent ici.
-                </h2>
-                <p className="mx-auto mt-4 max-w-[40ch] text-center text-sm leading-relaxed text-primary-foreground/75">
-                  Mécanique, carrosserie, optiques : chaque pièce est contrôlée avant la vente, à
-                  une fraction du prix du neuf.
+                </h3>
+                <p className="mx-auto mt-4 max-w-[42ch] text-center text-sm leading-relaxed text-primary-foreground/75">
+                  Des pièces d&apos;occasion pour les modèles dont certaines références ne sont plus
+                  disponibles en neuf. Chaque pièce est contrôlée avant la vente.
                 </p>
                 <div className="mt-7 text-center">
                   <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
@@ -204,40 +208,11 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ================= PLEINE PAGE : le comptoir depuis 1992 ================= */}
-      <section aria-labelledby="t-comptoir" className="mt-24 sm:mt-36">
-        <div data-nav="dark" className="relative flex min-h-[92vh] items-center overflow-hidden">
-          <div className="pac-zoom absolute inset-0">
-            <Image
-              src={asset("/img/atelier-900.webp")}
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/25 to-transparent" aria-hidden="true" />
-          <div className="relative mx-auto w-full max-w-[100rem] px-5 py-24 sm:px-10">
-            <Reveal y={16}>
-              <p className="pac-eyebrow text-white/80">Le comptoir</p>
-            </Reveal>
-            <h2 id="t-comptoir" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
-              <SplitText text="Au même endroit depuis 1992 : le démontage, le contrôle et la vente de pièces automobiles, pour les particuliers comme pour les professionnels." />
-            </h2>
-            <Reveal delay={0.3}>
-              <div className="mt-8">
-                <CtaPill href="/contact">Contact &amp; accès</CtaPill>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PLAQUE SOMBRE : réemploi + deux cartes ================= */}
-      <section aria-labelledby="t-reemploi" data-nav="dark" className="bg-primary py-24 text-primary-foreground sm:py-36">
+      {/* ================= PLAQUE SOMBRE : recyclage, rachat & enlèvement ================= */}
+      <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-24 bg-primary py-24 text-primary-foreground sm:mt-36 sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-primary-foreground/70">Réemploi</p>
+            <p className="pac-eyebrow text-primary-foreground/70">Recyclage &amp; rachat</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
             <SplitText text="Près de 85 % d'une automobile est réutilisable." />
@@ -287,7 +262,7 @@ export default function Accueil() {
                 alt: "Compteur de vitesse en gros plan, aiguille au repos",
                 titre: "Rachat de véhicules",
                 texte:
-                  "Selon le véhicule et son état, un rachat peut être proposé. L'évaluation se fait au comptoir ou par téléphone.",
+                  "Étudié au cas par cas, selon le modèle, son état et la disponibilité des pièces qu'il peut fournir. Évaluation au comptoir ou par téléphone.",
                 href: "/contact",
                 label: "Nous contacter",
               },
@@ -317,63 +292,79 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ================= PLAQUE SABLE : la méthode + deux cartes ================= */}
-      <section aria-labelledby="t-vision" className="bg-sable py-24 sm:py-36">
+      {/* ================= PLAQUE SABLE : au-delà du stock —
+          réseau de partenaires + pièces sur commande ================= */}
+      <section aria-labelledby="t-ressources" className="bg-sable py-24 sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
           <div className="text-center">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Clientèle</p>
+              <p className="pac-eyebrow text-muted-foreground">Au-delà du stock</p>
             </Reveal>
-            <h2 id="t-vision" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-              <SplitText text="Particuliers et professionnels," />{" "}
+            <h2 id="t-ressources" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
+              <SplitText text="Quand la pièce n'est pas en stock," />{" "}
               <span className="text-muted-foreground">
-                <SplitText text="au même comptoir." delay={0.35} />
+                <SplitText text="la recherche continue." delay={0.35} />
               </span>
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-10 md:grid-cols-2 md:gap-6 lg:px-16">
+          <div className="mt-16 grid gap-4 md:grid-cols-2">
             {[
               {
-                image: "/img/vidange-900.webp",
-                alt: "Bidon d'huile neuve versé dans un moteur, capot ouvert",
-                eyebrow: "Particuliers",
+                eyebrow: "Un réseau de partenaires",
                 texte:
-                  "Automobilistes du Var : un conseil sur le choix entre neuf et occasion, adapté au véhicule et au budget, et un retrait au comptoir.",
-                href: NAP.telephoneHref,
-                label: "Appeler le comptoir",
+                  "Au-delà de notre stock, nous nous appuyons sur un réseau de partenaires constitué au fil des années. Il permet d'élargir le champ des recherches lorsque la pièce demandée n'est pas courante ou concerne un modèle plus rare.",
               },
               {
-                image: "/img/equipe-900.webp",
-                alt: "Mécanicien au travail dans l'atelier, en discussion devant un véhicule",
-                eyebrow: "Professionnels",
+                eyebrow: "Pièces sur commande",
                 texte:
-                  "Garages et carrosseries du Var s'approvisionnent chez P.A.C. de longue date. Le comptoir tient compte des contraintes d'atelier et répond référence en main.",
-                href: "/contact",
-                label: "Contact & accès",
+                  "Lorsqu'une pièce n'est pas disponible en stock, elle peut être commandée. Le délai et la disponibilité sont confirmés au moment de la demande, en fonction de la référence recherchée.",
               },
             ].map((carte, i) => (
               <Reveal key={carte.eyebrow} delay={i * 0.1} className="h-full">
-                <article className="flex h-full flex-col items-center text-center">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] sm:mx-auto sm:w-4/5">
-                    <Image
-                      src={asset(carte.image)}
-                      alt={carte.alt}
-                      fill
-                      sizes="(max-width: 768px) 92vw, 40vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <p className="pac-eyebrow mt-7 text-muted-foreground">{carte.eyebrow}</p>
-                  <p className="mx-auto mt-3 max-w-[46ch] leading-relaxed text-muted-foreground">
+                <article className="flex h-full flex-col rounded-[28px] bg-white p-8 sm:p-10">
+                  <p className="pac-eyebrow text-muted-foreground">{carte.eyebrow}</p>
+                  <p className="mt-5 max-w-[48ch] leading-relaxed text-muted-foreground">
                     {carte.texte}
                   </p>
-                  <CtaPill href={carte.href} tone="noire" className="mt-6 h-10 px-5">
-                    {carte.label}
-                  </CtaPill>
                 </article>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= PLEINE PAGE : notre fonctionnement ================= */}
+      <section aria-labelledby="t-fonctionnement" className="mt-24 sm:mt-36">
+        <div data-nav="dark" className="relative flex min-h-[92vh] items-center overflow-hidden">
+          <div className="pac-zoom absolute inset-0">
+            <Image
+              src={asset("/img/atelier-900.webp")}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" aria-hidden="true" />
+          <div className="relative mx-auto w-full max-w-[100rem] px-5 py-24 sm:px-10">
+            <Reveal y={16}>
+              <p className="pac-eyebrow text-white/80">Notre fonctionnement</p>
+            </Reveal>
+            <h2 id="t-fonctionnement" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
+              <SplitText text="La vente s'effectue exclusivement au comptoir, sans vente en ligne ni libre-service." />
+            </h2>
+            <Reveal delay={0.3}>
+              <p className="mt-6 max-w-[50ch] leading-relaxed text-white/75">
+                Ce fonctionnement permet un contrôle systématique de la pièce remise au client, tant
+                sur la référence que sur son état.
+              </p>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="mt-8">
+                <CtaPill href="/contact">Contact &amp; accès</CtaPill>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -412,12 +403,12 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ================= VENIR AU COMPTOIR ================= */}
+      {/* ================= CONTACT / VENIR AU COMPTOIR ================= */}
       <section id="contact" aria-labelledby="t-contact" className="mx-auto max-w-[100rem] px-5 sm:px-10">
         <div className="grid gap-10 rounded-[32px] bg-sable p-8 sm:p-12 md:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <div>
-              <p className="pac-eyebrow text-muted-foreground">Venir au comptoir</p>
+              <p id="t-contact" className="pac-eyebrow text-muted-foreground">Venir au comptoir</p>
               <a
                 href={NAP.telephoneHref}
                 className="font-wide mt-5 inline-block text-[clamp(1.9rem,5vw,3.7rem)] font-extrabold tracking-tight underline decoration-accent decoration-[0.08em] underline-offset-8 transition-all hover:decoration-[0.14em]"
@@ -445,8 +436,11 @@ export default function Accueil() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-7">
-                <CtaPill href={NAP.mapsUrl}>Itinéraire Google Maps</CtaPill>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <CtaPill href="/contact">Écrire un message</CtaPill>
+                <CtaPill href={NAP.mapsUrl} tone="noire">
+                  Itinéraire Google Maps
+                </CtaPill>
               </div>
             </div>
           </Reveal>
