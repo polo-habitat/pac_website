@@ -57,8 +57,12 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
 - **Tailwind CSS v4 + shadcn/ui** (base radix, préset nova) : Button,
   Card, Badge, Accordion, Sheet (menu mobile), Table, Breadcrumb, Separator
 - **motion** (Framer Motion) pour Counter/Magnetic + **lenis** (défilement
-  inertiel, monté par `src/components/motion/smooth-scroll.tsx`, désactivé
-  sur pointer:coarse ; purement décoratif, aucun contenu n'en dépend)
+  inertiel, monté par `src/components/motion/smooth-scroll.tsx` ; purement
+  décoratif, aucun contenu n'en dépend). ⚠️ Depuis le 13/07/2026 **actif sur
+  TOUS les appareils, tactiles compris** (le garde `pointer: coarse` a été
+  retiré à la demande du client : « forcer les animations sur tous les
+  mobiles/tablettes »). Si le scroll tactile paraît flottant, c'est le
+  point à revoir en premier.
 - Jetons dans `src/app/globals.css` : neutres shadcn réchauffés
   (#fefdfb/#131312/#f5f3ee/#6f6d68) + `--accent`/`--jaune` **#ffd400** +
   `--sable` #f8f2dd. Radius panneaux 28px, pilules rounded-full.
@@ -157,7 +161,11 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
    ⚠️ **En-tête = menu « Métal & Gas »** (site-header.tsx, réf.
    metalandgas.com imposée). Haut de page : **liens verticaux empilés en
    haut à gauche** (capitales, soulignement jaune au survol `.pac-navlink`),
-   blancs sur l'accueil / sombres sur pages claires. **Au défilement** ce
+   à **couleur adaptative comme le hamburger** (état unique `menuBlanc`,
+   13/07/2026) : **blancs** dès qu'une section `data-nav="dark"` est derrière
+   l'en-tête (accueil + toutes les sous-pages à hero photo sombre), **sombres**
+   sinon (mentions légales). Valeur initiale sans flash : blanc partout sauf
+   `/mentions-legales`. **Au défilement** ce
    bloc se transforme (fondu) en **HAMBURGER** qui ouvre un **menu plein
    écran** animé (liens en cascade `.pac-menu-lien`). **CTA tél jaune en
    haut à droite, toujours visible.**
@@ -180,6 +188,18 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
    (« on/vous » proscrits) ni redondant. Le client a rejeté deux passes :
    trop « IA » (marketing/triades), puis trop familière. Voir aussi
    [[reduced-motion-windows]] / [[renderer-gele-css-only]].
+   ⚠️ **Sous-pages à hero photo plein cadre** (13/07/2026) : `PageBanner`
+   accepte `image`/`imageAlt` et bascule alors en hero sombre identique à
+   l'accueil (voile + texte blanc + `data-nav="dark"`). Actif sur pièces
+   neuves (disque de frein), occasion (garage de collection), rachat
+   (ancienne berline), contact (atelier). Mentions légales = plaque sable
+   sobre (pas de photo). Fichiers `public/img/hero-{neuves,occasion,rachat,
+   contact}-1600.webp` (Unsplash).
+   ⚠️ **Thème verrouillé en clair** (`color-scheme: only light` dans
+   globals.css + `viewport.colorScheme:"light"`), pour empêcher l'auto-dark
+   de Chrome (Android) d'assombrir le site quel que soit le mode système.
+   ⚠️ **Animations forcées pour tous** : aucun gate `prefers-reduced-motion`
+   (bloc de réaffirmation dans globals.css) ; cf. lenis actif partout ci-dessus.
 
 Voir `PRODUCT.md` (voix, utilisateurs) et `DESIGN.md` (jetons v2/v3,
 toujours la référence visuelle).

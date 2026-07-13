@@ -34,6 +34,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#ffd400",
+  // Thème verrouillé en clair, quel que soit le mode système du visiteur.
+  colorScheme: "light",
 };
 
 export default function RootLayout({

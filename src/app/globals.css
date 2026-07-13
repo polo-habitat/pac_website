@@ -52,6 +52,10 @@
 
 /* Palette P.A.C. : neutres shadcn réchauffés + jaune #ffd400 en accent unique */
 :root {
+  /* Thème verrouillé en clair pour TOUS les appareils, quel que soit le mode
+     système (sombre/clair). `only light` désactive l'auto-assombrissement de
+     Chrome (Android « Auto Dark Theme ») et force champs/scrollbars en clair. */
+  color-scheme: only light;
   --background: #fefdfb;
   --foreground: #131312;
   --card: #f5f3ee;
@@ -158,6 +162,25 @@
 }
 
 /* ===================== Couche motion P.A.C. v6 ===================== */
+
+/* Choix client : les animations jouent pour TOUS les visiteurs, y compris
+   quand le système demande de réduire les animations. Le site ne gate nulle
+   part sur `prefers-reduced-motion` ; ce bloc réaffirme explicitement que les
+   animations décoratives tournent sous ce réglage (neutralise une éventuelle
+   coupure d'une lib tierce) et conserve le défilement doux. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .pac-zoom,
+  .pac-grandit,
+  .pac-mots-piste,
+  .pac-nav-entree,
+  [data-reveal],
+  [data-split] [data-mot] {
+    animation-play-state: running;
+  }
+}
 
 /* Lenis (défilement inertiel) — CSS d'accompagnement standard */
 html.lenis,

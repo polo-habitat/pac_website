@@ -24,8 +24,11 @@ export function SiteHeader() {
   const accueil = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [ouvert, setOuvert] = useState(false);
-  // Barres du hamburger blanches (sur fond sombre) ou noires (sur fond clair).
-  const [barresBlanches, setBarresBlanches] = useState(false);
+  // Menu en blanc (sur fond sombre) ou en noir (sur fond clair). Sert à la
+  // fois aux liens du haut de page et aux barres du hamburger : une section
+  // `data-nav="dark"` derrière l'en-tête ⇒ blanc. Valeur initiale sans flash :
+  // toutes les pages ont un hero sombre sauf les mentions légales.
+  const [menuBlanc, setMenuBlanc] = useState(() => pathname !== "/mentions-legales");
   const hamRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -35,29 +38,27 @@ export function SiteHeader() {
     const seuil = () => (accueil ? window.innerHeight * 0.72 : 120);
     let raf = 0;
     let dernierScrolled: boolean | null = null;
-    let dernierBlanches: boolean | null = null;
+    let dernierBlanc: boolean | null = null;
     const tick = () => {
       const sc = window.scrollY > seuil();
       if (sc !== dernierScrolled) {
         dernierScrolled = sc;
         setScrolled(sc);
       }
-      if (sc) {
-        // Couleur adaptative : blanc quand une section `data-nav="dark"` est
-        // derrière le hamburger, noir sinon.
-        const btn = hamRef.current;
-        if (btn) {
-          const r = btn.getBoundingClientRect();
-          const cy = r.top + r.height / 2;
-          let sombre = false;
-          document.querySelectorAll<HTMLElement>('[data-nav="dark"]').forEach((z) => {
-            const zr = z.getBoundingClientRect();
-            if (zr.top <= cy && zr.bottom >= cy) sombre = true;
-          });
-          if (sombre !== dernierBlanches) {
-            dernierBlanches = sombre;
-            setBarresBlanches(sombre);
-          }
+      // Couleur adaptative, calculée en continu (haut de page ET défilement) :
+      // blanc quand une section `data-nav="dark"` est derrière l'en-tête.
+      const btn = hamRef.current;
+      if (btn) {
+        const r = btn.getBoundingClientRect();
+        const cy = r.top + r.height / 2;
+        let sombre = false;
+        document.querySelectorAll<HTMLElement>('[data-nav="dark"]').forEach((z) => {
+          const zr = z.getBoundingClientRect();
+          if (zr.top <= cy && zr.bottom >= cy) sombre = true;
+        });
+        if (sombre !== dernierBlanc) {
+          dernierBlanc = sombre;
+          setMenuBlanc(sombre);
         }
       }
       raf = requestAnimationFrame(tick);
@@ -81,10 +82,6 @@ export function SiteHeader() {
     };
   }, [ouvert]);
 
-  // Couleur du menu haut (avant défilement) : blanc sur le hero sombre de
-  // l'accueil, sombre sur les pages claires.
-  const clair = accueil;
-
   return (
     <>
       <header className="pac-nav-entree pointer-events-none fixed inset-x-0 top-0 z-50">
@@ -104,7 +101,7 @@ export function SiteHeader() {
                 aria-label="P.A.C. Pièces Auto Cass, accueil"
                 className={cn(
                   "font-wide text-xl font-extrabold tracking-tight transition-colors",
-                  clair ? "text-white" : "text-foreground",
+                  menuBlanc ? "text-white" : "text-foreground",
                 )}
               >
                 P.A.C.
@@ -118,7 +115,7 @@ export function SiteHeader() {
                         aria-current={pathname === item.href ? "page" : undefined}
                         className={cn(
                           "pac-navlink",
-                          clair ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-foreground",
+                          menuBlanc ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-foreground",
                         )}
                       >
                         {item.label}
@@ -129,7 +126,7 @@ export function SiteHeader() {
               </nav>
             </div>
 
-            {/* Hamburger (au défilement) — couleur adaptative via mix-blend */}
+            {/* Hamburger (au défilement) — couleur adaptative via data-nav */}
             <button
               ref={hamRef}
               type="button"
@@ -148,7 +145,7 @@ export function SiteHeader() {
                     className={cn(
                       "absolute left-0 h-[2px] rounded-full transition-colors duration-300",
                       i === 2 ? "w-3/4" : "w-full",
-                      barresBlanches ? "bg-white" : "bg-foreground",
+                      menuBlanc ? "bg-white" : "bg-foreground",
                     )}
                     style={{ top: `${top}px` }}
                   />
