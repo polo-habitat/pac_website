@@ -45,7 +45,7 @@ export default function Contact() {
         titre="Nous contacter."
         image="/img/hero-contact-1600.webp"
         imageAlt="Mécanicien à l'établi dans l'atelier"
-        chapo="Pour une pièce précise, un appel préalable permet de vérifier la disponibilité, d'obtenir le prix et de réserver la pièce à votre nom."
+        chapo="Contactez-nous pour toute demande de renseignements."
       />
 
       <section aria-label="Coordonnées et horaires" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">
@@ -64,8 +64,6 @@ export default function Contact() {
                 {NAP.rue} · {NAP.zone}
                 <br />
                 {NAP.codePostal} {NAP.ville} · {NAP.departement}
-                <br />
-                Fax : {NAP.fax}
               </address>
               <ul className="mt-5 flex flex-wrap gap-2" aria-label="Services sur place">
                 {[
