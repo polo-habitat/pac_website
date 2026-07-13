@@ -170,7 +170,7 @@ export default function Contact() {
             <Reveal>
               <p>
                 Garages et carrosseries du Var s&apos;approvisionnent chez P.A.C. de longue date.
-                Communiquez vos références par téléphone : le comptoir tient compte des
+                Communiquez vos références par téléphone : Pièces Auto Cass tient compte des
                 contraintes d&apos;atelier.
               </p>
             </Reveal>

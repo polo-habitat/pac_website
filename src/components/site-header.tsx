@@ -161,7 +161,7 @@ export function SiteHeader() {
           >
             <Phone className="size-4.5 shrink-0" aria-hidden="true" />
             <span className="hidden text-sm sm:inline">{NAP.telephone}</span>
-            <span className="sr-only">Appeler le comptoir</span>
+            <span className="sr-only">Appeler Pièces Auto Cass</span>
           </a>
         </div>
       </header>

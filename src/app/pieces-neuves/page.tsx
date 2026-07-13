@@ -163,7 +163,7 @@ export default function PiecesNeuves() {
               Le stock P.A.C. couvre l&apos;essentiel des pièces détachées automobiles, neuves
               ou d&apos;occasion contrôlée, pour la plupart des marques et modèles — y compris
               anciens et de collection. Une référence n&apos;apparaît pas dans la liste ?
-              Appelez le comptoir à La Farlède : la recherche est étendue au réseau de
+              Appelez Pièces Auto Cass à La Farlède : la recherche est étendue au réseau de
               confrères.
             </p>
           </Reveal>

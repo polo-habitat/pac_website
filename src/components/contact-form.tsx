@@ -69,7 +69,7 @@ export function ContactForm() {
         </span>
         <h3 className="text-xl font-bold tracking-[-0.01em]">Message envoyé.</h3>
         <p className="max-w-[42ch] leading-relaxed text-muted-foreground">
-          Merci, votre message est bien parti. Le comptoir vous répond dès que possible.
+          Merci, votre message est bien parti. Pièces Auto Cass vous répond dès que possible.
           Pour une demande urgente, le téléphone reste le plus rapide : 04 94 08 15 33.
         </p>
         <button
