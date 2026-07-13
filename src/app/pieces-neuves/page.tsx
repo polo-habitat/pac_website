@@ -33,6 +33,34 @@ const GAMME = [
   ["Consommables", "huiles, liquides, balais d'essuie-glace."],
 ] as const;
 
+/* Familles de pièces (catalogue quasi exhaustif, utile au SEO local).
+   Établi à partir du stock réel de P.A.C. (colonne « Nom » de l'inventaire),
+   complété des familles demandées par le client. Ordre alphabétique. */
+const FAMILLES = [
+  "Alternateurs",
+  "Amortisseurs",
+  "Boîte de vitesse",
+  "Carrosserie",
+  "Clignotants",
+  "Coques et glaces de rétroviseur",
+  "Démarreurs",
+  "Échappements et catalyseurs",
+  "Embrayages",
+  "Feux",
+  "Filtres",
+  "Grilles et calandres",
+  "Lève-vitres",
+  "Moteur",
+  "Motoventilateurs",
+  "Moulures",
+  "Pare-brise",
+  "Plaquettes et disques de frein",
+  "Pneus",
+  "Pompes à eau",
+  "Radiateur",
+  "Transmissions",
+] as const;
+
 export default function PiecesNeuves() {
   return (
     <>
@@ -117,6 +145,41 @@ export default function PiecesNeuves() {
               communiqués immédiatement ; la plupart des références sont disponibles au comptoir
               sous 24 à 48 heures ouvrées.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Catalogue des familles de pièces : énumération quasi exhaustive
+          (issue du stock réel), utile au référencement local/GEO. */}
+      <section aria-labelledby="t-familles" className="border-t border-border bg-sable">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
+          <Reveal>
+            <p className="pac-eyebrow text-muted-foreground">Catalogue</p>
+            <h2
+              id="t-familles"
+              className="mt-3 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]"
+            >
+              Les familles de pièces disponibles
+            </h2>
+            <p className="mt-4 max-w-[70ch] leading-relaxed text-muted-foreground">
+              Le stock P.A.C. couvre l&apos;essentiel des pièces détachées automobiles, neuves
+              ou d&apos;occasion contrôlée, pour la plupart des marques et modèles — y compris
+              anciens et de collection. Une référence n&apos;apparaît pas dans la liste ?
+              Appelez le comptoir à La Farlède : la recherche est étendue au réseau de
+              confrères.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ul className="mt-8 flex flex-wrap gap-2.5">
+              {FAMILLES.map((famille) => (
+                <li
+                  key={famille}
+                  className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium"
+                >
+                  {famille}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
