@@ -208,11 +208,11 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ================= PLAQUE SOMBRE : recyclage, rachat & enlèvement ================= */}
+      {/* ================= PLAQUE SOMBRE : réemploi & rachat ================= */}
       <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-24 bg-primary py-24 text-primary-foreground sm:mt-36 sm:py-36">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-primary-foreground/70">Recyclage &amp; rachat</p>
+            <p className="pac-eyebrow text-primary-foreground/70">Réemploi &amp; rachat</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
             <SplitText text="Près de 85 % d'une automobile est réutilisable." />
@@ -223,7 +223,7 @@ export default function Accueil() {
           </h2>
           <Reveal delay={0.5}>
             <div className="mt-9">
-              <CtaPill href="/enlevement-epave">Épaves &amp; recyclage</CtaPill>
+              <CtaPill href="/rachat-de-voiture">Rachat de voiture</CtaPill>
             </div>
           </Reveal>
 
@@ -251,20 +251,20 @@ export default function Accueil() {
               {
                 image: "/img/roue-900.webp",
                 alt: "Roue et pneu d'un véhicule en cours de démontage",
-                titre: "Enlèvement d'épaves",
+                titre: "Pièces d'occasion",
                 texte:
-                  "Enlèvement, dépollution et recyclage des véhicules hors d'usage dans l'est du Var.",
-                href: "/enlevement-epave",
+                  "Chaque pièce est démontée, contrôlée et référencée avant la vente, y compris pour les anciens modèles et véhicules de collection.",
+                href: "/pieces-occasion",
                 label: "En savoir plus",
               },
               {
                 image: "/img/compteur-900.webp",
                 alt: "Compteur de vitesse en gros plan, aiguille au repos",
-                titre: "Rachat de véhicules",
+                titre: "Rachat de voiture",
                 texte:
                   "Étudié au cas par cas, selon le modèle, son état et la disponibilité des pièces qu'il peut fournir. Évaluation au comptoir ou par téléphone.",
-                href: "/contact",
-                label: "Nous contacter",
+                href: "/rachat-de-voiture",
+                label: "En savoir plus",
               },
             ].map((carte, i) => (
               <Reveal key={carte.titre} delay={i * 0.1} className="h-full">

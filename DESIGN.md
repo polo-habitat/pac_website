@@ -48,7 +48,7 @@ filets hairline, boutons pilule.
 ## Imagerie (inchangée, recadrée aux ratios exacts)
 
 hero-moteur 4:5 (comptoir), courroie 5:4 (occasion), vidange 5:4 (neuves),
-atelier 3:2 (épaves), compteur 3:2 (prix), roue 3:2 (neuves), equipe 3:2
+atelier 3:2 (rachat), compteur 3:2 (prix), roue 3:2 (neuves), equipe 3:2
 (contact pros). Alt rédigés.
 
 ## Interdits

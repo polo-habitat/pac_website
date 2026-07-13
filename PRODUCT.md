@@ -20,8 +20,8 @@ Var ») et être cité par les moteurs IA.
    Sur mobile, pressé, veut le téléphone et les horaires en 5 secondes.
 2. Le garagiste / mécanicien pro : cherche un fournisseur fiable de pièces
    d'occasion contrôlées, appelle directement.
-3. Le propriétaire d'une épave : veut s'en débarrasser (enlèvement, recyclage
-   VHU, rachat de métaux).
+3. Le propriétaire d'un véhicule à céder : veut savoir si P.A.C. le rachète
+   (étude au cas par cas, selon le modèle et son état).
 
 ## Voix de marque
 
@@ -55,6 +55,5 @@ pas.
 - Tél 04 94 08 15 33 · Fax 04 94 08 66 39.
 - Lun–ven 8h–12h / 14h–18h, fermé week-end et jours fériés.
 - Environ 4/5 sur une centaine d'avis clients agrégés.
-- Services : pièces d'occasion et neuves (VL et utilitaires), enlèvement
-  d'épaves, recyclage de véhicules hors d'usage, rachat de métaux, retrait au
-  comptoir, CB acceptée, accès PMR.
+- Services : pièces d'occasion et neuves (VL et utilitaires), rachat de
+  voiture selon les cas, retrait au comptoir, CB acceptée, accès PMR.

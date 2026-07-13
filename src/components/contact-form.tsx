@@ -10,8 +10,7 @@ type Etat = "repos" | "envoi" | "ok" | "erreur";
 
 const SUJETS = [
   "Recherche d'une pièce",
-  "Enlèvement d'épave",
-  "Rachat de véhicule",
+  "Rachat de voiture",
   "Autre demande",
 ] as const;
 

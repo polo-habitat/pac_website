@@ -31,7 +31,7 @@ export const NAP = {
 export const NAV = [
   { href: "/pieces-neuves", label: "Pièces neuves" },
   { href: "/pieces-occasion", label: "Pièces d'occasion" },
-  { href: "/enlevement-epave", label: "Épaves & recyclage" },
+  { href: "/rachat-de-voiture", label: "Rachat de voiture" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -66,7 +66,7 @@ export const etablissementComplet = {
   alternateName: "PAC La Farlède",
   slogan: "La bonne pièce au bon prix",
   description:
-    "Casse automobile et magasin de pièces détachées neuves et d'occasion à La Farlède (Var) depuis 1992. Enlèvement d'épaves, recyclage de véhicules hors d'usage, rachat de véhicules selon les cas.",
+    "Casse automobile et magasin de pièces détachées neuves et d'occasion à La Farlède (Var) depuis 1992. Rachat de véhicules selon les cas.",
   url: `${SITE_URL}/`,
   telephone: "+33494081533",
   faxNumber: "+33494086639",
@@ -108,7 +108,6 @@ export const etablissementComplet = {
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées neuves" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées d'occasion vérifiées, y compris pour anciens modèles et véhicules de collection" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Enlèvement d'épaves et recyclage de véhicules hors d'usage" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rachat de véhicules selon les cas, sur étude au comptoir ou par téléphone" } },
   ],
 };
@@ -136,14 +135,9 @@ export const FAQ = [
       "Fréquemment. Une casse dispose de pièces qui ne sont plus fabriquées, pour les modèles anciens et de collection. Communiquez la référence ou la carte grise : la recherche est étendue aux confrères si nécessaire.",
   },
   {
-    question: "P.A.C. reprend-il les épaves et véhicules hors d'usage ?",
-    reponse:
-      "Oui. P.A.C. assure l'enlèvement et le recyclage des véhicules hors d'usage sur La Farlède, Toulon et l'est du Var. Appelez le 04 94 08 15 33 pour convenir d'un rendez-vous et des documents à réunir.",
-  },
-  {
     question: "P.A.C. rachète-t-il les véhicules ?",
     reponse:
-      "Selon le véhicule et son état, un rachat est possible mais non systématique. Contactez le comptoir, 25 rue Gay Lussac à La Farlède, pour une évaluation.",
+      "Selon le modèle et son état, un rachat est possible mais non systématique. L'évaluation se fait au comptoir, 25 rue Gay Lussac à La Farlède, ou par téléphone au 04 94 08 15 33.",
   },
   {
     question: "Quels sont les horaires et l'accès au comptoir ?",

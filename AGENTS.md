@@ -40,6 +40,12 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
 - ⚠️ **Pas de rachat de métaux** (retiré le 11/07/2026 à la demande du
   client). Le **rachat de véhicules** existe mais n'est pas systématique :
   toujours renvoyer vers un appel ou un passage au comptoir.
+- ⚠️ **Pas d'enlèvement d'épave / recyclage VHU** (retiré le 13/07/2026 à
+  la demande du client : « sur le site il n'y a pas d'enlèvement d'épave,
+  juste rachat de véhicule »). L'ancienne page `enlevement-epave` a été
+  renommée **`rachat-de-voiture`** (nouvelle URL `/rachat-de-voiture`,
+  l'ancienne `/enlevement-epave.html` n'existe plus). Ne pas réintroduire
+  enlèvement / dépollution / centre agréé VHU.
 - Positionnement voulu par le client : **pièces neuves mises en avant**
   devant l'occasion ; l'occasion est valorisée via les **anciens modèles,
   youngtimers et véhicules de collection**.

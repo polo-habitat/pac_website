@@ -21,8 +21,7 @@ Devise : « la bonne pièce au bon prix ».
 ## Pages
 
 Accueil, pièces neuves, pièces d'occasion (dont anciens modèles &
-collection), épaves & recyclage (dont rachat de véhicules), contact,
-mentions légales, 404.
+collection), rachat de voiture, contact, mentions légales, 404.
 
 ## SEO / GEO
 

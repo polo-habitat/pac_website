@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`${SITE_URL}/`),
   title: "Pièces auto neuves & d'occasion à La Farlède (Var) | P.A.C.",
   description:
-    "Casse auto à La Farlède depuis 1992 : pièces détachées neuves et d'occasion vérifiées, enlèvement d'épaves. Lun-ven 8h-12h / 14h-18h. Tél 04 94 08 15 33.",
+    "Casse auto à La Farlède depuis 1992 : pièces détachées neuves et d'occasion vérifiées, rachat de voiture selon les cas. Lun-ven 8h-12h / 14h-18h. Tél 04 94 08 15 33.",
   robots: { index: true, follow: true, "max-image-preview": "large" },
   icons: { icon: `${SITE_URL}/img/favicon.svg` },
   openGraph: {
