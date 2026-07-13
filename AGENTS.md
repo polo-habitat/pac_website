@@ -36,7 +36,11 @@ pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
   (siège social au 79 de la même rue — distinction faite dans les mentions)
 - Tél 04 94 08 15 33 · Fax 04 94 08 66 39
 - Horaires : lun-ven 8h-12h / 14h-18h, fermé week-end et fériés
-- ~4/5 sur une centaine d'avis annuaires · CB, accès PMR, parking
+- CB, accès PMR, parking
+- ⚠️ **Aucune référence aux avis sur le site** (retiré le 13/07/2026 : avis
+  jugés « pas très bons » par la cliente ; projet en cours de repartir d'une
+  fiche Google propre — à rediscuter). Ne pas réintroduire note/étoiles/
+  aggregateRating ni compteur d'avis.
 - ⚠️ **Pas de rachat de métaux** (retiré le 11/07/2026 à la demande du
   client). Le **rachat de véhicules** existe mais n'est pas systématique :
   toujours renvoyer vers un appel ou un passage au comptoir.

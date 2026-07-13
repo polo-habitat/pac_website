@@ -54,6 +54,5 @@ pas.
 - SARL fondée en 1992, gérant Lazaros Efstathiou.
 - Tél 04 94 08 15 33 · Fax 04 94 08 66 39.
 - Lun–ven 8h–12h / 14h–18h, fermé week-end et jours fériés.
-- Environ 4/5 sur une centaine d'avis clients agrégés.
 - Services : pièces d'occasion et neuves (VL et utilitaires), rachat de
   voiture selon les cas, retrait au comptoir, CB acceptée, accès PMR.

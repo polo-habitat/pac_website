@@ -39,6 +39,8 @@ const GAMME = [
 const FAMILLES = [
   "Alternateurs",
   "Amortisseurs",
+  "Attelages",
+  "Batteries",
   "Boîte de vitesse",
   "Carrosserie",
   "Clignotants",
@@ -49,15 +51,25 @@ const FAMILLES = [
   "Feux",
   "Filtres",
   "Grilles et calandres",
+  "Hayons et coffres",
+  "Kit d'extension",
   "Lève-vitres",
+  "Liquide de refroidissement",
+  "Liquide lave-glace",
   "Moteur",
   "Motoventilateurs",
   "Moulures",
   "Pare-brise",
+  "Pare-chocs",
+  "Phares",
+  "Pièces de chauffage",
   "Plaquettes et disques de frein",
   "Pneus",
+  "Poignées",
   "Pompes à eau",
+  "Portières",
   "Radiateur",
+  "Suspensions",
   "Transmissions",
 ] as const;
 
@@ -180,6 +192,9 @@ export default function PiecesNeuves() {
                 </li>
               ))}
             </ul>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="mt-5 text-sm italic text-muted-foreground">… liste non exhaustive.</p>
           </Reveal>
         </div>
       </section>

@@ -36,15 +36,44 @@ export const metadata: Metadata = {
   },
 };
 
+// Mots défilants de la carte « Pièces neuves » (accueil) : familles de pièces
+// en libellés courts (version condensée du catalogue de la page pièces neuves).
 const PIECES_NEUVES_LISTE = [
-  "Plaquettes de frein",
-  "Filtres & huiles",
-  "Courroies",
+  "Alternateurs",
+  "Démarreurs",
   "Amortisseurs",
+  "Suspensions",
   "Embrayages",
+  "Freins",
+  "Filtres",
+  "Courroies",
   "Batteries",
   "Bougies",
-  "Disques de frein",
+  "Pneus",
+  "Phares",
+  "Feux",
+  "Clignotants",
+  "Rétroviseurs",
+  "Pare-chocs",
+  "Pare-brise",
+  "Calandres",
+  "Hayons",
+  "Portières",
+  "Attelages",
+  "Poignées",
+  "Lève-vitres",
+  "Radiateur",
+  "Refroidissement",
+  "Lave-glace",
+  "Chauffage",
+  "Pompes à eau",
+  "Motoventilateurs",
+  "Moulures",
+  "Carrosserie",
+  "Moteur",
+  "Boîte de vitesse",
+  "Transmissions",
+  "Kit d'extension",
 ] as const;
 
 const HORAIRES = [
@@ -231,7 +260,7 @@ export default function Accueil() {
             {[
               { valeur: <><Counter value={34} /> ans</>, legende: "de métier au même endroit" },
               { valeur: <>1992</>, legende: "année de création de la maison" },
-              { valeur: <><Counter value={100} suffix="+" /></>, legende: "avis clients sur les annuaires" },
+              { valeur: <>24-48h</>, legende: "pour une pièce neuve sur commande" },
               { valeur: <>5j/7</>, legende: "au comptoir, ZI Toulon Est" },
             ].map((stat, i) => (
               <Reveal key={i} delay={i * 0.06}>
