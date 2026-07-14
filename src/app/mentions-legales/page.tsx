@@ -25,7 +25,7 @@ const SECTIONS: Array<{ titre: string; contenu: React.ReactNode }> = [
         <br />
         Point de vente : ZI Toulon Est, 25 rue Gay Lussac, 83210 La Farlède
         <br />
-        Gérant et directeur de la publication : Lazaros Efstathiou
+        Directeur de la publication : L. Efstathiou
         <br />
         Téléphone : 04 94 08 15 33 · Fax : 04 94 08 66 39
       </p>
