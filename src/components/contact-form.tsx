@@ -14,6 +14,32 @@ const SUJETS = [
   "Autre demande",
 ] as const;
 
+// Format d'e-mail « raisonnable » (rejette les fautes de frappe évidentes ;
+// pas de RFC exhaustive, inutile ici). La vraie parade anti-bot reste le
+// honeypot + un éventuel CAPTCHA côté Web3Forms.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+// Messageries jetables / temporaires : on les refuse pour limiter le spam
+// et les envois anonymes « pour rire ».
+const DOMAINES_JETABLES = new Set([
+  "yopmail.com",
+  "yopmail.fr",
+  "mailinator.com",
+  "guerrillamail.com",
+  "10minutemail.com",
+  "tempmail.com",
+  "temp-mail.org",
+  "trashmail.com",
+  "getnada.com",
+  "sharklasers.com",
+  "maildrop.cc",
+  "throwawaymail.com",
+  "fakeinbox.com",
+  "mohmal.com",
+  "jetable.org",
+  "discard.email",
+]);
+
 /**
  * Formulaire de contact pour ceux qui préfèrent écrire plutôt qu'appeler.
  * Envoi via Web3Forms (service gratuit, sans backend) : la clé publique
@@ -32,6 +58,32 @@ export function ContactForm() {
     if (!WEB3FORMS_ACCESS_KEY) {
       setEtat("erreur");
       setErreur("Le formulaire n'est pas encore activé. Appelez le 04 94 08 15 33.");
+      return;
+    }
+
+    // Contrôles avant envoi : champs obligatoires, format d'e-mail, refus des
+    // messageries jetables. Filtre les fautes de frappe et les envois anonymes
+    // (les bots directs sont eux arrêtés par le honeypot / le CAPTCHA).
+    const nom = String(data.get("nom") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!nom || !email || !message) {
+      setEtat("erreur");
+      setErreur("Merci d'indiquer votre nom, votre e-mail et votre message.");
+      form.querySelector<HTMLInputElement>(!nom ? "#cf-nom" : !email ? "#cf-email" : "#cf-message")?.focus();
+      return;
+    }
+    if (!EMAIL_RE.test(email)) {
+      setEtat("erreur");
+      setErreur("L'adresse e-mail ne semble pas valide. Vérifiez-la avant l'envoi.");
+      form.querySelector<HTMLInputElement>("#cf-email")?.focus();
+      return;
+    }
+    if (DOMAINES_JETABLES.has(email.slice(email.lastIndexOf("@") + 1).toLowerCase())) {
+      setEtat("erreur");
+      setErreur("Merci d'utiliser une adresse e-mail permanente (pas une messagerie jetable).");
+      form.querySelector<HTMLInputElement>("#cf-email")?.focus();
       return;
     }
 
