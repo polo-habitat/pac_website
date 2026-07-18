@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableRow } from "@/components/ui/table";
 import { CtaPill } from "@/components/cta-pill";
+import { ScrollHero } from "@/components/scroll-hero";
 import { JsonLd } from "@/components/json-ld";
 import { MotsDefilants } from "@/components/mots-defilants";
 import { Counter } from "@/components/motion/counter";
@@ -91,56 +92,37 @@ export default function Accueil() {
       <JsonLd data={webSiteJsonLd} />
       <JsonLd data={faqPageJsonLd} />
 
-      {/* ================= HERO / ACCROCHE : image automobile plein cadre,
-          voile sombre, slogan sobre centré par-dessus ================= */}
-      <section aria-label="Présentation" data-nav="dark" className="relative flex min-h-[100svh] items-center overflow-hidden">
-        <div className="pac-zoom absolute inset-0">
-          <Image
-            src={asset("/img/hero-voiture-1600.webp")}
-            alt="Porsche 911 rouge classique, de profil"
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/75"
-          aria-hidden="true"
-        />
-        {/* Renfort d'en-tête : assombrit la bande supérieure pour la lisibilité
-            du menu blanc, même là où la photo est claire (ciel, bâtiments). */}
-        <div
-          className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/55 to-transparent"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto w-full max-w-5xl px-5 pb-20 pt-32 text-center">
-          <Reveal y={12}>
-            <p className="pac-eyebrow text-white/70">
-              Pièces détachées automobiles · La Farlède depuis 1992
-            </p>
-          </Reveal>
-          <h1 className="mt-6 text-[clamp(2.4rem,5.8vw,4.8rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
+      {/* ================= HERO / ACCROCHE : vidéo scroll-driven façon page
+          produit Apple. Tant qu'aucun hero.mp4 n'est déposé, le scroll pilote
+          un lent zoom sur l'image poster existante ; le titre se dissipe en
+          montant. Contenu inchangé. ================= */}
+      <ScrollHero
+        tone="atelier"
+        poster="/img/hero-voiture-1600.webp"
+        posterAlt="Porsche 911 rouge classique, de profil"
+        eyebrow="Pièces détachées automobiles · La Farlède depuis 1992"
+        title={
+          <h1 className="text-[clamp(2.4rem,5.8vw,4.9rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
             <SplitText text="La bonne pièce" delay={0.15} />
             <br />
             <SplitText text="au bon prix." delay={0.5} />
           </h1>
-          <Reveal delay={0.9} y={20}>
-            <p className="mx-auto mt-7 max-w-[52ch] text-lg leading-relaxed text-white/80">
-              Vente au comptoir de pièces neuves, de pièces d&apos;occasion pour véhicules anciens
-              et de collection, et rachat de véhicules sur étude de dossier.
-            </p>
-          </Reveal>
-          <Reveal delay={1.05} y={16}>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <CtaPill href={NAP.telephoneHref}>Appeler le {NAP.telephone}</CtaPill>
-              <CtaPill href="#activites" tone="blanche">
-                Nos activités
-              </CtaPill>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+        }
+        intro={
+          <>
+            Vente au comptoir de pièces neuves, de pièces d&apos;occasion pour véhicules anciens
+            et de collection, et rachat de véhicules sur étude de dossier.
+          </>
+        }
+        actions={
+          <>
+            <CtaPill href={NAP.telephoneHref}>Appeler le {NAP.telephone}</CtaPill>
+            <CtaPill href="#activites" tone="blanche">
+              Nos activités
+            </CtaPill>
+          </>
+        }
+      />
 
       {/* ================= NOTRE HISTOIRE : image qui s'élargit + texte ================= */}
       <section aria-labelledby="t-histoire" className="overflow-x-clip bg-background py-16 sm:py-24">
@@ -158,7 +140,7 @@ export default function Accueil() {
           </div>
           <div className="md:pr-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Notre histoire</p>
+              <p className="pac-eyebrow pac-kick text-muted-foreground">Notre histoire</p>
             </Reveal>
             <h2 id="t-histoire" className="mt-6 text-[clamp(1.6rem,2.9vw,2.5rem)] font-semibold leading-[1.2] tracking-[-0.015em]">
               <SplitText text="Plus de trente ans au service des particuliers et des professionnels." />
@@ -178,7 +160,7 @@ export default function Accueil() {
       <section id="activites" aria-labelledby="t-activites" className="scroll-mt-28 px-3 sm:px-4">
         <div className="mx-auto mb-10 max-w-[100rem] px-2 text-center sm:mb-12">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-muted-foreground">Nos activités</p>
+            <p className="pac-eyebrow pac-kick text-muted-foreground">Nos activités</p>
           </Reveal>
           <h2 id="t-activites" className="mx-auto mt-5 max-w-[24ch] text-[clamp(1.7rem,3.4vw,2.8rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
             <SplitText text="Pièces neuves et pièces d'occasion, toutes marques." />
@@ -186,7 +168,7 @@ export default function Accueil() {
         </div>
         <div className="mx-auto grid max-w-[100rem] gap-3 sm:gap-4 md:grid-cols-2">
           <Reveal className="h-full">
-            <article className="flex h-full min-h-[22rem] flex-col rounded-[28px] bg-sable p-7 sm:p-9">
+            <article className="pac-ombre-douce flex h-full min-h-[22rem] flex-col rounded-[32px] bg-sable p-7 sm:p-9">
               <p className="pac-eyebrow text-center text-muted-foreground">Pièces neuves</p>
               <div className="my-6 flex flex-1 flex-col justify-center">
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
@@ -201,7 +183,7 @@ export default function Accueil() {
           </Reveal>
 
           <Reveal delay={0.12} className="h-full">
-            <article className="relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[28px] bg-primary p-7 text-primary-foreground sm:p-9">
+            <article className="pac-ombre relative flex h-full min-h-[22rem] flex-col overflow-hidden rounded-[32px] bg-primary p-7 text-primary-foreground sm:p-9">
               <div className="absolute inset-0">
                 <Image
                   src={asset("/img/courroie-900.webp")}
@@ -213,7 +195,7 @@ export default function Accueil() {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/25 to-primary/40" aria-hidden="true" />
               </div>
               <div className="relative flex flex-1 flex-col">
-                <p className="pac-eyebrow text-primary-foreground/80">Pièces d&apos;occasion</p>
+                <p className="pac-eyebrow pac-kick text-primary-foreground/80">Pièces d&apos;occasion</p>
                 <h3 className="mt-auto max-w-[20ch] text-[clamp(1.5rem,2.4vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
                   La référence introuvable en neuf se trouve souvent ici.
                 </h3>
@@ -233,7 +215,7 @@ export default function Accueil() {
       <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-16 bg-primary py-16 text-primary-foreground sm:mt-24 sm:py-24">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow text-primary-foreground/70">Réemploi &amp; rachat</p>
+            <p className="pac-eyebrow pac-kick text-primary-foreground/70">Réemploi &amp; rachat</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
             <SplitText text="Près de 85 % d'une automobile est réutilisable." />
@@ -258,7 +240,7 @@ export default function Accueil() {
               <Reveal key={i} delay={i * 0.06}>
                 <div>
                   <dt className="sr-only">{stat.legende}</dt>
-                  <dd className="font-wide text-4xl font-extrabold tracking-tight sm:text-5xl">
+                  <dd className="font-wide text-4xl font-extrabold tabular-nums tracking-tight sm:text-5xl">
                     {stat.valeur}
                   </dd>
                   <dd className="mt-2 text-sm text-primary-foreground/65">{stat.legende}</dd>
@@ -319,7 +301,7 @@ export default function Accueil() {
         <div className="mx-auto max-w-[100rem] px-5 sm:px-10">
           <div className="text-center">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">Au-delà du stock</p>
+              <p className="pac-eyebrow pac-kick text-muted-foreground">Au-delà du stock</p>
             </Reveal>
             <h2 id="t-ressources" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
               <SplitText text="Quand la pièce n'est pas en stock," />{" "}
@@ -343,9 +325,10 @@ export default function Accueil() {
               },
             ].map((carte, i) => (
               <Reveal key={carte.eyebrow} delay={i * 0.1} className="h-full">
-                <article className="flex h-full flex-col rounded-[28px] bg-white p-8 sm:p-10">
-                  <p className="pac-eyebrow text-muted-foreground">{carte.eyebrow}</p>
-                  <p className="mt-5 max-w-[48ch] leading-relaxed text-muted-foreground">
+                <article className="pac-ombre-douce flex h-full flex-col rounded-[32px] bg-white p-8 sm:p-10">
+                  <p className="pac-eyebrow pac-kick text-muted-foreground">{carte.eyebrow}</p>
+                  <div className="pac-rule mt-6" />
+                  <p className="mt-6 max-w-[48ch] leading-relaxed text-muted-foreground">
                     {carte.texte}
                   </p>
                 </article>
@@ -370,7 +353,7 @@ export default function Accueil() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" aria-hidden="true" />
           <div className="relative mx-auto w-full max-w-[100rem] px-5 py-20 sm:px-10">
             <Reveal y={16}>
-              <p className="pac-eyebrow text-white/80">Notre fonctionnement</p>
+              <p className="pac-eyebrow pac-kick text-white/80">Notre fonctionnement</p>
             </Reveal>
             <h2 id="t-fonctionnement" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
               <SplitText text="La vente s'effectue exclusivement au comptoir, sans vente en ligne ni libre-service." />
@@ -395,7 +378,7 @@ export default function Accueil() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div>
             <Reveal y={16}>
-              <p className="pac-eyebrow text-muted-foreground">FAQ</p>
+              <p className="pac-eyebrow pac-kick text-muted-foreground">FAQ</p>
             </Reveal>
             <h2 id="t-faq" className="mt-5 max-w-[14ch] text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
               <SplitText text="Les questions les plus fréquentes." />
@@ -426,10 +409,10 @@ export default function Accueil() {
 
       {/* ================= CONTACT / VENIR AU COMPTOIR ================= */}
       <section id="contact" aria-labelledby="t-contact" className="mx-auto max-w-[100rem] px-5 sm:px-10">
-        <div className="grid gap-10 rounded-[32px] bg-sable p-8 sm:p-12 md:grid-cols-[1.2fr_1fr]">
+        <div className="pac-ombre grid gap-10 rounded-[32px] bg-sable p-8 sm:p-12 md:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <div>
-              <p id="t-contact" className="pac-eyebrow text-muted-foreground">Venir au comptoir</p>
+              <p id="t-contact" className="pac-eyebrow pac-kick text-muted-foreground">Venir au comptoir</p>
               <a
                 href={NAP.telephoneHref}
                 className="font-wide mt-5 inline-block text-[clamp(1.9rem,5vw,3.7rem)] font-extrabold tracking-tight underline decoration-accent decoration-[0.08em] underline-offset-8 transition-all hover:decoration-[0.14em]"
@@ -466,7 +449,7 @@ export default function Accueil() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="rounded-[24px] bg-white p-5 sm:p-7">
+            <div className="pac-ombre-douce rounded-[24px] bg-white p-5 sm:p-7">
               <Table>
                 <TableCaption className="text-left">Horaires du comptoir</TableCaption>
                 <TableBody>

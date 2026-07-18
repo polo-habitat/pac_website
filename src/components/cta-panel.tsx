@@ -21,7 +21,7 @@ export function CtaPanel({
   return (
     <section aria-label={titre} className="mx-auto max-w-[100rem] px-3 sm:px-4">
       <Reveal>
-        <div className="overflow-hidden rounded-[32px] bg-accent text-accent-foreground">
+        <div className="pac-ombre overflow-hidden rounded-[32px] bg-accent text-accent-foreground">
           <div className="grid items-center gap-8 p-8 sm:p-14 md:grid-cols-[1.2fr_1fr]">
             <div>
               <h2 className="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
