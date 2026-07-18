@@ -80,7 +80,7 @@ export default function RachatDeVoiture() {
           <ol className="mt-7 space-y-4">
             {ETAPES.map(([titre, texte], i) => (
               <Reveal key={titre} delay={i * 0.06}>
-                <li className="pac-verre flex gap-5 rounded-[20px] p-6">
+                <li className="pac-verre flex gap-5 rounded-[24px] p-6">
                   <span
                     className="font-wide grid size-10 shrink-0 place-items-center rounded-full bg-accent text-lg font-extrabold text-accent-foreground"
                     aria-hidden="true"

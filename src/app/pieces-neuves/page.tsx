@@ -115,7 +115,7 @@ export default function PiecesNeuves() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="group relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "5/4" }}>
+            <div className="pac-ombre-douce group relative overflow-hidden rounded-[28px]" style={{ aspectRatio: "5/4" }}>
               <Image
                 src={asset("/img/vidange-900.webp")}
                 alt="Huile moteur neuve versée au remplissage, capot ouvert"
@@ -152,7 +152,7 @@ export default function PiecesNeuves() {
       <section aria-labelledby="t-familles" className="border-t border-border bg-sable">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:py-20">
           <Reveal>
-            <p className="pac-eyebrow text-muted-foreground">Catalogue</p>
+            <p className="pac-eyebrow pac-kick text-muted-foreground">Catalogue</p>
             <h2
               id="t-familles"
               className="mt-3 text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]"
