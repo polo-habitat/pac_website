@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { asset } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -22,9 +22,9 @@ import { cn } from "@/lib/utils";
  * Détection du scroll = boucle rAF lisant `window.scrollY` (Lenis n'émet pas
  * d'événement `scroll` natif fiable — cf. site-header).
  *
- * Accessibilité : `prefers-reduced-motion` est respecté (poster fixe, aucun
- * scrubbing) avec un bouton « lire l'animation » (opt-in), pour que même un
- * poste réglé en mouvement réduit puisse déclencher l'effet.
+ * Choix client : l'animation joue POUR TOUS, sans gate `prefers-reduced-motion`
+ * ni bouton opt-in (cohérent avec le reste du site — le poste client force le
+ * mouvement réduit et doit malgré tout voir l'effet).
  */
 export function ScrollHero({
   eyebrow,
@@ -56,21 +56,6 @@ export function ScrollHero({
   const hintRef = useRef<HTMLDivElement>(null);
 
   const hasVideo = Boolean(videoMp4 || videoWebm);
-  // Mouvement réduit demandé par le système → pas de scrubbing par défaut.
-  const [reduced, setReduced] = useState(false);
-  // Opt-in : rejoue l'effet même sous mouvement réduit.
-  const [optIn, setOptIn] = useState(false);
-  const motionOn = !reduced || optIn;
-  const motionRef = useRef(motionOn);
-  motionRef.current = motionOn;
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
 
   useEffect(() => {
     let raf = 0;
@@ -85,39 +70,27 @@ export function ScrollHero({
         const rect = wrap.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
         const progress = total > 0 ? clamp(-rect.top / total) : 0;
-        const on = motionRef.current;
 
-        // 1) Média : vidéo (scrubbing) ou poster (Ken Burns).
+        // 1) Média : vidéo (scrubbing) ou poster (Ken Burns). Toujours actif.
         const video = videoRef.current;
-        if (hasVideo && video && on) {
+        if (hasVideo && video) {
           if (video.duration) video.currentTime = progress * video.duration;
         } else if (mediaRef.current) {
-          if (on) {
-            const scale = 1.14 - progress * 0.14;
-            const shift = progress * 3;
-            mediaRef.current.style.transform = `scale(${scale.toFixed(4)}) translateY(${shift.toFixed(2)}%)`;
-          } else {
-            mediaRef.current.style.transform = "scale(1.02)";
-          }
+          const scale = 1.14 - progress * 0.14;
+          const shift = progress * 3;
+          mediaRef.current.style.transform = `scale(${scale.toFixed(4)}) translateY(${shift.toFixed(2)}%)`;
         }
 
         // 2) Titre : reste net puis se dissipe en montant.
         if (titleRef.current) {
-          if (on) {
-            const fade = 1 - smooth(0.28, 0.72, progress);
-            titleRef.current.style.opacity = fade.toFixed(3);
-            titleRef.current.style.transform = `translateY(${(-progress * 46).toFixed(1)}px)`;
-          } else {
-            titleRef.current.style.opacity = "1";
-            titleRef.current.style.transform = "none";
-          }
+          const fade = 1 - smooth(0.28, 0.72, progress);
+          titleRef.current.style.opacity = fade.toFixed(3);
+          titleRef.current.style.transform = `translateY(${(-progress * 46).toFixed(1)}px)`;
         }
 
         // 3) Indice de scroll : disparaît dès qu'on amorce.
         if (hintRef.current) {
-          hintRef.current.style.opacity = on
-            ? (1 - smooth(0.02, 0.16, progress)).toFixed(3)
-            : "0";
+          hintRef.current.style.opacity = (1 - smooth(0.02, 0.16, progress)).toFixed(3);
         }
       }
       raf = requestAnimationFrame(tick);
@@ -203,16 +176,6 @@ export function ScrollHero({
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               {actions}
             </div>
-          ) : null}
-
-          {reduced && !optIn ? (
-            <button
-              type="button"
-              onClick={() => setOptIn(true)}
-              className="mt-8 inline-flex h-10 cursor-pointer items-center gap-2 rounded-full border border-white/40 px-5 text-xs font-semibold uppercase tracking-[0.14em] text-white/85 transition-colors hover:bg-white/10"
-            >
-              Lire l&apos;animation
-            </button>
           ) : null}
         </div>
 
