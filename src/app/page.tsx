@@ -197,7 +197,7 @@ export default function Accueil() {
               <div className="relative flex flex-1 flex-col">
                 <p className="pac-eyebrow pac-kick text-primary-foreground/80">Pièces d&apos;occasion</p>
                 <h3 className="mt-auto max-w-[20ch] text-[clamp(1.5rem,2.4vw,2.1rem)] font-semibold leading-[1.15] tracking-[-0.015em]">
-                  La référence introuvable en neuf se trouve souvent ici.
+                  Ne ratez pas une occasion. Certaines pièces fonctionnent aussi bien neuves que d&apos;occasion.
                 </h3>
                 <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-primary-foreground/75">
                   Véhicules anciens et de collection. Chaque pièce est contrôlée avant la vente.
@@ -304,9 +304,9 @@ export default function Accueil() {
               <p className="pac-eyebrow pac-kick text-muted-foreground">Au-delà du stock</p>
             </Reveal>
             <h2 id="t-ressources" className="mx-auto mt-6 max-w-[26ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
-              <SplitText text="Quand la pièce n'est pas en stock," />{" "}
+              <SplitText text="Pièces également disponibles" />{" "}
               <span className="text-muted-foreground">
-                <SplitText text="la recherche continue." delay={0.35} />
+                <SplitText text="sur commande." delay={0.35} />
               </span>
             </h2>
           </div>
@@ -356,7 +356,7 @@ export default function Accueil() {
               <p className="pac-eyebrow pac-kick text-white/80">Notre fonctionnement</p>
             </Reveal>
             <h2 id="t-fonctionnement" className="mt-5 max-w-[24ch] text-[clamp(1.7rem,3.2vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.015em] text-white">
-              <SplitText text="La vente s'effectue exclusivement au comptoir, sans vente en ligne ni libre-service." />
+              <SplitText text="Vente exclusive au comptoir comme gage de qualité et de conseil." />
             </h2>
             <Reveal delay={0.3}>
               <p className="mt-6 max-w-[50ch] leading-relaxed text-white/75">
