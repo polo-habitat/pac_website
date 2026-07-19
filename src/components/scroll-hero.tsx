@@ -64,25 +64,57 @@ export function ScrollHero({
     const smooth = (a: number, b: number, p: number) =>
       clamp((p - a) / (b - a));
 
+    /* Scrub vidéo façon page produit Apple — trois garde-fous anti-saccade :
+       1. LISSAGE : la progression vidéo suit le scroll avec une courte inertie
+          (lissage exponentiel indépendant du framerate) — masque la latence
+          des seeks et donne le rendu « cinématique ».
+       2. QUANTIFICATION : on ne vise que des images entières (24 im/s, fichier
+          all-keyframe) — pas de micro-seeks sub-image inutiles.
+       3. FILE UNIQUE : jamais de nouveau seek tant que le précédent n'est pas
+          terminé (event `seeked`), sinon le décodeur s'engorge et la vidéo se
+          fige puis saute. Filet : au-delà de 250 ms on relance quand même. */
+    const FPS = 24;
+    let progressLisse = 0;
+    let derniereImage = -1;
+    let seekEnCours = false;
+    let seekDepuis = 0;
+    let derniereBoucle = performance.now();
+
+    const videoInitial = videoRef.current;
+    const finDeSeek = () => {
+      seekEnCours = false;
+    };
+    videoInitial?.addEventListener("seeked", finDeSeek);
+
     const tick = () => {
+      const maintenant = performance.now();
+      const dt = Math.min((maintenant - derniereBoucle) / 1000, 0.1);
+      derniereBoucle = maintenant;
+
       const wrap = wrapRef.current;
       if (wrap) {
         const rect = wrap.getBoundingClientRect();
         const total = rect.height - window.innerHeight;
         const progress = total > 0 ? clamp(-rect.top / total) : 0;
 
+        progressLisse += (progress - progressLisse) * (1 - Math.exp(-dt * 12));
+        if (Math.abs(progress - progressLisse) < 0.0005) progressLisse = progress;
+
         // 1) Média : vidéo (scrubbing) ou poster (Ken Burns). Toujours actif.
         const video = videoRef.current;
         if (hasVideo && video) {
-          // Scrub fluide : ne chercher que si la vidéo est prête (readyState >= 1)
-          // et si l'écart est significatif — évite d'engorger le décodeur de
-          // micro-seeks (cause des à-coups « bloqué puis saut jusqu'à la fin »).
-          // La vidéo est encodée all-keyframe (chaque image indépendante) pour
-          // que ces sauts soient instantanés.
-          if (video.readyState >= 1 && video.duration) {
-            const target = progress * video.duration;
-            if (Math.abs(target - video.currentTime) > 0.02) {
-              video.currentTime = target;
+          if (video.readyState >= 2 && video.duration) {
+            const image = Math.round(progressLisse * video.duration * FPS);
+            const occupe = seekEnCours && maintenant - seekDepuis < 250;
+            if (image !== derniereImage && !occupe) {
+              derniereImage = image;
+              seekEnCours = true;
+              seekDepuis = maintenant;
+              const t = Math.min(image / FPS, video.duration - 0.001);
+              // fastSeek (Safari/Firefox) : saut au keyframe le plus proche —
+              // exact ici puisque chaque image est un keyframe.
+              if (typeof video.fastSeek === "function") video.fastSeek(t);
+              else video.currentTime = t;
             }
           }
         } else if (mediaRef.current) {
@@ -106,7 +138,10 @@ export function ScrollHero({
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      videoInitial?.removeEventListener("seeked", finDeSeek);
+    };
   }, [hasVideo]);
 
   const showroom = tone === "showroom";
