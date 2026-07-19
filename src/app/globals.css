@@ -79,7 +79,12 @@
   --chart-3: #6f6d68;
   --chart-4: #f8f2dd;
   --chart-5: #f5f3ee;
-  --radius: 1rem;
+  /* Direction A « L'Atelier » : panneaux plus généreux + ombres chaudes. */
+  --radius: 1.25rem;
+  --sable-profond: #f0e8cf;
+  --ambre: 33 25% 18%;
+  --ombre-chaude: 0 24px 60px -28px rgb(58 44 12 / 0.28);
+  --ombre-douce: 0 2px 14px -6px rgb(58 44 12 / 0.14);
   --sidebar: #f5f3ee;
   --sidebar-foreground: #131312;
   --sidebar-primary: #131312;
@@ -125,9 +130,23 @@
     @apply font-sans scroll-smooth;
   }
   body {
-    /* v6 « Roulez » : fond plat crème, les sections posent leurs propres blocs
-       de couleur (sable, noir, blanc) comme de grandes plaques. */
+    /* Direction A « L'Atelier » : fond crème chaud + grain papier très
+       discret pour une texture tactile (pas de plat numérique). Les sections
+       posent leurs propres plaques (sable, noir, blanc). */
     @apply bg-background text-foreground antialiased;
+  }
+  /* Grain papier chaud : fin voile de bruit fixe au-dessus de tout le contenu
+     (mais sous l'en-tête z-50 et le menu z-60), non cliquable. Les grains
+     sombres semi-transparents texturent les zones claires et s'effacent sur
+     les plaques noires. SVG inline → aucune requête réseau. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.36  0 0 0 0 0.28  0 0 0 0 0.07  0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   ::selection {
     background: var(--jaune);
@@ -158,6 +177,64 @@
   }
   .font-narrow {
     font-variation-settings: "wdth" 75;
+  }
+
+  /* ---- Direction A « L'Atelier » : identité fiche technique ---- */
+
+  /* Micro-libellé technique en chiffres/lettres à chasse fixe (références
+     pièces, cotes, « fiche atelier »). Chasse système : aucune police en
+     plus, repli propre. */
+  .pac-mono {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Cascadia Code",
+      "Roboto Mono", "Menlo", monospace;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: 0.02em;
+  }
+
+  /* Étiquette de référence encadrée par des filets fins (haut/bas). */
+  .pac-ref {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Cascadia Code",
+      "Roboto Mono", "Menlo", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding-block: 0.5rem;
+  }
+
+  /* Filet horizontal hairline (séparateurs de fiche). */
+  .pac-rule {
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Ombre chaude ambrée : donne du relief tactile aux panneaux clairs. */
+  .pac-ombre {
+    box-shadow: var(--ombre-chaude);
+  }
+  .pac-ombre-douce {
+    box-shadow: var(--ombre-douce);
+  }
+
+  /* Sur-titre « atelier » : légèrement condensé (largeur Archivo réduite).
+     Sûr sur tous les usages, y compris les pilules CtaPill/PhonePill. */
+  .pac-eyebrow {
+    font-variation-settings: "wdth" 85;
+  }
+
+  /* Tiret-repère « fiche atelier » : à ajouter EN PLUS de .pac-eyebrow sur les
+     sur-titres de SECTION uniquement (jamais sur les pilules). */
+  .pac-kick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .pac-kick::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.55;
   }
 }
 
@@ -335,6 +412,23 @@ html.js [data-split].pac-vu [data-mot] {
 @keyframes pac-defile-v {
   to {
     transform: translateY(-50%);
+  }
+}
+
+/* Indice de défilement du hero : filet vertical qui « respire ». */
+.pac-hint-line {
+  transform-origin: top;
+  animation: pac-hint 1.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes pac-hint {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
   }
 }
 

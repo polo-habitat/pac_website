@@ -76,7 +76,7 @@ export default function PiecesOccasion() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="group relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "5/4" }}>
+            <div className="pac-ombre-douce group relative overflow-hidden rounded-[28px]" style={{ aspectRatio: "5/4" }}>
               <Image
                 src={asset("/img/courroie-900.webp")}
                 alt="Courroie et poulies d'un moteur d'occasion en cours de contrôle"

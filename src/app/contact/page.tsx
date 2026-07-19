@@ -93,7 +93,7 @@ export default function Contact() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="pac-verre rounded-[28px] p-5 sm:p-7">
+            <div className="pac-verre pac-ombre-douce rounded-[28px] p-5 sm:p-7">
             <Table>
               <TableCaption className="text-left">Horaires du comptoir</TableCaption>
               <TableBody>
@@ -127,7 +127,7 @@ export default function Contact() {
       {WEB3FORMS_ACCESS_KEY ? (
       <section aria-labelledby="t-ecrire" className="mx-auto max-w-3xl px-5 pb-14 sm:pb-20">
         <Reveal>
-          <h2 id="t-ecrire" className="pac-eyebrow text-muted-foreground">Écrire au comptoir</h2>
+          <h2 id="t-ecrire" className="pac-eyebrow pac-kick text-muted-foreground">Écrire au comptoir</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="mt-5">
@@ -176,7 +176,7 @@ export default function Contact() {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <div className="group relative overflow-hidden rounded-[20px]" style={{ aspectRatio: "3/2" }}>
+            <div className="pac-ombre-douce group relative overflow-hidden rounded-[28px]" style={{ aspectRatio: "3/2" }}>
               <Image
                 src={asset("/img/equipe-900.webp")}
                 alt="Mécanicien souriant devant un véhicule capot ouvert, en atelier"

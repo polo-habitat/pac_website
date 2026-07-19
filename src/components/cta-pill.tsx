@@ -22,7 +22,7 @@ export function CtaPill({
 }) {
   const classes = cn(
     "group inline-flex h-12 cursor-pointer items-center gap-2.5 rounded-full px-6 pac-eyebrow transition-transform duration-300 hover:scale-[1.04]",
-    tone === "jaune" && "bg-accent text-accent-foreground",
+    tone === "jaune" && "bg-accent text-accent-foreground shadow-[0_14px_34px_-16px_rgb(255_212_0/0.75)]",
     tone === "noire" && "bg-primary text-primary-foreground",
     tone === "blanche" && "bg-white text-foreground shadow-[0_10px_30px_-12px_rgb(19_19_18/0.3)]",
     className,
