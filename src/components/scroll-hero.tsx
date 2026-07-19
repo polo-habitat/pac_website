@@ -74,7 +74,17 @@ export function ScrollHero({
         // 1) Média : vidéo (scrubbing) ou poster (Ken Burns). Toujours actif.
         const video = videoRef.current;
         if (hasVideo && video) {
-          if (video.duration) video.currentTime = progress * video.duration;
+          // Scrub fluide : ne chercher que si la vidéo est prête (readyState >= 1)
+          // et si l'écart est significatif — évite d'engorger le décodeur de
+          // micro-seeks (cause des à-coups « bloqué puis saut jusqu'à la fin »).
+          // La vidéo est encodée all-keyframe (chaque image indépendante) pour
+          // que ces sauts soient instantanés.
+          if (video.readyState >= 1 && video.duration) {
+            const target = progress * video.duration;
+            if (Math.abs(target - video.currentTime) > 0.02) {
+              video.currentTime = target;
+            }
+          }
         } else if (mediaRef.current) {
           const scale = 1.14 - progress * 0.14;
           const shift = progress * 3;
