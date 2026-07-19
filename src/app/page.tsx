@@ -98,8 +98,9 @@ export default function Accueil() {
           montant. Contenu inchangé. ================= */}
       <ScrollHero
         tone="atelier"
-        poster="/img/hero-voiture-1600.webp"
-        posterAlt="Porsche 911 rouge classique, de profil"
+        videoMp4="/video/hero.mp4"
+        poster="/img/hero-video-poster.webp"
+        posterAlt="Voiture moderne et voiture de collection en vue éclatée, pièces détachées en suspension"
         eyebrow="Pièces détachées automobiles · La Farlède depuis 1992"
         title={
           <h1 className="text-[clamp(2.4rem,5.8vw,4.9rem)] font-semibold leading-[1.06] tracking-[-0.02em] text-white">
