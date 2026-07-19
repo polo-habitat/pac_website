@@ -1,4 +1,4 @@
-# P.A.C. Pièces Auto Cass — https://polo-habitat.github.io/pac_website/
+# P.A.C. Pièces Auto Cass — https://piecesautocass.fr/
 # Tous les robots sont les bienvenus, y compris les moteurs IA.
 
 User-agent: *
@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://polo-habitat.github.io/pac_website/sitemap.xml
+Sitemap: https://piecesautocass.fr/sitemap.xml

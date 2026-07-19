@@ -1,4 +1,4 @@
-export const SITE_URL = "https://polo-habitat.github.io/pac_website";
+export const SITE_URL = "https://piecesautocass.fr";
 
 /**
  * Clé publique Web3Forms pour le formulaire de contact (envoi sans backend).
@@ -8,8 +8,9 @@ export const SITE_URL = "https://polo-habitat.github.io/pac_website";
  */
 export const WEB3FORMS_ACCESS_KEY: string = "e85372ed-25ef-45ee-9cf3-26d345584e4e";
 
-/** next/image n'applique pas basePath aux src chaînes : préfixer via ce helper. */
-export const BASE_PATH = "/pac_website";
+/** Depuis la migration domaine (19/07/2026), le site est servi à la racine :
+ *  plus de basePath. Le helper est conservé (compat des appels existants). */
+export const BASE_PATH = "";
 export const asset = (p: string) => `${BASE_PATH}${p}`;
 
 export const NAP = {
