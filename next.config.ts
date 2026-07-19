@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Export statique servi par GitHub Pages sous /pac_website/ ;
-  // trailingSlash absent => `route.html` émis, les anciennes URLs *.html restent valides.
+  // Export statique servi à la RACINE du domaine piecesautocass.fr (plus de
+  // basePath depuis la migration domaine du 19/07/2026) ; trailingSlash absent
+  // => `route.html` émis, les anciennes URLs *.html restent valides.
   output: "export",
-  basePath: "/pac_website",
   images: { unoptimized: true },
 };
 

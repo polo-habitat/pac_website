@@ -21,8 +21,8 @@
 
 ## Pages
 
-- Accueil : https://polo-habitat.github.io/pac_website/
-- Pièces neuves : https://polo-habitat.github.io/pac_website/pieces-neuves.html
-- Pièces d'occasion : https://polo-habitat.github.io/pac_website/pieces-occasion.html
-- Rachat de voiture : https://polo-habitat.github.io/pac_website/rachat-de-voiture.html
-- Contact & accès : https://polo-habitat.github.io/pac_website/contact.html
+- Accueil : https://piecesautocass.fr/
+- Pièces neuves : https://piecesautocass.fr/pieces-neuves.html
+- Pièces d'occasion : https://piecesautocass.fr/pieces-occasion.html
+- Rachat de voiture : https://piecesautocass.fr/rachat-de-voiture.html
+- Contact & accès : https://piecesautocass.fr/contact.html
