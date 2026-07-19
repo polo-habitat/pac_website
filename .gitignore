@@ -39,6 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Workflow non poussable tant que le jeton gh n'a pas le scope 'workflow'
-/.github/workflows/
