@@ -8,9 +8,10 @@ export const SITE_URL = "https://piecesautocass.fr";
  */
 export const WEB3FORMS_ACCESS_KEY: string = "e85372ed-25ef-45ee-9cf3-26d345584e4e";
 
-/** Depuis la migration domaine (19/07/2026), le site est servi à la racine :
- *  plus de basePath. Le helper est conservé (compat des appels existants). */
-export const BASE_PATH = "";
+/** basePath REMIS TEMPORAIREMENT (21/07/2026) le temps du déblocage domaine OVH :
+ *  le site est servi sur polo-habitat.github.io/pac_website/. Repasser à "" au
+ *  retour du domaine. SITE_URL reste piecesautocass.fr (canonical = futur domaine). */
+export const BASE_PATH = "/pac_website";
 export const asset = (p: string) => `${BASE_PATH}${p}`;
 
 export const NAP = {
