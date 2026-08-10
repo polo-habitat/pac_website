@@ -1,13 +1,15 @@
 # P.A.C. Pièces Auto Cass
 
-> Casse automobile et magasin de pièces détachées neuves et d'occasion à
-> La Farlède (Var, France) depuis le 1er février 1992. Devise : « la bonne
-> pièce au bon prix ». Téléphone : +33 4 94 08 15 33.
+> Magasin de pièces détachées automobiles neuves et d'occasion, avec conseil
+> au comptoir, à La Farlède près de Toulon (Var, France) depuis le 1er février
+> 1992. Devise : « la bonne pièce au bon prix ».
+> Téléphone : +33 4 94 08 15 33.
 
 ## Faits essentiels
 
 - Nom : P.A.C. Pièces Auto Cass (SARL PIECES AUTO CASS, SIREN 384 297 552)
 - Adresse du comptoir : 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède, France
+- Coordonnées GPS : 43.152461, 6.042753
 - Téléphone : 04 94 08 15 33 (+33 4 94 08 15 33) · Fax : 04 94 08 66 39
 - Horaires : lundi à vendredi, 8h00-12h00 et 14h00-18h00; fermé week-end et jours fériés
 - Activités : vente de pièces détachées automobiles neuves sur commande
@@ -16,13 +18,17 @@
   les cas (sur étude, contacter le comptoir ou passer sur place)
 - Zone desservie : La Farlède, Toulon, La Garde, La Valette-du-Var,
   Solliès-Pont, Solliès-Ville, La Crau, Cuers, Hyères, est du Var
+  (accès : A57, sortie La Farlède, à une dizaine de minutes de Toulon)
 - Fonctionnement : pas de vente en ligne; vérification du stock et des prix
-  par téléphone, pièce mise de côté, retrait au comptoir
+  par téléphone, pièce mise de côté, retrait au comptoir, conseil sur place
+- Sur place : parking, accès pour personnes à mobilité réduite, carte bancaire acceptée
 
 ## Pages
 
 - Accueil : https://piecesautocass.fr/
-- Pièces neuves : https://piecesautocass.fr/pieces-neuves.html
-- Pièces d'occasion : https://piecesautocass.fr/pieces-occasion.html
-- Rachat de voiture : https://piecesautocass.fr/rachat-de-voiture.html
-- Contact & accès : https://piecesautocass.fr/contact.html
+- Pièces neuves : https://piecesautocass.fr/pieces-neuves
+- Pièces d'occasion : https://piecesautocass.fr/pieces-occasion
+- Rachat de voiture : https://piecesautocass.fr/rachat-de-voiture
+- Contact & accès : https://piecesautocass.fr/contact
+
+Dernière mise à jour : août 2026.

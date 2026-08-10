@@ -6,23 +6,16 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
 import { PhonePill } from "@/components/phone-pill";
-import { asset, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { asset, pageMeta, sousPageJsonLd } from "@/lib/site";
 
-const TITRE = "Pièces auto neuves au tarif comptoir · P.A.C. La Farlède";
-const DESCRIPTION =
-  "Freinage, filtres, courroies, mécanique : pièces neuves commandées sur carte grise, retrait sous 24-48 h à La Farlède (Var). Tél 04 94 08 15 33.";
-
-export const metadata: Metadata = {
-  title: TITRE,
-  description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/pieces-neuves.html` },
-  openGraph: {
-    title: TITRE,
-    description: "Pièces neuves commandées sur carte grise, retrait sous 24-48 h. Tél 04 94 08 15 33.",
-    url: `${SITE_URL}/pieces-neuves.html`,
-  },
-  twitter: { title: TITRE },
-};
+export const metadata: Metadata = pageMeta({
+  titre: "Pièces auto neuves · La Farlède, près de Toulon (Var) | P.A.C.",
+  description:
+    "Freinage, filtres, courroies, mécanique : pièces neuves commandées sur carte grise, retrait sous 24-48 h à La Farlède, près de Toulon. Tél 04 94 08 15 33.",
+  path: "/pieces-neuves",
+  ogDescription:
+    "Pièces neuves commandées sur carte grise, retrait sous 24-48 h. Tél 04 94 08 15 33.",
+});
 
 const GAMME = [
   ["Freinage", "plaquettes, disques, étriers, flexibles."],
@@ -78,10 +71,10 @@ export default function PiecesNeuves() {
     <>
       <JsonLd
         data={sousPageJsonLd({
+          path: "/pieces-neuves",
           service: {
             name: "Vente de pièces détachées automobiles neuves",
             serviceType: "Pièces auto neuves sur commande",
-            path: "/pieces-neuves.html",
           },
           breadcrumb: "Pièces neuves",
         })}
@@ -144,6 +137,48 @@ export default function PiecesNeuves() {
               permettent un approvisionnement sur commande dans des délais restreints.
             </p>
           </Reveal>
+          <Reveal>
+            <p>
+              Pour certaines familles — carrosserie, optiques, sellerie — une{" "}
+              <a
+                href="/pieces-occasion"
+                className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
+              >
+                pièce d&apos;occasion contrôlée
+              </a>{" "}
+              constitue une alternative au neuf, notamment sur les anciens modèles.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-14 max-w-[70ch]">
+          <Reveal>
+            <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
+              Commander une pièce neuve : le déroulé
+            </h2>
+          </Reveal>
+          <ol className="mt-7 space-y-4">
+            {[
+              ["Appel ou passage au comptoir", "communiquez la carte grise du véhicule ou la référence de la pièce."],
+              ["Vérification", "la référence et la compatibilité sont contrôlées immédiatement."],
+              ["Commande", "si la pièce n'est pas en stock, elle est commandée auprès du réseau de fournisseurs ; le délai est annoncé au moment de la demande, généralement 24 à 48 h."],
+              ["Retrait", "la pièce est vérifiée puis remise au comptoir, 25 rue Gay Lussac à La Farlède. Règlement par carte bancaire ou espèces."],
+            ].map(([titre, texte], i) => (
+              <Reveal key={titre} delay={i * 0.06}>
+                <li className="pac-verre flex gap-5 rounded-[24px] p-6">
+                  <span
+                    className="font-wide grid size-10 shrink-0 place-items-center rounded-full bg-accent text-lg font-extrabold text-accent-foreground"
+                    aria-hidden="true"
+                  >
+                    {i + 1}
+                  </span>
+                  <p className="leading-relaxed text-muted-foreground">
+                    <strong className="text-foreground">{titre}</strong> — {texte}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </section>
 

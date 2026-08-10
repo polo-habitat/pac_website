@@ -5,24 +5,16 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
 import { PhonePill } from "@/components/phone-pill";
-import { NAP, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { NAP, pageMeta, sousPageJsonLd } from "@/lib/site";
 
-const TITRE = "Rachat de voiture · P.A.C. La Farlède (Var)";
-const DESCRIPTION =
-  "P.A.C. étudie le rachat de votre voiture dans l'est varois, selon le modèle et son état. Évaluation au comptoir ou par téléphone au 04 94 08 15 33.";
-
-export const metadata: Metadata = {
-  title: TITRE,
-  description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/rachat-de-voiture.html` },
-  openGraph: {
-    title: TITRE,
-    description:
-      "Rachat de voiture selon le modèle et son état, dans l'est varois. Tél 04 94 08 15 33.",
-    url: `${SITE_URL}/rachat-de-voiture.html`,
-  },
-  twitter: { title: TITRE },
-};
+export const metadata: Metadata = pageMeta({
+  titre: "Rachat de voiture dans le Var · P.A.C. La Farlède, près de Toulon",
+  description:
+    "Vendre sa voiture dans le Var : P.A.C. étudie le rachat selon le modèle et son état. Évaluation au comptoir de La Farlède ou par téléphone au 04 94 08 15 33.",
+  path: "/rachat-de-voiture",
+  ogDescription:
+    "Rachat de voiture selon le modèle et son état, dans l'est varois. Tél 04 94 08 15 33.",
+});
 
 const ETAPES = [
   ["Prise de contact", "Appelez le 04 94 08 15 33 en précisant la marque, le modèle, l'année, le kilométrage et l'état du véhicule."],
@@ -36,10 +28,10 @@ export default function RachatDeVoiture() {
     <>
       <JsonLd
         data={sousPageJsonLd({
+          path: "/rachat-de-voiture",
           service: {
             name: "Rachat de voiture selon les cas",
             serviceType: "Rachat de véhicules, sur étude au comptoir ou par téléphone",
-            path: "/rachat-de-voiture.html",
           },
           breadcrumb: "Rachat de voiture",
         })}
@@ -69,6 +61,21 @@ export default function RachatDeVoiture() {
                 n&apos;existe pas de procédure de reprise systématique. Les propositions
                 d&apos;acquisition sont formulées uniquement à l&apos;issue d&apos;une expertise
                 physique du véhicule.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p>
+                Pour vendre une voiture d&apos;occasion à un professionnel du Var, la démarche se
+                limite ainsi à un appel au 04 94 08 15 33 ou à un passage au comptoir de La
+                Farlède, près de Toulon. Les pièces issues des véhicules repris rejoignent le
+                stock de{" "}
+                <a
+                  href="/pieces-occasion"
+                  className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
+                >
+                  pièces d&apos;occasion contrôlées
+                </a>
+                .
               </p>
             </Reveal>
           </div>

@@ -6,24 +6,16 @@ import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
 import { PhonePill } from "@/components/phone-pill";
-import { asset, SITE_URL, sousPageJsonLd } from "@/lib/site";
+import { asset, pageMeta, sousPageJsonLd } from "@/lib/site";
 
-const TITRE = "Pièces auto d'occasion vérifiées · P.A.C. La Farlède (Var)";
-const DESCRIPTION =
-  "Moteurs, boîtes, optiques, carrosserie : pièces d'occasion contrôlées, 40 à 70 % moins cher que le neuf, y compris anciens modèles et collection. Tél 04 94 08 15 33.";
-
-export const metadata: Metadata = {
-  title: TITRE,
-  description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/pieces-occasion.html` },
-  openGraph: {
-    title: TITRE,
-    description:
-      "Pièces d'occasion contrôlées, 40 à 70 % moins cher que le neuf. Tél 04 94 08 15 33.",
-    url: `${SITE_URL}/pieces-occasion.html`,
-  },
-  twitter: { title: TITRE },
-};
+export const metadata: Metadata = pageMeta({
+  titre: "Pièces auto d'occasion contrôlées · La Farlède, près de Toulon",
+  description:
+    "Pièces auto d'occasion contrôlées à La Farlède, près de Toulon : moteurs, boîtes, optiques, carrosserie, youngtimers et collection. Tél 04 94 08 15 33.",
+  path: "/pieces-occasion",
+  ogDescription:
+    "Pièces d'occasion contrôlées, 40 à 70 % moins cher que le neuf. Tél 04 94 08 15 33.",
+});
 
 const GAMME = [
   ["Mécanique", "moteurs complets, boîtes de vitesses manuelles et automatiques, turbos, injecteurs, pompes."],
@@ -39,10 +31,10 @@ export default function PiecesOccasion() {
     <>
       <JsonLd
         data={sousPageJsonLd({
+          path: "/pieces-occasion",
           service: {
             name: "Vente de pièces détachées automobiles d'occasion",
             serviceType: "Pièces auto d'occasion vérifiées",
-            path: "/pieces-occasion.html",
           },
           breadcrumb: "Pièces d'occasion",
         })}
@@ -105,6 +97,50 @@ export default function PiecesOccasion() {
               l&apos;intégrité et la compatibilité de chaque élément.
             </p>
           </Reveal>
+        </div>
+
+        <div className="mt-14 max-w-[68ch]">
+          <Reveal>
+            <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
+              Anciens modèles, youngtimers et véhicules de collection
+            </h2>
+          </Reveal>
+          <div className="mt-6 space-y-5 leading-relaxed text-muted-foreground">
+            <Reveal>
+              <p>
+                Le stock d&apos;occasion couvre en priorité les modèles qui ne sont plus suivis
+                par les réseaux constructeurs : voitures anciennes, youngtimers et véhicules de
+                collection. Pour ces automobiles, certaines références ne sont plus fabriquées ;
+                un stock d&apos;occasion constitué de longue date est alors la source la plus
+                directe pour une pièce d&apos;origine.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p>
+                La recherche s&apos;effectue sur présentation de la carte grise ou de la
+                référence, au comptoir de La Farlède ou par téléphone. Lorsqu&apos;une pièce
+                n&apos;est pas disponible sur place, la demande est relayée auprès d&apos;un
+                réseau de confrères constitué depuis 1992. Le stock est par ailleurs alimenté
+                par le{" "}
+                <a
+                  href="/rachat-de-voiture"
+                  className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
+                >
+                  rachat de véhicules
+                </a>
+                , étudié au cas par cas.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p>
+                Installé dans la zone industrielle Toulon Est à La Farlède, le magasin est
+                accessible en une dizaine de minutes depuis Toulon par l&apos;A57, sortie La
+                Farlède. Particuliers et professionnels de Toulon, La Valette-du-Var, La Garde,
+                Solliès-Pont, Cuers ou Hyères peuvent faire vérifier une disponibilité par
+                téléphone avant de se déplacer.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

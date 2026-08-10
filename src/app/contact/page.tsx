@@ -10,23 +10,16 @@ import { JsonLd } from "@/components/json-ld";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Reveal } from "@/components/motion/reveal";
 import { PageBanner } from "@/components/page-banner";
-import { asset, NAP, SITE_URL, sousPageJsonLd, WEB3FORMS_ACCESS_KEY } from "@/lib/site";
+import { asset, NAP, pageMeta, sousPageJsonLd, WEB3FORMS_ACCESS_KEY } from "@/lib/site";
 
-const TITRE = "Contact P.A.C. La Farlède · 04 94 08 15 33 (Var)";
-const DESCRIPTION =
-  "P.A.C. Pièces Auto Cass : 04 94 08 15 33, 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède. Lun-ven 8h-12h / 14h-18h. Parking, CB, accès PMR.";
-
-export const metadata: Metadata = {
-  title: TITRE,
-  description: DESCRIPTION,
-  alternates: { canonical: `${SITE_URL}/contact.html` },
-  openGraph: {
-    title: TITRE,
-    description: "25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède. Lun-ven 8h-12h / 14h-18h.",
-    url: `${SITE_URL}/contact.html`,
-  },
-  twitter: { title: TITRE },
-};
+export const metadata: Metadata = pageMeta({
+  titre: "Contact P.A.C. La Farlède, près de Toulon · 04 94 08 15 33",
+  description:
+    "P.A.C. Pièces Auto Cass : 04 94 08 15 33, 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède. Lun-ven 8h-12h / 14h-18h. Parking, CB, accès PMR.",
+  path: "/contact",
+  ogDescription:
+    "25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède. Lun-ven 8h-12h / 14h-18h.",
+});
 
 const HORAIRES = [
   ["Lundi", "8h–12h · 14h–18h"],
@@ -39,7 +32,7 @@ const HORAIRES = [
 export default function Contact() {
   return (
     <>
-      <JsonLd data={sousPageJsonLd({ breadcrumb: "Contact & accès", contactPage: true })} />
+      <JsonLd data={sousPageJsonLd({ path: "/contact", breadcrumb: "Contact & accès", contactPage: true })} />
       <PageBanner
         fil="Contact & accès"
         titre="Nous contacter."
@@ -154,7 +147,15 @@ export default function Contact() {
             </Reveal>
             <Reveal>
               <p>
-                Pour une pièce précise, un appel au{" "}
+                Pour une{" "}
+                <a href="/pieces-neuves" className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
+                  pièce neuve
+                </a>{" "}
+                ou{" "}
+                <a href="/pieces-occasion" className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
+                  d&apos;occasion
+                </a>{" "}
+                précise, un appel au{" "}
                 <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                   04 94 08 15 33
                 </a>{" "}

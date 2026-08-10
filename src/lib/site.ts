@@ -13,6 +13,50 @@ export const WEB3FORMS_ACCESS_KEY: string = "e85372ed-25ef-45ee-9cf3-26d345584e4
 export const BASE_PATH = "";
 export const asset = (p: string) => `${BASE_PATH}${p}`;
 
+/** Coordonnées du 25 rue Gay Lussac (Base Adresse Nationale, id 83054_0093_00025). */
+export const GEO = { latitude: 43.152461, longitude: 6.042753 } as const;
+
+export const OG_IMAGE = {
+  url: `${SITE_URL}/img/og-image.png`,
+  width: 1200,
+  height: 630,
+} as const;
+
+/** Metadata communes d'une page : canonical + Open Graph/Twitter COMPLETS.
+ *  ⚠️ La fusion des metadata App Router est superficielle par clé racine :
+ *  une page qui redéfinit `openGraph`/`twitter` écrase entièrement ceux du
+ *  layout (l'og:image du layout disparaissait de toutes les pages). Ce helper
+ *  fournit donc les objets entiers, images comprises. */
+export function pageMeta(opts: {
+  titre: string;
+  description: string;
+  path: string;
+  ogDescription?: string;
+}) {
+  const url = `${SITE_URL}${opts.path}`;
+  const ogDescription = opts.ogDescription ?? opts.description;
+  return {
+    title: opts.titre,
+    description: opts.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website" as const,
+      locale: "fr_FR",
+      siteName: "P.A.C. Pièces Auto Cass",
+      title: opts.titre,
+      description: ogDescription,
+      url,
+      images: [OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: opts.titre,
+      description: ogDescription,
+      images: [OG_IMAGE.url],
+    },
+  };
+}
+
 export const NAP = {
   nom: "P.A.C. Pièces Auto Cass",
   telephone: "04 94 08 15 33",
@@ -65,9 +109,16 @@ export const etablissementComplet = {
   "@id": ETABLISSEMENT_ID,
   name: "P.A.C. Pièces Auto Cass",
   alternateName: "PAC La Farlède",
+  legalName: "PIECES AUTO CASS",
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "SIREN",
+    value: "384297552",
+  },
+  founder: { "@type": "Person", name: "Lazaros Efstathiou" },
   slogan: "La bonne pièce au bon prix",
   description:
-    "Casse automobile et magasin de pièces détachées neuves et d'occasion à La Farlède (Var) depuis 1992. Rachat de véhicules selon les cas.",
+    "Magasin de pièces détachées automobiles neuves et d'occasion à La Farlède, près de Toulon (Var), depuis 1992. Conseil au comptoir ; rachat de véhicules selon les cas.",
   url: `${SITE_URL}/`,
   telephone: "+33494081533",
   faxNumber: "+33494086639",
@@ -79,8 +130,11 @@ export const etablissementComplet = {
   sameAs: [
     "https://www.pagesjaunes.fr/pros/05323898",
     "https://www.yelp.fr/biz/p-a-c-pi%C3%A8ces-auto-cass-la-farl%C3%A8de",
+    "https://annuaire-entreprises.data.gouv.fr/entreprise/384297552",
   ],
   address: etablissementStub.address,
+  geo: { "@type": "GeoCoordinates", ...GEO },
+  hasMap: NAP.mapsUrl,
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -126,6 +180,21 @@ export const FAQ = [
       "Appelez le 04 94 08 15 33 aux heures d'ouverture, du lundi au vendredi de 8h à 12h et de 14h à 18h, muni de la carte grise ou de la référence. La disponibilité est vérifiée immédiatement et la pièce mise de côté.",
   },
   {
+    question: "Quel est le délai pour une pièce neuve commandée ?",
+    reponse:
+      "Lorsqu'une pièce neuve n'est pas en stock, elle est commandée auprès du réseau de fournisseurs ; le retrait au comptoir intervient généralement sous 24 à 48 h. Le délai exact est annoncé au moment de la demande.",
+  },
+  {
+    question: "Quelles marques de véhicules sont couvertes ?",
+    reponse:
+      "La plupart des marques et des modèles, en pièces neuves comme en occasion : véhicules courants, utilitaires, anciens modèles et véhicules de collection. La compatibilité est vérifiée sur présentation de la carte grise ou de la référence, au 04 94 08 15 33.",
+  },
+  {
+    question: "Les pièces sont-elles expédiées ou vendues en ligne ?",
+    reponse:
+      "Non : la vente s'effectue exclusivement au comptoir, 25 rue Gay Lussac à La Farlède. Ce fonctionnement garantit la vérification de la référence et de l'état de chaque pièce avant la remise.",
+  },
+  {
     question: "Les pièces d'occasion sont-elles contrôlées ?",
     reponse:
       "Oui. Chaque pièce est démontée, contrôlée et référencée avant la vente. L'état et les conditions de reprise sont précisés au comptoir.",
@@ -145,6 +214,11 @@ export const FAQ = [
     reponse:
       "Ouvert du lundi au vendredi, de 8h à 12h et de 14h à 18h, fermé le week-end et les jours fériés. Comptoir au 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède. Parking, accès pour personnes à mobilité réduite, carte bancaire acceptée.",
   },
+  {
+    question: "Où trouver une casse automobile près de Toulon ?",
+    reponse:
+      "P.A.C. Pièces Auto Cass répond à ce besoin : plus qu'une casse, il s'agit d'un magasin de pièces détachées neuves et d'occasion contrôlées, avec conseil au comptoir. L'établissement se trouve ZI Toulon Est, 25 rue Gay Lussac à La Farlède, à une dizaine de minutes de Toulon par l'A57, sortie La Farlède, et sert Toulon, La Garde, La Valette-du-Var, Solliès-Pont, La Crau, Cuers, Hyères et l'est du Var.",
+  },
 ] as const;
 
 export const faqPageJsonLd = {
@@ -160,6 +234,7 @@ export const faqPageJsonLd = {
 export const webSiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   name: "P.A.C. Pièces Auto Cass",
   url: `${SITE_URL}/`,
   inLanguage: "fr-FR",
@@ -167,27 +242,29 @@ export const webSiteJsonLd = {
 };
 
 export function sousPageJsonLd(opts: {
-  service?: { name: string; serviceType: string; path: string };
+  path: string;
+  service?: { name: string; serviceType: string };
   breadcrumb: string;
   contactPage?: boolean;
 }) {
+  const url = `${SITE_URL}${opts.path}`;
   const graph: object[] = [etablissementStub];
   if (opts.service) {
     graph.push({
       "@type": "Service",
+      "@id": `${url}#service`,
       name: opts.service.name,
       serviceType: opts.service.serviceType,
       provider: { "@id": ETABLISSEMENT_ID },
-      areaServed:
-        "La Farlède, Toulon, La Garde, La Valette-du-Var, Solliès-Pont, Cuers, Hyères, La Crau",
-      url: `${SITE_URL}${opts.service.path}`,
+      areaServed: SECTEUR,
+      url,
     });
   }
   if (opts.contactPage) {
     graph.push({
       "@type": "ContactPage",
       name: "Contact et accès · P.A.C. Pièces Auto Cass",
-      url: `${SITE_URL}/contact.html`,
+      url,
       about: { "@id": ETABLISSEMENT_ID },
     });
   }
@@ -195,7 +272,7 @@ export function sousPageJsonLd(opts: {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
-      { "@type": "ListItem", position: 2, name: opts.breadcrumb },
+      { "@type": "ListItem", position: 2, name: opts.breadcrumb, item: url },
     ],
   });
   return { "@context": "https://schema.org", "@graph": graph };

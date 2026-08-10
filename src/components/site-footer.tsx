@@ -75,8 +75,8 @@ export function SiteFooter() {
             {/* Crédit photos déplacé dans les mentions légales (§ Propriété
                 intellectuelle) — plus affiché ici (demande cliente). */}
             <span>
-              Casse automobile et pièces détachées neuves et d&apos;occasion à La Farlède,
-              depuis 1992.
+              Magasin de pièces détachées automobiles neuves et d&apos;occasion à La Farlède,
+              près de Toulon — conseil au comptoir depuis 1992.
             </span>
           </div>
         </div>

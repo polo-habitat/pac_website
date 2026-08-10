@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { preload } from "react-dom";
 
 import { asset } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -56,6 +57,10 @@ export function ScrollHero({
   const hintRef = useRef<HTMLDivElement>(null);
 
   const hasVideo = Boolean(videoMp4 || videoWebm);
+
+  // Le poster est le LCP de la page : demandé dès la découverte du composant
+  // (émis en <link rel="preload"> pendant le SSR, exécuté tôt côté client).
+  preload(asset(poster), { as: "image", fetchPriority: "high" });
 
   useEffect(() => {
     let raf = 0;
@@ -164,6 +169,7 @@ export function ScrollHero({
               playsInline
               preload="auto"
               poster={asset(poster)}
+              aria-label={posterAlt}
               className="h-full w-full object-cover"
             >
               {videoWebm ? <source src={asset(videoWebm)} type="video/webm" /> : null}

@@ -18,24 +18,18 @@ import {
   FAQ,
   faqPageJsonLd,
   NAP,
-  SITE_URL,
+  pageMeta,
   webSiteJsonLd,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
-  alternates: { canonical: `${SITE_URL}/` },
-  openGraph: {
-    title: "P.A.C. · La bonne pièce au bon prix · La Farlède (Var)",
-    description:
-      "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves, pièces d'occasion pour véhicules anciens et de collection, rachat de véhicules. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
-    url: `${SITE_URL}/`,
-  },
-  twitter: {
-    title: "P.A.C. · La bonne pièce au bon prix · La Farlède (Var)",
-    description:
-      "Pièces détachées automobiles neuves et d'occasion depuis 1992 à La Farlède. Tél 04 94 08 15 33.",
-  },
-};
+export const metadata: Metadata = pageMeta({
+  titre: "Pièces auto neuves & d'occasion · La Farlède, près de Toulon | P.A.C.",
+  description:
+    "Magasin de pièces détachées neuves et d'occasion à La Farlède, près de Toulon, depuis 1992. Conseil au comptoir, rachat de voiture selon les cas. Tél 04 94 08 15 33.",
+  path: "/",
+  ogDescription:
+    "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves, pièces d'occasion pour véhicules anciens et de collection, rachat de véhicules. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
+});
 
 // Mots défilants de la carte « Pièces neuves » (accueil) : familles de pièces
 // en libellés courts (version condensée du catalogue de la page pièces neuves).
@@ -151,6 +145,16 @@ export default function Accueil() {
                 Fondée en 1992 à La Farlède, P.A.C. accompagne particuliers et professionnels
                 dans la recherche de pièces détachées — avec une connaissance fine du secteur et
                 un réseau de partenaires pour les demandes les plus spécifiques.
+              </p>
+            </Reveal>
+            <Reveal delay={0.35}>
+              <p className="mt-5 max-w-[50ch] leading-relaxed text-muted-foreground">
+                Souvent recherchée comme « casse auto », l&apos;enseigne est avant tout un
+                magasin de vente au comptoir de pièces neuves et d&apos;occasion, avec conseil.
+                Installée dans la zone industrielle Toulon Est, à quelques minutes de la sortie
+                La Farlède de l&apos;A57, elle sert Toulon et son agglomération — La
+                Valette-du-Var, La Garde, La Crau, Solliès-Pont, Cuers, Hyères — ainsi que
+                l&apos;ensemble du Var.
               </p>
             </Reveal>
           </div>
