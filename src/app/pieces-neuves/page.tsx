@@ -11,10 +11,10 @@ import { asset, pageMeta, sousPageJsonLd } from "@/lib/site";
 export const metadata: Metadata = pageMeta({
   titre: "Pièces auto neuves · La Farlède, près de Toulon (Var) | P.A.C.",
   description:
-    "Freinage, filtres, courroies, mécanique : pièces neuves commandées sur carte grise, retrait sous 24-48 h à La Farlède, près de Toulon. Tél 04 94 08 15 33.",
+    "Freinage, filtres, courroies, mécanique : pièces neuves commandées sur carte grise, retrait au comptoir de La Farlède, près de Toulon. Tél 04 94 08 15 33.",
   path: "/pieces-neuves",
   ogDescription:
-    "Pièces neuves commandées sur carte grise, retrait sous 24-48 h. Tél 04 94 08 15 33.",
+    "Pièces neuves commandées sur carte grise, retrait au comptoir. Tél 04 94 08 15 33.",
 });
 
 const GAMME = [
@@ -84,7 +84,7 @@ export default function PiecesNeuves() {
         titre="Pièces détachées neuves."
         image="/img/hero-neuves-1600.webp"
         imageAlt="Disque de frein et étrier neufs, en gros plan"
-        chapo="Certaines pièces se remplacent nécessairement par du neuf : freinage, filtration, distribution, suspension. P.A.C. les commande pour votre véhicule, sans la marge d'un réseau constructeur."
+        chapo="Certaines pièces se remplacent nécessairement par du neuf : freinage, filtration, distribution, suspension."
         action={<PhonePill label="Demander un tarif" />}
       />
 
@@ -93,7 +93,7 @@ export default function PiecesNeuves() {
           <Reveal>
             <div>
               <h2 className="text-[clamp(1.6rem,3.2vw,2.4rem)] font-bold leading-tight tracking-[-0.015em]">
-                Ce qui se commande en neuf
+                Familles de pièces
               </h2>
               <ul className="mt-6 divide-y divide-border">
                 {GAMME.map(([famille, detail]) => (
@@ -144,7 +144,7 @@ export default function PiecesNeuves() {
                 href="/pieces-occasion"
                 className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
               >
-                pièce d&apos;occasion contrôlée
+                pièce d&apos;occasion
               </a>{" "}
               constitue une alternative au neuf, notamment sur les anciens modèles.
             </p>
@@ -161,7 +161,7 @@ export default function PiecesNeuves() {
             {[
               ["Appel ou passage au comptoir", "communiquez la carte grise du véhicule ou la référence de la pièce."],
               ["Vérification", "la référence et la compatibilité sont contrôlées immédiatement."],
-              ["Commande", "si la pièce n'est pas en stock, elle est commandée auprès du réseau de fournisseurs ; le délai est annoncé au moment de la demande, généralement 24 à 48 h."],
+              ["Commande", "si la pièce n'est pas en stock, elle est commandée auprès du réseau de fournisseurs ; le délai est annoncé au moment de la demande."],
               ["Retrait", "la pièce est vérifiée puis remise au comptoir, 25 rue Gay Lussac à La Farlède. Règlement par carte bancaire ou espèces."],
             ].map(([titre, texte], i) => (
               <Reveal key={titre} delay={i * 0.06}>
@@ -196,10 +196,9 @@ export default function PiecesNeuves() {
             </h2>
             <p className="mt-4 max-w-[70ch] leading-relaxed text-muted-foreground">
               Le stock P.A.C. couvre l&apos;essentiel des pièces détachées automobiles, neuves
-              ou d&apos;occasion contrôlée, pour la plupart des marques et modèles — y compris
-              anciens et de collection. Une référence n&apos;apparaît pas dans la liste ?
-              Appelez Pièces Auto Cass à La Farlède : la recherche est étendue au réseau de
-              confrères.
+              ou d&apos;occasion, pour la plupart des marques et modèles — y compris
+              anciens et de collection. Pour une référence absente de la liste, la recherche
+              est étendue au réseau de confrères.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
@@ -222,7 +221,6 @@ export default function PiecesNeuves() {
 
       <CtaPanel
         titre="Devis gratuit et immédiat."
-        texte="Un appel suffit pour obtenir le prix du neuf et, lorsqu'elle existe, celui de l'occasion."
         image="/img/roue-900.webp"
         alt="Serrage d'une jante à la boulonneuse en atelier"
       />

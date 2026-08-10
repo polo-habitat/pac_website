@@ -65,15 +65,14 @@ export default function RachatDeVoiture() {
             </Reveal>
             <Reveal>
               <p>
-                Pour vendre une voiture d&apos;occasion à un professionnel du Var, la démarche se
-                limite ainsi à un appel au 04 94 08 15 33 ou à un passage au comptoir de La
-                Farlède, près de Toulon. Les pièces issues des véhicules repris rejoignent le
-                stock de{" "}
+                Pour vendre une voiture d&apos;occasion à un professionnel du Var : un appel au
+                04 94 08 15 33 ou un passage au comptoir de La Farlède, près de Toulon. Les
+                pièces issues des véhicules repris rejoignent le stock de{" "}
                 <a
                   href="/pieces-occasion"
                   className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
                 >
-                  pièces d&apos;occasion contrôlées
+                  pièces d&apos;occasion
                 </a>
                 .
               </p>
@@ -109,8 +108,8 @@ export default function RachatDeVoiture() {
           </Reveal>
           <Reveal>
             <p className="mt-5 leading-relaxed text-muted-foreground">
-              Voitures et utilitaires, en état de marche ou immobilisés. Les anciens modèles,
-              youngtimers et véhicules de collection présentent souvent des pièces recherchées :
+              Voitures et utilitaires, en état de marche ou immobilisés. Les anciens modèles
+              et véhicules de collection présentent souvent des pièces recherchées :
               ils font l&apos;objet d&apos;une attention particulière. Communiquez la référence ou
               la carte grise au{" "}
               <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">

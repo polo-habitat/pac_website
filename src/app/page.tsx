@@ -28,7 +28,7 @@ export const metadata: Metadata = pageMeta({
     "Magasin de pièces détachées neuves et d'occasion à La Farlède, près de Toulon, depuis 1992. Conseil au comptoir, rachat de voiture selon les cas. Tél 04 94 08 15 33.",
   path: "/",
   ogDescription:
-    "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves, pièces d'occasion pour véhicules anciens et de collection, rachat de véhicules. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
+    "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves et d'occasion pour tous les véhicules, rachat selon les cas. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
 });
 
 // Mots défilants de la carte « Pièces neuves » (accueil) : familles de pièces
@@ -105,8 +105,9 @@ export default function Accueil() {
         }
         intro={
           <>
-            Vente au comptoir de pièces neuves, de pièces d&apos;occasion pour véhicules anciens
-            et de collection, et rachat de véhicules sur étude de dossier.
+            Vente au comptoir de pièces neuves et d&apos;occasion pour tous les véhicules — du
+            modèle courant à la voiture de collection — et rachat de véhicules sur étude de
+            dossier.
           </>
         }
         actions={
@@ -205,7 +206,8 @@ export default function Accueil() {
                   Ne ratez pas une occasion. Certaines pièces fonctionnent aussi bien neuves que d&apos;occasion.
                 </h3>
                 <p className="mt-3 max-w-[38ch] text-sm leading-relaxed text-primary-foreground/75">
-                  Véhicules anciens et de collection. Chaque pièce est contrôlée avant la vente.
+                  Pour tous les véhicules, y compris anciens et de collection. Chaque pièce est
+                  démontée et référencée avant la vente.
                 </p>
                 <div className="mt-6">
                   <CtaPill href="/pieces-occasion">La gamme occasion</CtaPill>
@@ -239,7 +241,7 @@ export default function Accueil() {
             {[
               { valeur: <><Counter value={34} /> ans</>, legende: "de métier au même endroit" },
               { valeur: <>1992</>, legende: "année de création de la maison" },
-              { valeur: <>24-48h</>, legende: "pour une pièce neuve sur commande" },
+              { valeur: <>100 %</>, legende: "vente et conseil au comptoir" },
               { valeur: <>5j/7</>, legende: "au comptoir, ZI Toulon Est" },
             ].map((stat, i) => (
               <Reveal key={i} delay={i * 0.06}>
@@ -261,7 +263,7 @@ export default function Accueil() {
                 alt: "Roue et pneu d'un véhicule en cours de démontage",
                 titre: "Pièces d'occasion",
                 texte:
-                  "Chaque pièce est démontée, contrôlée et référencée avant la vente, y compris pour les anciens modèles et véhicules de collection.",
+                  "Chaque pièce est démontée et référencée avant la vente, y compris pour les anciens modèles et véhicules de collection.",
                 href: "/pieces-occasion",
                 label: "En savoir plus",
               },

@@ -54,6 +54,24 @@ pièce au bon prix ». Dernière mise à jour : 10 août 2026.
 - Positionnement voulu par le client : **pièces neuves mises en avant**
   devant l'occasion ; l'occasion est valorisée via les **anciens modèles,
   youngtimers et véhicules de collection**.
+- ⚠️ **Interdits éditoriaux du 10/08/2026** (demandes cliente) :
+  **ne plus afficher le SIREN** nulle part sauf dans le corps des mentions
+  légales (obligation légale ; retiré du footer, du JSON-LD, de llms.txt et
+  des meta descriptions) ; **ne plus employer « youngtimer »** ; **ne plus
+  affirmer que les pièces d'occasion sont « contrôlées »/« vérifiées »**
+  (« démontée et référencée » est accepté) ; **ne plus citer « 40 à 70 % »**
+  ni aucun pourcentage d'économie ; **le délai « 24-48 h » est FAUX** (dixit
+  la cliente), ne plus jamais afficher de délai chiffré — écrire « le délai
+  est annoncé au moment de la demande » ; **bannir les phrases qui expliquent
+  l'évidence** (« un appel suffit pour… », « évite un aller-retour inutile »,
+  « n'hésitez pas à… ») — la cliente : « arrête de surjouer sur les phrases,
+  reste concis et simple ». Retirés aussi : « sans la marge d'un réseau
+  constructeur » (chapo pièces neuves), le texte du CtaPanel pièces neuves
+  (titre seul), H2 « Ce qui se commande en neuf » → « Familles de pièces ».
+  **Pas d'amalgame « que pour véhicules anciens »** : les pièces (neuves ET
+  occasion) concernent TOUS les véhicules, du modèle courant à la collection ;
+  l'ancien/collection est une spécialité en plus, pas le périmètre. Formule
+  type : « pour tous les véhicules, y compris anciens et de collection ».
 - ⚠️ **« Pas vraiment une casse »** (recadrage client du 10/08/2026) :
   l'entreprise est avant tout un **magasin de vente de pièces détachées
   neuves et d'occasion, avec conseil** au comptoir. Ne jamais présenter

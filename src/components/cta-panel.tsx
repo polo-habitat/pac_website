@@ -13,7 +13,7 @@ export function CtaPanel({
   ratio = "3/2",
 }: {
   titre: string;
-  texte: string;
+  texte?: string;
   image: string;
   alt: string;
   ratio?: string;
@@ -27,9 +27,11 @@ export function CtaPanel({
               <h2 className="max-w-[22ch] text-[clamp(1.6rem,3.4vw,2.5rem)] font-semibold leading-[1.12] tracking-[-0.015em]">
                 {titre}
               </h2>
-              <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-accent-foreground/80">
-                {texte}
-              </p>
+              {texte ? (
+                <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-accent-foreground/80">
+                  {texte}
+                </p>
+              ) : null}
               <div className="mt-7">
                 <PhonePill />
               </div>

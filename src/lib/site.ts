@@ -110,12 +110,6 @@ export const etablissementComplet = {
   name: "P.A.C. Pièces Auto Cass",
   alternateName: "PAC La Farlède",
   legalName: "PIECES AUTO CASS",
-  identifier: {
-    "@type": "PropertyValue",
-    propertyID: "SIREN",
-    value: "384297552",
-  },
-  founder: { "@type": "Person", name: "Lazaros Efstathiou" },
   slogan: "La bonne pièce au bon prix",
   description:
     "Magasin de pièces détachées automobiles neuves et d'occasion à La Farlède, près de Toulon (Var), depuis 1992. Conseil au comptoir ; rachat de véhicules selon les cas.",
@@ -130,7 +124,6 @@ export const etablissementComplet = {
   sameAs: [
     "https://www.pagesjaunes.fr/pros/05323898",
     "https://www.yelp.fr/biz/p-a-c-pi%C3%A8ces-auto-cass-la-farl%C3%A8de",
-    "https://annuaire-entreprises.data.gouv.fr/entreprise/384297552",
   ],
   address: etablissementStub.address,
   geo: { "@type": "GeoCoordinates", ...GEO },
@@ -162,7 +155,7 @@ export const etablissementComplet = {
   ],
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées neuves" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées d'occasion vérifiées, y compris pour anciens modèles et véhicules de collection" } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées d'occasion, notamment pour anciens modèles et véhicules de collection" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rachat de véhicules selon les cas, sur étude au comptoir ou par téléphone" } },
   ],
 };
@@ -182,7 +175,7 @@ export const FAQ = [
   {
     question: "Quel est le délai pour une pièce neuve commandée ?",
     reponse:
-      "Lorsqu'une pièce neuve n'est pas en stock, elle est commandée auprès du réseau de fournisseurs ; le retrait au comptoir intervient généralement sous 24 à 48 h. Le délai exact est annoncé au moment de la demande.",
+      "Le délai dépend de la référence et du fournisseur ; il est annoncé au moment de la demande, au 04 94 08 15 33 ou au comptoir.",
   },
   {
     question: "Quelles marques de véhicules sont couvertes ?",
@@ -192,12 +185,7 @@ export const FAQ = [
   {
     question: "Les pièces sont-elles expédiées ou vendues en ligne ?",
     reponse:
-      "Non : la vente s'effectue exclusivement au comptoir, 25 rue Gay Lussac à La Farlède. Ce fonctionnement garantit la vérification de la référence et de l'état de chaque pièce avant la remise.",
-  },
-  {
-    question: "Les pièces d'occasion sont-elles contrôlées ?",
-    reponse:
-      "Oui. Chaque pièce est démontée, contrôlée et référencée avant la vente. L'état et les conditions de reprise sont précisés au comptoir.",
+      "Non : la vente s'effectue exclusivement au comptoir, 25 rue Gay Lussac à La Farlède.",
   },
   {
     question: "Trouve-t-on des pièces pour véhicules anciens ou de collection ?",
@@ -217,7 +205,7 @@ export const FAQ = [
   {
     question: "Où trouver une casse automobile près de Toulon ?",
     reponse:
-      "P.A.C. Pièces Auto Cass répond à ce besoin : plus qu'une casse, il s'agit d'un magasin de pièces détachées neuves et d'occasion contrôlées, avec conseil au comptoir. L'établissement se trouve ZI Toulon Est, 25 rue Gay Lussac à La Farlède, à une dizaine de minutes de Toulon par l'A57, sortie La Farlède, et sert Toulon, La Garde, La Valette-du-Var, Solliès-Pont, La Crau, Cuers, Hyères et l'est du Var.",
+      "P.A.C. Pièces Auto Cass répond à ce besoin : plus qu'une casse, il s'agit d'un magasin de pièces détachées neuves et d'occasion, avec conseil au comptoir. L'établissement se trouve ZI Toulon Est, 25 rue Gay Lussac à La Farlède, à une dizaine de minutes de Toulon par l'A57, sortie La Farlède, et sert Toulon, La Garde, La Valette-du-Var, Solliès-Pont, La Crau, Cuers, Hyères et l'est du Var.",
   },
 ] as const;
 

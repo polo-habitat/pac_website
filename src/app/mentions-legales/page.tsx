@@ -7,7 +7,7 @@ import { SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Mentions légales | P.A.C. Pièces Auto Cass · La Farlède",
   description:
-    "Mentions légales du site de P.A.C. Pièces Auto Cass, SARL au SIREN 384 297 552, ZI Toulon Est, 83210 La Farlède (Var). Éditeur, hébergeur, données personnelles.",
+    "Mentions légales du site de P.A.C. Pièces Auto Cass (SARL), ZI Toulon Est, 83210 La Farlède (Var). Éditeur, hébergeur, données personnelles.",
   alternates: { canonical: `${SITE_URL}/mentions-legales` },
   robots: { index: false, follow: true },
 };

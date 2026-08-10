@@ -7,15 +7,15 @@
 
 ## Faits essentiels
 
-- Nom : P.A.C. Pièces Auto Cass (SARL PIECES AUTO CASS, SIREN 384 297 552)
+- Nom : P.A.C. Pièces Auto Cass (SARL PIECES AUTO CASS)
 - Adresse du comptoir : 25 rue Gay Lussac, ZI Toulon Est, 83210 La Farlède, France
 - Coordonnées GPS : 43.152461, 6.042753
 - Téléphone : 04 94 08 15 33 (+33 4 94 08 15 33) · Fax : 04 94 08 66 39
 - Horaires : lundi à vendredi, 8h00-12h00 et 14h00-18h00; fermé week-end et jours fériés
 - Activités : vente de pièces détachées automobiles neuves sur commande
-  (retrait sous 24-48 h) et d'occasion vérifiées, y compris pour anciens
-  modèles, youngtimers et véhicules de collection; rachat de véhicules selon
-  les cas (sur étude, contacter le comptoir ou passer sur place)
+  et d'occasion, y compris pour anciens modèles et véhicules de collection;
+  rachat de véhicules selon les cas (sur étude, contacter le comptoir ou
+  passer sur place)
 - Zone desservie : La Farlède, Toulon, La Garde, La Valette-du-Var,
   Solliès-Pont, Solliès-Ville, La Crau, Cuers, Hyères, est du Var
   (accès : A57, sortie La Farlède, à une dizaine de minutes de Toulon)

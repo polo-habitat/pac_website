@@ -58,7 +58,7 @@ export function SiteFooter() {
             <div className="md:justify-self-end">
               <p className="pac-eyebrow text-muted-foreground">Besoin d&apos;une pièce ?</p>
               <p className="mt-5 max-w-[26ch] text-xl font-semibold leading-snug tracking-[-0.01em]">
-                Un appel suffit pour vérifier une disponibilité et obtenir un prix.
+                Disponibilités et prix par téléphone.
               </p>
               <a
                 href={NAP.telephoneHref}
@@ -96,8 +96,6 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-[100rem] flex-col gap-6 px-7 pb-10 sm:flex-row sm:items-end sm:justify-between">
           <p className="text-xs leading-relaxed text-primary-foreground/60">
             © 1992–2026 P.A.C. Pièces Auto Cass
-            <br />
-            SIREN 384 297 552 · RCS Toulon
           </p>
           <p
             className="font-wide text-[clamp(3rem,8vw,6.5rem)] font-extrabold leading-[0.8] tracking-tight text-primary-foreground/95"

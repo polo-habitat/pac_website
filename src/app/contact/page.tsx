@@ -155,12 +155,11 @@ export default function Contact() {
                 <a href="/pieces-occasion" className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                   d&apos;occasion
                 </a>{" "}
-                précise, un appel au{" "}
+                précise, appelez le{" "}
                 <a href={NAP.telephoneHref} className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4">
                   04 94 08 15 33
                 </a>{" "}
-                avant tout déplacement évite un aller-retour inutile : si la référence doit être
-                commandée, le délai est annoncé ; si elle est en stock, elle est réservée.
+                : en stock, la pièce est mise de côté ; à commander, le délai est annoncé.
               </p>
             </Reveal>
             <Reveal>
