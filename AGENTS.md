@@ -8,24 +8,25 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 Site vitrine de **P.A.C. Pièces Auto Cass**, casse automobile et pièces
 détachées neuves et d'occasion à La Farlède (Var). Slogan : « la bonne
-pièce au bon prix ». Dernière mise à jour : 12 juillet 2026.
+pièce au bon prix ». Dernière mise à jour : 10 août 2026.
 
 ## État actuel : EN LIGNE ✅ (v6 « Roulez », esprit zoox.com)
 
-- **Prod** : https://polo-habitat.github.io/pac_website/
+- **Prod : https://piecesautocass.fr** (domaine OVH, hébergement GitHub
+  Pages, HTTPS forcé — migration finalisée le 10/08/2026 après déblocage
+  du registre .fr par le support OVH, ticket CS16314469 clos).
+  `www.piecesautocass.fr` et `polo-habitat.github.io/pac_website/`
+  redirigent en 301 vers le domaine. Zone DNS chez OVH : 4 A
+  185.199.108-111.153 + 4 AAAA + CNAME www → polo-habitat.github.io.
 - **Repo** : https://github.com/polo-habitat/pac_website (branche `main`)
 - Compte GitHub CLI authentifié : `polo-habitat`
   (gh.exe : `C:\Program Files\GitHub CLI\gh.exe` ; git : dans le PATH)
-- **Déploiement** : `npm run deploy` → build Next.js puis push de `out/`
-  sur la branche **gh-pages** (package npm `gh-pages`), servie par GitHub
-  Pages (build_type=legacy, source gh-pages/racine). Pousser `main` ne
-  publie PAS le site : toujours `npm run deploy` après le push.
-  ⚠️ Le jeton OAuth gh n'a pas le scope `workflow` : impossible de pousser
-  `.github/workflows/*` (le fichier deploy.yml existe localement, non
-  suivi). Si le client exécute un jour
-  `gh auth refresh -h github.com -s workflow`, on pourra committer le
-  workflow et repasser Pages en build_type=workflow.
-- Dev local : `npm run dev` (basePath /pac_website s'applique aussi en dev)
+- **Déploiement : push sur `main` suffit** → workflow GitHub Actions
+  « Déploiement GitHub Pages » (`.github/workflows/deploy.yml`,
+  build_type=workflow) rebuild et publie. `npm run deploy` (gh-pages
+  legacy) est ABANDONNÉ. `public/CNAME` (contenu `piecesautocass.fr`)
+  est obligatoire — ne pas le supprimer.
+- Dev local : `npm run dev` (plus de basePath, site servi à la racine)
 - Build : `npm run build` → export statique dans `out/`
 
 ## Données entreprise (VÉRIFIÉES, ne pas réinventer)
