@@ -54,6 +54,14 @@ pièce au bon prix ». Dernière mise à jour : 10 août 2026.
 - Positionnement voulu par le client : **pièces neuves mises en avant**
   devant l'occasion ; l'occasion est valorisée via les **anciens modèles,
   youngtimers et véhicules de collection**.
+- ⚠️ **« Pas vraiment une casse »** (recadrage client du 10/08/2026) :
+  l'entreprise est avant tout un **magasin de vente de pièces détachées
+  neuves et d'occasion, avec conseil** au comptoir. Ne jamais présenter
+  P.A.C. comme « casse auto » en positionnement principal (titles, H1,
+  descriptions) ; le terme ne sert qu'en **capture de recherche** («
+  casse auto Toulon » étant très tapé) : une question de FAQ reformulée
+  « plus qu'une casse… » + une mention unique sur l'accueil (« souvent
+  recherchée comme casse auto… »). Ne pas en rajouter.
 
 ## Stack v4 (refonte du 11/07/2026, remplace le statique pur v3)
 
