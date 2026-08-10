@@ -76,7 +76,6 @@ export const NAP = {
 export const NAV = [
   { href: "/pieces-neuves", label: "Pièces neuves" },
   { href: "/pieces-occasion", label: "Pièces d'occasion" },
-  { href: "/rachat-de-voiture", label: "Rachat de voiture" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -84,7 +83,7 @@ export const SECTEUR =
   "La Farlède, Toulon, La Garde, La Valette-du-Var, Solliès-Pont, Solliès-Ville, La Crau, Cuers, Hyères et tout l'est varois.";
 
 /* Établissement JSON-LD complet (accueil) et stub (sous-pages).
-   Le rachat de métaux n'est plus proposé ; le rachat de véhicules est au cas par cas. */
+   Ni rachat de métaux ni rachat de véhicules : aucun des deux n'est évoqué sur le site. */
 export const ETABLISSEMENT_ID = `${SITE_URL}/#etablissement`;
 
 export const etablissementStub = {
@@ -112,7 +111,7 @@ export const etablissementComplet = {
   legalName: "PIECES AUTO CASS",
   slogan: "La bonne pièce au bon prix",
   description:
-    "Magasin de pièces détachées automobiles neuves et d'occasion à La Farlède, près de Toulon (Var), depuis 1992. Conseil au comptoir ; rachat de véhicules selon les cas.",
+    "Magasin de pièces détachées automobiles neuves et d'occasion à La Farlède, près de Toulon (Var), depuis 1992. Conseil au comptoir.",
   url: `${SITE_URL}/`,
   telephone: "+33494081533",
   faxNumber: "+33494086639",
@@ -156,7 +155,6 @@ export const etablissementComplet = {
   makesOffer: [
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées neuves" } },
     { "@type": "Offer", itemOffered: { "@type": "Service", name: "Vente de pièces détachées d'occasion, notamment pour anciens modèles et véhicules de collection" } },
-    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Rachat de véhicules selon les cas, sur étude au comptoir ou par téléphone" } },
   ],
 };
 
@@ -191,11 +189,6 @@ export const FAQ = [
     question: "Trouve-t-on des pièces pour véhicules anciens ou de collection ?",
     reponse:
       "Fréquemment. Une casse dispose de pièces qui ne sont plus fabriquées, pour les modèles anciens et de collection. Communiquez la référence ou la carte grise : la recherche est étendue aux confrères si nécessaire.",
-  },
-  {
-    question: "P.A.C. rachète-t-il les véhicules ?",
-    reponse:
-      "Selon le modèle et son état, un rachat est possible mais non systématique. L'évaluation se fait au comptoir, 25 rue Gay Lussac à La Farlède, ou par téléphone au 04 94 08 15 33.",
   },
   {
     question: "Quels sont les horaires et l'accès au comptoir ?",

@@ -120,15 +120,7 @@ export default function PiecesOccasion() {
                 La recherche s&apos;effectue sur présentation de la carte grise ou de la
                 référence, au comptoir de La Farlède ou par téléphone. Lorsqu&apos;une pièce
                 n&apos;est pas disponible sur place, la demande est relayée auprès d&apos;un
-                réseau de confrères constitué depuis 1992. Le stock est par ailleurs alimenté
-                par le{" "}
-                <a
-                  href="/rachat-de-voiture"
-                  className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
-                >
-                  rachat de véhicules
-                </a>
-                , étudié au cas par cas.
+                réseau de confrères constitué depuis 1992.
               </p>
             </Reveal>
             <Reveal>

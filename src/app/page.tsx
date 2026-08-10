@@ -25,10 +25,10 @@ import {
 export const metadata: Metadata = pageMeta({
   titre: "Pièces auto neuves & d'occasion · La Farlède, près de Toulon | P.A.C.",
   description:
-    "Magasin de pièces détachées neuves et d'occasion à La Farlède, près de Toulon, depuis 1992. Conseil au comptoir, rachat de voiture selon les cas. Tél 04 94 08 15 33.",
+    "Magasin de pièces détachées neuves et d'occasion à La Farlède, près de Toulon, depuis 1992. Conseil au comptoir. Tél 04 94 08 15 33.",
   path: "/",
   ogDescription:
-    "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves et d'occasion pour tous les véhicules, rachat selon les cas. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
+    "Vente au comptoir de pièces détachées automobiles depuis 1992. Pièces neuves et d'occasion pour tous les véhicules. ZI Toulon Est, La Farlède. Tél 04 94 08 15 33.",
 });
 
 // Mots défilants de la carte « Pièces neuves » (accueil) : familles de pièces
@@ -106,8 +106,7 @@ export default function Accueil() {
         intro={
           <>
             Vente au comptoir de pièces neuves et d&apos;occasion pour tous les véhicules — du
-            modèle courant à la voiture de collection — et rachat de véhicules sur étude de
-            dossier.
+            modèle courant à la voiture de collection.
           </>
         }
         actions={
@@ -218,11 +217,11 @@ export default function Accueil() {
         </div>
       </section>
 
-      {/* ================= PLAQUE SOMBRE : réemploi & rachat ================= */}
+      {/* ================= PLAQUE SOMBRE : réemploi ================= */}
       <section aria-labelledby="t-reemploi" data-nav="dark" className="mt-16 bg-primary py-16 text-primary-foreground sm:mt-24 sm:py-24">
         <div className="mx-auto max-w-[100rem] px-5 text-center sm:px-10">
           <Reveal y={16}>
-            <p className="pac-eyebrow pac-kick text-primary-foreground/70">Réemploi &amp; rachat</p>
+            <p className="pac-eyebrow pac-kick text-primary-foreground/70">Réemploi</p>
           </Reveal>
           <h2 id="t-reemploi" className="mx-auto mt-6 max-w-[30ch] text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.14] tracking-[-0.015em]">
             <SplitText text="Près de 85 % d'une automobile est réutilisable." />
@@ -233,7 +232,7 @@ export default function Accueil() {
           </h2>
           <Reveal delay={0.5}>
             <div className="mt-9">
-              <CtaPill href="/rachat-de-voiture">Rachat de voiture</CtaPill>
+              <CtaPill href="/pieces-occasion">Pièces d&apos;occasion</CtaPill>
             </div>
           </Reveal>
 
@@ -256,49 +255,6 @@ export default function Accueil() {
             ))}
           </dl>
 
-          <div className="mt-16 grid gap-10 text-left md:grid-cols-2 md:gap-6 lg:px-16">
-            {[
-              {
-                image: "/img/roue-900.webp",
-                alt: "Roue et pneu d'un véhicule en cours de démontage",
-                titre: "Pièces d'occasion",
-                texte:
-                  "Chaque pièce est démontée et référencée avant la vente, y compris pour les anciens modèles et véhicules de collection.",
-                href: "/pieces-occasion",
-                label: "En savoir plus",
-              },
-              {
-                image: "/img/compteur-900.webp",
-                alt: "Compteur de vitesse en gros plan, aiguille au repos",
-                titre: "Rachat de voiture",
-                texte:
-                  "Étudié au cas par cas, selon le modèle, son état et la disponibilité des pièces qu'il peut fournir. Évaluation au comptoir ou par téléphone.",
-                href: "/rachat-de-voiture",
-                label: "En savoir plus",
-              },
-            ].map((carte, i) => (
-              <Reveal key={carte.titre} delay={i * 0.1} className="h-full">
-                <article className="flex h-full flex-col items-center text-center">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[24px] sm:mx-auto sm:w-4/5">
-                    <Image
-                      src={asset(carte.image)}
-                      alt={carte.alt}
-                      fill
-                      sizes="(max-width: 768px) 92vw, 40vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="mt-7 text-2xl font-semibold tracking-[-0.01em]">{carte.titre}</h3>
-                  <p className="mx-auto mt-3 max-w-[44ch] text-sm leading-relaxed text-primary-foreground/70">
-                    {carte.texte}
-                  </p>
-                  <CtaPill href={carte.href} tone="jaune" className="mt-6 h-10 px-5">
-                    {carte.label}
-                  </CtaPill>
-                </article>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

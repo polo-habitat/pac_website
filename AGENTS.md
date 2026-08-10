@@ -46,14 +46,19 @@ pièce au bon prix ». Dernière mise à jour : 10 août 2026.
   client). Le **rachat de véhicules** existe mais n'est pas systématique :
   toujours renvoyer vers un appel ou un passage au comptoir.
 - ⚠️ **Pas d'enlèvement d'épave / recyclage VHU** (retiré le 13/07/2026 à
-  la demande du client : « sur le site il n'y a pas d'enlèvement d'épave,
-  juste rachat de véhicule »). L'ancienne page `enlevement-epave` a été
-  renommée **`rachat-de-voiture`** (nouvelle URL `/rachat-de-voiture`,
-  l'ancienne `/enlevement-epave.html` n'existe plus). Ne pas réintroduire
-  enlèvement / dépollution / centre agréé VHU.
+  la demande du client). Ne pas réintroduire enlèvement / dépollution /
+  centre agréé VHU.
+- ⚠️ **RACHAT DE VÉHICULES SUPPRIMÉ DU SITE** (10/08/2026, demande cliente :
+  « certains appellent pour ça pour tout et rien, donc on n'en parle pas »).
+  La page `/rachat-de-voiture` est SUPPRIMÉE (404), plus AUCUNE mention du
+  rachat nulle part : ni menu, ni accueil (plaque sombre devenue « Réemploi »
+  avec CTA pièces d'occasion, cartes retirées), ni FAQ, ni JSON-LD, ni
+  llms.txt/sitemap, ni sujet du formulaire de contact. Ne JAMAIS réintroduire
+  le rachat de véhicules sur le site. (L'activité existe toujours en interne
+  au cas par cas, mais elle ne doit plus être publiée.)
 - Positionnement voulu par le client : **pièces neuves mises en avant**
-  devant l'occasion ; l'occasion est valorisée via les **anciens modèles,
-  youngtimers et véhicules de collection**.
+  devant l'occasion ; l'occasion est valorisée via les **anciens modèles
+  et véhicules de collection** (mot « youngtimer » banni, cf. interdits).
 - ⚠️ **Interdits éditoriaux du 10/08/2026** (demandes cliente) :
   **ne plus afficher le SIREN** nulle part sauf dans le corps des mentions
   légales (obligation légale ; retiré du footer, du JSON-LD, de llms.txt et
