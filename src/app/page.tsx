@@ -44,7 +44,6 @@ const PIECES_NEUVES_LISTE = [
   "Courroies",
   "Batteries",
   "Bougies",
-  "Pneus",
   "Phares",
   "Feux",
   "Clignotants",

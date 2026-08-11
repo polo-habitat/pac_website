@@ -77,6 +77,8 @@ pièce au bon prix ». Dernière mise à jour : 10 août 2026.
   occasion) concernent TOUS les véhicules, du modèle courant à la collection ;
   l'ancien/collection est une spécialité en plus, pas le périmètre. Formule
   type : « pour tous les véhicules, y compris anciens et de collection ».
+  **Pas de pneus** (11/08/2026 : « il ne fait pas de pneus ») — retirés des
+  familles de pièces (accueil + pièces neuves) ; ne jamais les réintroduire.
 - ⚠️ **« Pas vraiment une casse »** (recadrage client du 10/08/2026) :
   l'entreprise est avant tout un **magasin de vente de pièces détachées
   neuves et d'occasion, avec conseil** au comptoir. Ne jamais présenter

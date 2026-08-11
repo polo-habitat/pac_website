@@ -57,7 +57,6 @@ const FAMILLES = [
   "Phares",
   "Pièces de chauffage",
   "Plaquettes et disques de frein",
-  "Pneus",
   "Poignées",
   "Pompes à eau",
   "Portières",
