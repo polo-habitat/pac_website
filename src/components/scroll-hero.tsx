@@ -91,6 +91,29 @@ export function ScrollHero({
     };
     videoInitial?.addEventListener("seeked", finDeSeek);
 
+    /* Sur mobile, `preload="auto"` est bridé (Data Saver, politiques
+       navigateur) : les seeks tombent alors sur des portions non bufferisées
+       et chaque image attend un aller-retour réseau — d'où un scrub saccadé.
+       On télécharge donc le fichier entier en mémoire (2 Mo) et on scrubbe
+       sur un blob local : plus aucun seek réseau, sur aucun appareil. */
+    let blobUrl: string | undefined;
+    let annule = false;
+    if (hasVideo && videoInitial && videoMp4) {
+      fetch(asset(videoMp4))
+        .then((r) => (r.ok ? r.blob() : Promise.reject(new Error(`${r.status}`))))
+        .then((blob) => {
+          if (annule) return;
+          blobUrl = URL.createObjectURL(blob);
+          videoInitial.src = blobUrl;
+          videoInitial.load();
+          derniereImage = -1;
+          seekEnCours = false;
+        })
+        .catch(() => {
+          /* Échec silencieux : les <source> réseau restent en place. */
+        });
+    }
+
     const tick = () => {
       const maintenant = performance.now();
       const dt = Math.min((maintenant - derniereBoucle) / 1000, 0.1);
@@ -144,10 +167,12 @@ export function ScrollHero({
     };
     raf = requestAnimationFrame(tick);
     return () => {
+      annule = true;
       cancelAnimationFrame(raf);
       videoInitial?.removeEventListener("seeked", finDeSeek);
+      if (blobUrl) URL.revokeObjectURL(blobUrl);
     };
-  }, [hasVideo]);
+  }, [hasVideo, videoMp4]);
 
   const showroom = tone === "showroom";
 
