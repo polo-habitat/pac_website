@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUpRight, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+import { Logo } from "@/components/logo";
 import { NAP, NAV } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -100,11 +101,11 @@ export function SiteHeader() {
                 href="/"
                 aria-label="P.A.C. Pièces Auto Cass, accueil"
                 className={cn(
-                  "font-wide text-xl font-extrabold tracking-tight transition-colors",
+                  "transition-colors",
                   menuBlanc ? "text-white" : "text-foreground",
                 )}
               >
-                P.A.C.
+                <Logo className="h-12 w-auto sm:h-14" />
               </Link>
               <nav aria-label="Navigation principale">
                 <ul className="flex flex-col gap-2">
@@ -183,8 +184,8 @@ export function SiteHeader() {
         />
         <div className="pointer-events-none relative mx-auto flex h-full max-w-[100rem] flex-col px-5 py-5 sm:px-8 sm:py-7">
           <div className="pointer-events-auto flex items-center justify-between">
-            <span className="font-wide text-xl font-extrabold tracking-tight text-primary-foreground">
-              P.A.C.
+            <span aria-hidden="true" className="text-primary-foreground">
+              <Logo className="h-12 w-auto sm:h-14" />
             </span>
             <button
               type="button"

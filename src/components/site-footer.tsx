@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Phone } from "lucide-react";
 
+import { Logo } from "@/components/logo";
 import { Separator } from "@/components/ui/separator";
 import { asset, NAP, NAV, SECTEUR } from "@/lib/site";
 
@@ -97,12 +98,9 @@ export function SiteFooter() {
           <p className="text-xs leading-relaxed text-primary-foreground/60">
             © 1992–2026 P.A.C. Pièces Auto Cass
           </p>
-          <p
-            className="font-wide text-[clamp(3rem,8vw,6.5rem)] font-extrabold leading-[0.8] tracking-tight text-primary-foreground/95"
-            aria-hidden="true"
-          >
-            P.A.C.
-          </p>
+          <span aria-hidden="true" className="text-primary-foreground/95">
+            <Logo className="w-[clamp(14rem,32vw,24rem)]" />
+          </span>
         </div>
       </div>
     </footer>
