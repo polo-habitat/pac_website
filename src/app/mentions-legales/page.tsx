@@ -71,9 +71,10 @@ const SECTIONS: Array<{ titre: string; contenu: React.ReactNode }> = [
     titre: "Données personnelles",
     contenu: (
       <p>
-        Ce site ne collecte aucune donnée personnelle : il n&apos;utilise ni cookie, ni traceur,
-        ni formulaire, ni outil de mesure d&apos;audience. Les échanges avec l&apos;entreprise se
-        font exclusivement par téléphone ou au comptoir.
+        Ce site n&apos;utilise ni cookie, ni traceur, ni outil de mesure d&apos;audience. Les
+        informations saisies dans le formulaire de contact (nom, coordonnées, message) sont
+        acheminées par le service Web3Forms et servent uniquement à répondre à la demande.
+        Les échanges peuvent aussi se faire par téléphone ou au comptoir.
       </p>
     ),
   },

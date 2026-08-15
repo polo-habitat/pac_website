@@ -77,7 +77,7 @@ export function SiteFooter() {
                 intellectuelle) — plus affiché ici (demande cliente). */}
             <span>
               Magasin de pièces détachées automobiles neuves et d&apos;occasion à La Farlède,
-              près de Toulon — conseil au comptoir depuis 1992.
+              près de Toulon. Conseil au comptoir depuis 1992.
             </span>
           </div>
         </div>

@@ -83,18 +83,16 @@ export default function PiecesOccasion() {
         <div className="mt-14 max-w-[68ch] space-y-5 leading-relaxed text-muted-foreground">
           <Reveal>
             <p>
-              Le département des pièces d&apos;occasion est spécifiquement orienté vers les anciens
-              modèles et les véhicules de collection.
+              Le rayon occasion sert tous les véhicules. Sa spécialité : les anciens modèles
+              et les véhicules de collection, pour la restauration comme pour le maintien en
+              circulation.
             </p>
           </Reveal>
           <Reveal>
             <p>
-              Cette sélection vise à répondre aux exigences de restauration et de maintien en
-              circulation des automobiles classiques. Les pièces disponibles au comptoir
-              proviennent d&apos;un inventaire ciblé et sont référencées avant la
-              distribution. Tout comme pour le matériel neuf,
-              l&apos;identification des pièces requiert une analyse directe pour garantir
-              l&apos;intégrité et la compatibilité de chaque élément.
+              Chaque pièce est démontée et référencée avant la vente. Comme pour le neuf,
+              la compatibilité est vérifiée sur présentation de la carte grise ou de la
+              référence.
             </p>
           </Reveal>
         </div>

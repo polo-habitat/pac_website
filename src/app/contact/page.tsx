@@ -38,7 +38,7 @@ export default function Contact() {
         titre="Nous contacter."
         image="/img/hero-contact-1600.webp"
         imageAlt="Mécanicien à l'établi dans l'atelier"
-        chapo="Contactez-nous pour toute demande de renseignements."
+        chapo="Par téléphone aux heures d'ouverture, par message, ou directement au comptoir."
       />
 
       <section aria-label="Coordonnées et horaires" className="mx-auto max-w-6xl px-5 pb-14 sm:pb-20">

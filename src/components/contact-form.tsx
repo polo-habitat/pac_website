@@ -90,7 +90,7 @@ export function ContactForm() {
     setErreur("");
     data.append("access_key", WEB3FORMS_ACCESS_KEY);
     data.append("from_name", "Site P.A.C.");
-    data.append("subject", `Site P.A.C. — ${data.get("sujet") || "message"}`);
+    data.append("subject", `Site P.A.C. : ${data.get("sujet") || "message"}`);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -121,7 +121,7 @@ export function ContactForm() {
         <h3 className="text-xl font-bold tracking-[-0.01em]">Message envoyé.</h3>
         <p className="max-w-[42ch] leading-relaxed text-muted-foreground">
           Merci, votre message est bien parti. Pièces Auto Cass vous répond dès que possible.
-          Pour une demande urgente, le téléphone reste le plus rapide : 04 94 08 15 33.
+          Pour une demande urgente : 04 94 08 15 33.
         </p>
         <button
           type="button"
@@ -199,7 +199,7 @@ export function ContactForm() {
           className={cn(champ, "resize-y")}
         />
         <p className="mt-2 text-xs text-muted-foreground">
-          Indiquez le véhicule (marque, modèle, année) et la référence si vous l&apos;avez : la réponse sera plus rapide.
+          Indiquez le véhicule (marque, modèle, année) et, si vous l&apos;avez, la référence de la pièce.
         </p>
       </div>
 

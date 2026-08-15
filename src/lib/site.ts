@@ -188,7 +188,7 @@ export const FAQ = [
   {
     question: "Trouve-t-on des pièces pour véhicules anciens ou de collection ?",
     reponse:
-      "Fréquemment. Une casse dispose de pièces qui ne sont plus fabriquées, pour les modèles anciens et de collection. Communiquez la référence ou la carte grise : la recherche est étendue aux confrères si nécessaire.",
+      "Fréquemment. Le stock d'occasion, constitué de longue date, comprend des références qui ne sont plus fabriquées, pour les modèles anciens et de collection. Communiquez la référence ou la carte grise : la recherche est étendue aux confrères si nécessaire.",
   },
   {
     question: "Quels sont les horaires et l'accès au comptoir ?",

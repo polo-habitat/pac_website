@@ -104,7 +104,7 @@ export default function Accueil() {
         }
         intro={
           <>
-            Vente au comptoir de pièces neuves et d&apos;occasion pour tous les véhicules — du
+            Vente au comptoir de pièces neuves et d&apos;occasion pour tous les véhicules, du
             modèle courant à la voiture de collection.
           </>
         }
@@ -141,9 +141,9 @@ export default function Accueil() {
             </h2>
             <Reveal delay={0.25}>
               <p className="mt-6 max-w-[50ch] leading-relaxed text-muted-foreground">
-                Fondée en 1992 à La Farlède, P.A.C. accompagne particuliers et professionnels
-                dans la recherche de pièces détachées — avec une connaissance fine du secteur et
-                un réseau de partenaires pour les demandes les plus spécifiques.
+                Fondée en 1992 à La Farlède, P.A.C. fournit des pièces détachées aux
+                particuliers comme aux professionnels. Pour les demandes moins courantes,
+                un réseau de partenaires constitué au fil des années élargit la recherche.
               </p>
             </Reveal>
             <Reveal delay={0.35}>
@@ -151,9 +151,9 @@ export default function Accueil() {
                 Souvent recherchée comme « casse auto », l&apos;enseigne est avant tout un
                 magasin de vente au comptoir de pièces neuves et d&apos;occasion, avec conseil.
                 Installée dans la zone industrielle Toulon Est, à quelques minutes de la sortie
-                La Farlède de l&apos;A57, elle sert Toulon et son agglomération — La
-                Valette-du-Var, La Garde, La Crau, Solliès-Pont, Cuers, Hyères — ainsi que
-                l&apos;ensemble du Var.
+                La Farlède de l&apos;A57, elle sert Toulon et son agglomération (La
+                Valette-du-Var, La Garde, La Crau, Solliès-Pont, Cuers, Hyères) ainsi que
+                le reste du Var.
               </p>
             </Reveal>
           </div>
@@ -178,7 +178,7 @@ export default function Accueil() {
                 <MotsDefilants mots={PIECES_NEUVES_LISTE} />
               </div>
               <p className="mx-auto max-w-[36ch] text-center text-sm leading-relaxed text-muted-foreground">
-                Toutes marques, tous modèles — de l&apos;entretien courant aux grosses réparations.
+                Toutes marques, tous modèles, de l&apos;entretien courant aux grosses réparations.
               </p>
               <div className="mt-6 text-center">
                 <CtaPill href="/pieces-neuves">La gamme neuve</CtaPill>
@@ -278,7 +278,7 @@ export default function Accueil() {
               {
                 eyebrow: "Un réseau de partenaires",
                 texte:
-                  "Au-delà de notre stock, nous nous appuyons sur un réseau de partenaires constitué au fil des années. Il permet d'élargir le champ des recherches lorsque la pièce demandée n'est pas courante ou concerne un modèle plus rare.",
+                  "Au fil des années, P.A.C. a constitué un réseau de partenaires qui complète le stock du magasin. Quand une pièce est peu courante ou concerne un modèle rare, la recherche s'étend à eux.",
               },
               {
                 eyebrow: "Pièces sur commande",

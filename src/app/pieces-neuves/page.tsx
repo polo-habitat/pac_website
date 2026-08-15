@@ -122,23 +122,22 @@ export default function PiecesNeuves() {
         <div className="mt-14 max-w-[68ch] space-y-5 leading-relaxed text-muted-foreground">
           <Reveal>
             <p>
-              La fourniture de pièces détachées neuves constitue l&apos;activité principale de
-              l&apos;établissement. Le stock disponible couvre les besoins d&apos;entretien
-              courant, de mécanique et de carrosserie pour le parc automobile contemporain.
+              La pièce neuve est l&apos;activité principale du magasin. Le stock couvre
+              l&apos;entretien courant, la mécanique et la carrosserie des véhicules
+              d&apos;aujourd&apos;hui.
             </p>
           </Reveal>
           <Reveal>
             <p>
-              La distribution s&apos;effectue exclusivement au comptoir. Ce processus impose une
-              vérification systématique des références et des spécifications techniques avant
-              toute remise de matériel. En cas d&apos;indisponibilité immédiate d&apos;une
-              référence, les relations établies avec un réseau de fournisseurs professionnels
-              permettent un approvisionnement sur commande dans des délais restreints.
+              La vente se fait uniquement au comptoir : la référence et les spécifications
+              techniques sont vérifiées avant chaque remise. Une pièce absente du stock est
+              commandée auprès du réseau de fournisseurs, et le délai est annoncé au moment
+              de la demande.
             </p>
           </Reveal>
           <Reveal>
             <p>
-              Pour certaines familles — carrosserie, optiques, sellerie — une{" "}
+              Pour certaines familles (carrosserie, optiques, sellerie), une{" "}
               <a
                 href="/pieces-occasion"
                 className="font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:decoration-4"
@@ -172,7 +171,7 @@ export default function PiecesNeuves() {
                     {i + 1}
                   </span>
                   <p className="leading-relaxed text-muted-foreground">
-                    <strong className="text-foreground">{titre}</strong> — {texte}
+                    <strong className="text-foreground">{titre}</strong> : {texte}
                   </p>
                 </li>
               </Reveal>
@@ -195,7 +194,7 @@ export default function PiecesNeuves() {
             </h2>
             <p className="mt-4 max-w-[70ch] leading-relaxed text-muted-foreground">
               Le stock P.A.C. couvre l&apos;essentiel des pièces détachées automobiles, neuves
-              ou d&apos;occasion, pour la plupart des marques et modèles — y compris
+              ou d&apos;occasion, pour la plupart des marques et modèles, y compris
               anciens et de collection. Pour une référence absente de la liste, la recherche
               est étendue au réseau de confrères.
             </p>
